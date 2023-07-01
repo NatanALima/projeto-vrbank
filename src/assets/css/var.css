@@ -5,4 +5,8 @@
   --colorPrim: #f5f5f5;
   --colorSec: #010F6D;
   --colorDeg: #021ABA;
+  --colorNav: rgba(58, 75, 186, 0.40);
+  --borderRadiusFix: 8px;
+  --widthNav: 300px;
+  --fontSizeNav: 1.3em;
 }

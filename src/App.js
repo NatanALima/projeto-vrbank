@@ -7,7 +7,7 @@ import Extrato from './components/Extrato/Extrato';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 function App() {
   return (
-    <div className='mainContent'>
+    <div className='backgContent'>
       <Router>
         <Navbar/>
         <main>

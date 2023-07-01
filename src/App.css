@@ -1,0 +1,9 @@
+.backgContent {
+    display: flex;
+}
+
+main {
+    width: calc(100% - var(--widthNav));
+    display: flex;
+    justify-content: center;
+}
