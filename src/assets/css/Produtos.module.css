@@ -1,0 +1,120 @@
+@import url(./var.css);
+
+/* 
+============================================
+Aba de Navegação dos produtos
+============================================
+*/
+nav.navProd {
+    border-radius: 8px;
+    width: fit-content;
+    background-color: white;
+    padding: 10px 5px 20px;
+    
+
+}
+
+nav.navProd ul {
+    display: flex;
+    position: relative;
+
+}
+
+nav.navProd ul li {
+    margin: 0 10px;
+    font-weight: 600;
+
+}
+
+nav.navProd ul li a {
+    color: var(--colorSec);
+    font-size: 18px;
+    position: relative;
+    transition: .3s;
+
+
+}
+
+nav.navProd ul li a:hover {
+    color: var(--colorDeg);
+
+}
+
+nav.navProd ul li a.active {
+    color: var(--colorDeg);
+}
+
+nav.navProd ul::before,
+nav.navProd ul li a.active::before {
+    content: '';
+    position: absolute;
+    transform: scale(1);
+    transform-origin: left;
+    height: 5px;
+    left: 0; right: 0;
+    bottom: -30%;
+    transition: .3s ease;
+
+}
+
+nav.navProd ul::before {
+    background-color: #e9e9e9;
+
+}
+
+nav.navProd ul li a.active::before {
+    background-color: var(--colorSec);
+    
+}
+
+nav.navProd ul li:first-child a.active::before {
+    animation: activeLinkAnimRight .3s normal forwards;
+
+}
+
+nav.navProd ul li:last-child a.active::before {
+    animation: activeLinkAnimLeft .3s normal forwards;
+
+}
+
+/* 
+============================================
+Estilização dos produtos
+============================================
+*/
+
+section.produtos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+section.produtos h1 {
+    font-size: 2em;
+}
+
+section.produtos .saldoContainer {
+    
+}
+
+@keyframes activeLinkAnimRight {
+    0% {
+        transform: translateX(100%);
+
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes activeLinkAnimLeft {
+    0% {
+        transform: translateX(-100%);
+
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

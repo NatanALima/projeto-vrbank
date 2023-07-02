@@ -11,7 +11,8 @@ header {
 
 }
 
-.btnResponsive { 
+/* Não vai ser utilizado... Por enquanto */
+/* .btnResponsive { 
     display: flex;
     position: absolute;
     font-size: 1.4em;
@@ -25,7 +26,7 @@ header {
     cursor: pointer;
     transition: .3s;
 
-}
+} */
 
 .btnResponsive:hover {
     scale: 1.3;
@@ -54,10 +55,9 @@ header {
 
 .navContent1__navList ul li{
     position: relative;
-    list-style: none;
     font-size: var(--fontSizeNav);
     padding: 10px 20px;
-    margin: 30px 0;
+    margin: 15px 0;
     transition: .3s;
     z-index: 1;
     
@@ -87,7 +87,6 @@ header {
 
 
 .navContent1__navList ul li a{
-    text-decoration: none;
     color: white;
     display: flex;
     align-items: center;

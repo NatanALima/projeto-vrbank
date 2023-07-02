@@ -1,9 +1,10 @@
 .backgContent {
     display: flex;
+    background-color: var(--colorPrim);
 }
+
 
 main {
     width: calc(100% - var(--widthNav));
-    display: flex;
-    justify-content: center;
+    padding: 20px;
 }

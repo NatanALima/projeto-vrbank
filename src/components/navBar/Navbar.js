@@ -3,8 +3,6 @@ import vrLogo from "../../assets/media/logoVRBankFigma.svg";
 import styles from "../../assets/css/Navbar.module.css";
 
 //Icones
-//Responsivo
-import {FaArrowRight} from 'react-icons/fa';
 //Produtos
 import {LiaBoxSolid} from 'react-icons/lia';
 //Fundos do banco
@@ -23,9 +21,6 @@ export default function Navbar() {
     return(
         
         <header className={styles.openNav}>
-            <section className={styles.btnResponsive}>
-                <FaArrowRight/>
-            </section>
             
             <section className={styles.navContent1}>               
                 <div className={styles.navContent1__logo}>
