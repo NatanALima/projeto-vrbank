@@ -6,7 +6,10 @@
   --colorSec: #010F6D;
   --colorDeg: #021ABA;
   --colorNav: rgba(58, 75, 186, 0.40);
+  --colorSaldoPos: #007c00;
+  --colorSaldoNeg: #d30f31;
   --borderRadiusFix: 8px;
   --widthNav: 300px;
   --fontSizeNav: 1.3em;
+  --shadowBox: 2px 2px 10px 7px #e5e5e526;
 }

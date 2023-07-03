@@ -1,0 +1,10 @@
+@import url(./var.css);
+
+form {
+    width: fit-content;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: var(--borderRadiusFix);
+    box-shadow: var(--shadowBox);
+    margin: 2em auto;
+}
