@@ -105,7 +105,7 @@ section.produtos .infoExtra {
     font-size: 16px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: center;
     box-shadow: var(--shadowBox);
     user-select: none;
     transition: .3s;
@@ -156,7 +156,7 @@ section.produtos .infoExtra {
 
 .infoExtra__content .infoExtra__lastProd p {
     white-space: nowrap;
-    animation: autoScrollText 15s alternate linear infinite;
+    animation: autoScrollText 13s alternate linear infinite;
 }
 
 
