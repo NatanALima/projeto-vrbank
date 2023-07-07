@@ -2,20 +2,27 @@
 
 form {
     width: fit-content;
+    max-width: /*50em*/ 70em;
     background-color: white;
+    margin: 2em auto;
     padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: var(--borderRadiusFix);
     box-shadow: var(--shadowBox);
-    margin: 2em auto;
+    
 
 }
 
 form h3 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 form .inputContainer {
+    display: flex;
+    justify-items: center;
     position: relative;
 }
 
@@ -39,7 +46,7 @@ form .inputContainer select {
     font-family: var(--fontPrim);
     font-size: 16px;
     font-weight: 400;
-    width: 100%;
+    width: 300px;
     
 }
 
@@ -57,9 +64,56 @@ form .inputContainer select:valid ~ label{
 
 }
 
-form .boxProd {
+/* Removendo as setas do input number */
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
+form .boxProd__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+form .boxProd__container .boxProd__content {
     padding: 15px 10px;
     box-shadow: var(--shadowBox);
     border-radius: var(--borderRadiusFix);
+    margin: 10px;
 
+}
+
+form .btnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+form .btnContainer button{
+    font-size: 1.5em;
+    border: none;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background-color: var(--colorSec);
+    color: rgb(245, 245, 245);
+    box-shadow: var(--shadowBox);
+    cursor: pointer;
+    transition: .3s ease;
+
+}
+
+form .btnContainer button:hover {
+    outline: 1px solid var(--colorSec);
+    background-color: rgb(245, 245, 245);
+    color: var(--colorSec);
+    transform: translateY(-5%);
 }

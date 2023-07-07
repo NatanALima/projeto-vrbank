@@ -1,6 +1,12 @@
+import { useState } from "react";
 import styles from '../../../assets/css/FormCadastro.module.css';
 import SelectSala from './SelectSala';
 import ProductBox from './ProductBox';
+
+//Icones de formulário
+import {AiOutlinePlus} from 'react-icons/ai';
+import {AiOutlineMinus} from 'react-icons/ai';
+import {BsFillSendCheckFill} from 'react-icons/bs';
 
 export default function FormCadastro() {
 
@@ -32,6 +38,23 @@ export default function FormCadastro() {
                     curso: "RH",
                     ano: 1}
                 ];
+
+    const [numBoxProd, setnumBoxProd] = useState([0]);
+
+    const addBoxList = () => {
+        if(numBoxProd.length < 6) {
+            //Pega o valor "temporário" atual do NumBox antes da renderização e incrementa um novo elemento dentro do array; 
+            setnumBoxProd(prevNumBox => [...prevNumBox, numBoxProd[numBoxProd.length -1] + 1]);
+        } 
+    
+    }
+
+    const delBoxList = () => {
+        if(numBoxProd.length > 1) {
+            setnumBoxProd(prevNumBox => prevNumBox.slice(0, -1));
+            
+        }
+    }
     return(
         <form>
             <h3>Informações do Aluno</h3>
@@ -42,17 +65,21 @@ export default function FormCadastro() {
             
             <div className={styles.inputContainer}>
                 <SelectSala salas={salas}/>
-                <label>Sala</label>
             </div>
 
-            <div className={styles.boxProd}>
-                <h3>Informações do(s) Produto(s)</h3>
-                <ProductBox styles={styles}/>
+            <h3>Informações do(s) Produto(s)</h3>
+            <div className={styles.boxProd__container}>
+                {numBoxProd.map(numBox => <ProductBox key={numBox} styles={styles}/>)}
+                
             </div>
             
-            <button>Remover</button>
-            <button>Cadastrar</button>
-            <button>Adicionar</button>
+            <div className={styles.btnContainer}>
+                {numBoxProd.length > 1 && <button type='button' onClick={delBoxList}><AiOutlineMinus/></button>} 
+                <button><BsFillSendCheckFill/></button>
+                {numBoxProd.length < 6 && <button type='button' onClick={addBoxList}><AiOutlinePlus/></button>}
+                
+            </div>
+            
         </form>
     )
     
