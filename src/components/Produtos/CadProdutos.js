@@ -1,7 +1,8 @@
 import InfoExtra from "./InfosExtra/InfoExtra";
-import FormCadastro from "./FormCadastro";
+import FormCadastro from "./FormCadastro/FormCadastro";
 
 //Importação dos icones
+//Icones do infoExtra;
 import {LiaWalletSolid} from 'react-icons/lia';
 import {LiaCoinsSolid} from 'react-icons/lia';
 import {LiaShoppingBagSolid} from 'react-icons/lia';
