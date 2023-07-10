@@ -1,6 +1,8 @@
 import styles from '../../assets/css/TableInfo.module.css';
+import BtnListEdit from './BtnListEdit';
 
-export default function TableInfo() {
+export default function TableInfo({addBtn = null}) {
+
     return (
         <div className={styles.tableContainer}>
             <table>
@@ -23,7 +25,7 @@ export default function TableInfo() {
                         <td>Info4</td>
                         <td className={styles.tableContent__btns}>
                             {/* Adicionar uma verificação com o useState para saber quando deverá aparecer o botão de editar e quando deverá aparecer a coleção dos botões de confirmar e cancelar ação */}
-                            <button type="button">Editar</button><button type="button">Editar</button>
+                            <BtnListEdit styles={styles}/>
                         </td>
                     </tr>
                     <tr>
@@ -33,10 +35,16 @@ export default function TableInfo() {
                         <td>Info4</td>
                         <td className={styles.tableContent__btns}>
                             {/* Adicionar uma verificação com o useState para saber quando deverá aparecer o botão de editar e quando deverá aparecer a coleção dos botões de confirmar e cancelar ação */}
-                            <button type="button">Editar</button><button type="button">Editar</button>
+                            <BtnListEdit styles={styles}/> 
                         </td>
                     </tr>
                 </tbody>
+                {addBtn !== null ? (
+                    <tfoot>
+                        <button type='button' className={styles.addBtn}>Adicionar</button>
+                    </tfoot>
+                ) : null}
+                
             
             </table>
         </div>

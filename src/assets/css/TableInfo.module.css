@@ -75,3 +75,35 @@ table th, table td {
 
 }
 
+.tableContent__btns button {
+    border: none;
+    padding: 5px 10px;
+    font-family: var(--fontPrim);
+    margin: 0 5px;
+    cursor: pointer;
+    color: white;
+    border-radius: var(--borderRadiusFix);
+    box-shadow: var(--shadowBox);
+    transition: .3s ease;
+
+}
+
+.tableContent__btns button:hover {
+    transform: scale(1.1);
+}
+
+.tableContent__btns .editBtn {
+    background-color: var(--colorSec);
+
+}
+
+.tableContent__btns .confirmBtn {
+    background-color: #076E1F;
+}
+
+.tableContent__btns .cancelBtn {
+    background-color: #6E0C15;
+
+}
+
+
