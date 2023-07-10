@@ -1,7 +1,7 @@
 import InfoExtra from "./InfosExtra/InfoExtra";
+import TableInfo from "../TableInfo/TableInfo";
 
 export default function EditProdutos({styles, infoBoxExtra}) {
-    console.log({...infoBoxExtra});
     return (
         <>
             <h1>Edição de Produtos</h1>
@@ -13,6 +13,8 @@ export default function EditProdutos({styles, infoBoxExtra}) {
                 })}
 
             </div>
+            <TableInfo/>
+            
         </>
     )
 }

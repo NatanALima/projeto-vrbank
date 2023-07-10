@@ -85,10 +85,12 @@ Estilização dos produtos
 */
 
 section.produtos h1 {
-    font-size: 2em;
+    font-size: var(--fontSizeContent);
     text-align: center;
-    margin: 1em 0;
+    margin: var(--fontMargin);
 }
+
+
 
 section.produtos .infoExtra {
     display: flex;

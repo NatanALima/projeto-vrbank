@@ -2,6 +2,8 @@
 
 :root {
   --fontPrim: 'Quicksand', sans-serif;
+  --fontSizeContent: 2em;
+  --fontMargin: 1em 0;
   --colorPrim: #f5f5f5;
   --colorSec: #010F6D;
   --colorDeg: #021ABA;
@@ -14,4 +16,12 @@
   --widthNav: 300px;
   --fontSizeNav: 1.3em;
   --shadowBox: 2px 2px 10px 7px #e5e5e526;
+
+}
+
+.centerAlign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
