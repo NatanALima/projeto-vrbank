@@ -61,10 +61,6 @@ table thead tr.tableTitle th {
     padding: 0.5em 15px;
 }
 
-table thead tr:not(.tableTitle) th {
-    text-align: left;
-}
-
 table tbody tr:nth-child(even){
     background-color: rgb(236, 236, 236);
 
@@ -75,21 +71,44 @@ table th, table td {
 
 }
 
-.tableContent__btns button {
+table tbody td input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--colorPrim);
+    font-family: var(--fontPrim);
+    font-size: 16px;
+    
+    
+}
+.tableContainer button {
     border: none;
     padding: 5px 10px;
-    font-family: var(--fontPrim);
-    margin: 0 5px;
-    cursor: pointer;
     color: white;
-    border-radius: var(--borderRadiusFix);
+    font-family: var(--fontPrim);
+    font-weight: 500;
+    border-radius: 4px;
     box-shadow: var(--shadowBox);
     transition: .3s ease;
-
+    cursor: pointer;
 }
 
-.tableContent__btns button:hover {
-    transform: scale(1.1);
+.tableContent__btns {
+    display: flex;
+}
+
+.tableContent__btns button {
+    margin: 0 5px;
+}
+
+.tableContainer button:hover {
+    opacity: 0.8;
+}
+
+.tableContainer .addBtn {
+    background-color: #01083B;
+    font-size: 18px;
+    margin-top: 1em;
 }
 
 .tableContent__btns .editBtn {
@@ -105,5 +124,6 @@ table th, table td {
     background-color: #6E0C15;
 
 }
+
 
 
