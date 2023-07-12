@@ -1,0 +1,5 @@
+section.salas h1{
+    font-size: var(--fontSizeContent);
+    margin: var(--fontMargin);
+    text-align: center;
+}
