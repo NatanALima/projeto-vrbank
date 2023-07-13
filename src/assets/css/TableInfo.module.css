@@ -53,12 +53,19 @@ table thead tr:not(.tableTitle) {
     color: var(--colorPrim);
     background-color: var(--colorSec);
     border-radius: 20px;
+    text-align: left;
 }
 
 table thead tr.tableTitle th {
     text-align: left;
     font-size: 18px;
     padding: 0.5em 15px;
+}
+
+
+table thead tr th.tableContent__actionTitle {
+    width: 15%;
+    text-align: center;
 }
 
 table tbody tr:nth-child(even){
@@ -99,6 +106,7 @@ table tbody td input {
 
 .tableContent__btns {
     display: flex;
+    justify-content: center;
 }
 
 .tableContent__btns button {

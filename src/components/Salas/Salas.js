@@ -3,6 +3,7 @@ import TableInfo from '../TableInfo/TableInfo';
 
 export default function Salas() {
 
+    // Todos valores passados para a tabela são temporários e foram unicamente utilizados a fim de verificar a estilização, haja vista que esses valores posteriormente serão passados pelo BackEnd
     const salas = [{Nome: "CAROLINA DE JESUS",
                     Curso: "ADM",
                     Ano: 3},
@@ -35,7 +36,7 @@ export default function Salas() {
     return(
         <section className={styles.salas}>
             <h1>Salas</h1>
-            <TableInfo addBtn={true} title={"Salas"} objectData={salas}/>
+            <TableInfo addBtn={true} actionBtn={true} title={"Salas"} objectData={salas}/>
         </section>
     )
 }
