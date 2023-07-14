@@ -17,6 +17,12 @@
   --fontSizeNav: 1.3em;
   --shadowBox: 2px 2px 10px 7px #e5e5e526;
 
+  /* Variáveis para o responsivo */
+  --fontSizeContentResp: 1.65em;
+  --fontSizeNavResp: 18px;
+  --widthNavResp: 250px;
+
+
 }
 
 .centerAlign {

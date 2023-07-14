@@ -11,9 +11,9 @@ import {LiaCoinsSolid} from 'react-icons/lia';
 import {LiaShoppingBagSolid} from 'react-icons/lia';
 
 export default function Produtos() {
-    const infoBoxExtra = [{id: 1, iconBox: <LiaWalletSolid className={styles.infoExtra__icon}/>, infoBox: "R$2500", titleBox: "Saldo Disponível", classInfo: styles.infoExtra__saldoPos},
+    const infoBoxExtra = [{id: 1, iconBox: <LiaWalletSolid className={styles.infoExtra__icon}/>, infoBox: "VR$2500", titleBox: "Saldo Disponível", classInfo: styles.infoExtra__saldoPos},
                           {id: 2, iconBox: <LiaShoppingBagSolid className={styles.infoExtra__icon}/>, infoBox: "Maçã", titleBox: "Últimos Produtos adquiridos", classInfo: styles.infoExtra__lastProd},
-                          {id: 3, iconBox: <LiaCoinsSolid className={styles.infoExtra__icon}/>, infoBox: "R$1500", titleBox: "Valor de Despesa", classInfo: styles.infoExtra__saldoNeg}];
+                          {id: 3, iconBox: <LiaCoinsSolid className={styles.infoExtra__icon}/>, infoBox: "VR$1500", titleBox: "Valor de Despesa", classInfo: styles.infoExtra__saldoNeg}];
     return(
         <>
             <NavProd styles={styles}/>
