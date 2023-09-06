@@ -92,76 +92,6 @@ section.produtos h1 {
 
 
 
-section.produtos .infoExtra {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.infoExtra .infoExtra__content {
-    width: 250px;
-    margin: 0 3em;
-    padding: 15px 10px;
-    background-color: white;
-    border-radius: var(--borderRadiusFix);
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    box-shadow: var(--shadowBox);
-    user-select: none;
-    transition: .3s;
-    overflow: hidden;
-    
-}
-
-.infoExtra .infoExtra__content:hover {
-    transform: translateY(-10%);
-
-}
-
-.infoExtra .infoExtra__content .infoExtra__icon {
-    margin: 0 auto;
-    font-size: 3em;
-    color: var(--colorSec);
-
-
-}
-
-.infoExtra__content .infoExtra__saldoPos,
-.infoExtra__content .infoExtra__saldoNeg {
-    font-size: 1.65em;
-    font-weight: 600;
-}
-
-.infoExtra__content .infoExtra__saldoPos {
-    color: var(--colorSaldoPos);
-}
-
-.infoExtra__content .infoExtra__saldoNeg {
-    color: var(--colorSaldoNeg);
-}
-
-.infoExtra__content .infoExtra__saldoPos p::before {
-    content: "+";
-}
-
-.infoExtra__content .infoExtra__saldoNeg p::before {
-    content: "-";
-}
-
-.infoExtra__content .infoExtra__lastProd {
-    align-items: normal;
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.infoExtra__content .infoExtra__lastProd p {
-    white-space: nowrap;
-    animation: autoScrollText 13s alternate linear infinite;
-}
-
-
 @keyframes activeLinkAnimRight {
     0% {
         transform: translateX(100%);
@@ -180,23 +110,5 @@ section.produtos .infoExtra {
 
     100% {
         transform: translateX(0);
-    }
-}
-
-@keyframes autoScrollText {
-    from {
-        transform: translateX(-100%);
-
-    }
-
-    to {
-        transform: translateX(100%);
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .infoExtra .infoExtra__content {
-        margin: 1em;
-        width: 100%;
     }
 }

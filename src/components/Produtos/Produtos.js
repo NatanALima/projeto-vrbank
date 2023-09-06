@@ -6,14 +6,14 @@ import EditProdutos from './EditProdutos';
 
 //Importação dos icones
 //Icones do infoExtra;
-import {LiaWalletSolid} from 'react-icons/lia';
-import {LiaCoinsSolid} from 'react-icons/lia';
-import {LiaShoppingBagSolid} from 'react-icons/lia';
+import {GiReceiveMoney, GiPayMoney} from 'react-icons/gi';
+import {BsHandbag, BsBoxSeam} from 'react-icons/bs'
 
 export default function Produtos() {
-    const infoBoxExtra = [{id: 1, iconBox: <LiaWalletSolid className={styles.infoExtra__icon}/>, infoBox: "VR$2500", titleBox: "Saldo Disponível", classInfo: styles.infoExtra__saldoPos},
-                          {id: 2, iconBox: <LiaShoppingBagSolid className={styles.infoExtra__icon}/>, infoBox: "Maçã", titleBox: "Últimos Produtos adquiridos", classInfo: styles.infoExtra__lastProd},
-                          {id: 3, iconBox: <LiaCoinsSolid className={styles.infoExtra__icon}/>, infoBox: "VR$1500", titleBox: "Valor de Despesa", classInfo: styles.infoExtra__saldoNeg}];
+    const infoBoxExtra = [{id: 1, IconBox: GiReceiveMoney, infoBox: "VR$2500", titleBox: "Saldo Disponível", classInfo: "infoExtra__saldoPos"},
+                          {id: 2, IconBox: BsHandbag, infoBox: "Maçã", titleBox: "Últimos Produtos adquiridos", classInfo: "infoExtra__lastProd"},
+                          {id: 3, IconBox: GiPayMoney, infoBox: "VR$1500", titleBox: "Valor de Despesa", classInfo: "infoExtra__saldoNeg"},
+                          {id: 4, IconBox: BsBoxSeam, infoBox: "40", titleBox: "Total de Produtos Recebidos", classInfo: "infoExtra__saldoNeg"}];
     return(
         <>
             <NavProd styles={styles}/>
