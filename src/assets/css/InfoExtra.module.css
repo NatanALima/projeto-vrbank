@@ -8,13 +8,12 @@
     width: 22em;
     height: 10em;
     margin: 0 1em;
-    padding: 15px 10px;
+    padding: 15px;
     background-color: white;
     border-radius: var(--borderRadiusFix);
     font-size: 16px;
     display: flex;
     flex-direction: column;
-    text-align: center;
     box-shadow: var(--shadowBox);
     user-select: none;
     transition: .3s;
@@ -27,43 +26,64 @@
 
 }
 
-.infoExtra .infoExtra__content .infoExtra__icon {
-    margin: 0 auto;
-    font-size: 3em;
+/* 
+==============================================================
+Inicío Título Content 
+==============================================================
+*/
+
+.infoExtra .infoExtra__content .content__title {
+    display: flex;
+    align-items: center;
+
+}
+
+.infoExtra .infoExtra__content .content__title .title__icon {
+    font-size: 2.65em;
     color: var(--colorSec);
-
-
+    margin-right: 10px;
+    padding: 5px;
+    background-color: var(--colorIconBack);
+    border-radius: var(--borderRadiusFix);
 }
 
-.infoExtra__content .infoExtra__saldoPos,
-.infoExtra__content .infoExtra__saldoNeg {
-    font-size: 1.65em;
+.infoExtra .infoExtra__content .content__title .title__text {
     font-weight: 600;
 }
 
-.infoExtra__content .infoExtra__saldoPos {
-    color: var(--colorSaldoPos);
+
+/*
+==============================================================
+Fim Título Content
+==============================================================
+*/
+
+.content__infoStatic {
+    font-size: 2.1em;
+    font-weight: 500;
+
 }
 
-.infoExtra__content .infoExtra__saldoNeg {
-    color: var(--colorSaldoNeg);
+.content__infoStatic,
+.content__infoDinamic {
+    margin-top: 20px;
 }
 
-.infoExtra__content .infoExtra__saldoPos p::before {
-    content: "+";
+.infoExtra__content .content__saldoPos p::before {
+    content: "+VR$";
 }
 
-.infoExtra__content .infoExtra__saldoNeg p::before {
-    content: "-";
+.infoExtra__content .content__saldoNeg p::before {
+    content: "-VR$";
 }
 
-.infoExtra__content .infoExtra__lastProd {
+.infoExtra__content .content__infoDinamic {
     align-items: normal;
-    font-size: 20px;
+    font-size: 1.5em;
     font-weight: 600;
 }
 
-.infoExtra__content .infoExtra__lastProd p {
+.infoExtra__content .content__infoDinamic p {
     white-space: nowrap;
     animation: autoScrollText 13s alternate linear infinite;
 

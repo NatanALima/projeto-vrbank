@@ -6,14 +6,15 @@ import EditProdutos from './EditProdutos';
 
 //Importação dos icones
 //Icones do infoExtra;
-import {GiReceiveMoney, GiPayMoney} from 'react-icons/gi';
+import {TbPigMoney} from 'react-icons/tb';
+import {PiHandCoinsDuotone} from 'react-icons/pi';
 import {BsHandbag, BsBoxSeam} from 'react-icons/bs'
 
 export default function Produtos() {
-    const infoBoxExtra = [{id: 1, IconBox: GiReceiveMoney, infoBox: "VR$2500", titleBox: "Saldo Disponível", classInfo: "infoExtra__saldoPos"},
-                          {id: 2, IconBox: BsHandbag, infoBox: "Maçã", titleBox: "Últimos Produtos adquiridos", classInfo: "infoExtra__lastProd"},
-                          {id: 3, IconBox: GiPayMoney, infoBox: "VR$1500", titleBox: "Valor de Despesa", classInfo: "infoExtra__saldoNeg"},
-                          {id: 4, IconBox: BsBoxSeam, infoBox: "40", titleBox: "Total de Produtos Recebidos", classInfo: "infoExtra__saldoNeg"}];
+    const infoBoxExtra = [{id: 1, IconBox: TbPigMoney, infoBox: "2500", titleBox: "Saldo Disponível", classInfo: "content__infoStatic", isMoney: true, moneyStatus: "positive"},
+                          {id: 2, IconBox: BsHandbag, infoBox: "Maçã", titleBox: "Últimos Produtos adquiridos", classInfo: "content__infoDinamic", isMoney: false},
+                          {id: 3, IconBox: PiHandCoinsDuotone, infoBox: "1500", titleBox: "Valor de Despesa", classInfo: "content__infoStatic", isMoney: true, moneyStatus: "negative"},
+                          {id: 4, IconBox: BsBoxSeam, infoBox: "40", titleBox: "Total de Produtos Recebidos", classInfo: "content__infoStatic", isMoney: false}];
     return(
         <>
             <NavProd styles={styles}/>
