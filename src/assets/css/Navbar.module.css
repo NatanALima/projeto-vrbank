@@ -47,7 +47,7 @@ header {
 }
 
 .navContent1__logo img:hover {
-    filter: drop-shadow(5px 2px 0px black);
+    filter: drop-shadow(5px 2px 2px #000a4eb2);
     transform: translateY(-10px) scale(1.1);
 
 }
