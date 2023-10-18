@@ -14,12 +14,12 @@ export default function BtnListEdit({styles}) {
 
     return(
         <>
-            {!isEdit && <button type="button" className={`${styles.editBtn} fadeDownInBtn`} onClick={handleEdit}><FaPencilAlt/></button>}
+            {!isEdit && <button type="button" className={`${styles.editBtn} fadeRightInBtn`} onClick={handleEdit}><FaPencilAlt/></button>}
             
             {isEdit ? (
                 <>
-                    <button type="button" className={`${styles.confirmBtn} fadeUpInBtn`}><FaCheck/></button>
-                    <button type="button" className={`${styles.cancelBtn} fadeUpInBtn`} onClick={handleEdit}><FaX/></button>
+                    <button type="button" className={`${styles.confirmBtn} fadeLeftInBtn`}><FaCheck/></button>
+                    <button type="button" className={`${styles.cancelBtn} fadeLeftInBtn`} onClick={handleEdit}><FaX/></button>
                 </>
             ) : null}
             

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../../assets/css/TableInfo.module.css';
 import BtnListEdit from './BtnListEdit';
+import '../../assets/css/animation.css';
 
 export default function TableInfo({addBtn, actionBtn, title, objectData}) {
     const [isActiveAdd, setIsActiveAdd] = useState(0);
@@ -22,7 +23,7 @@ export default function TableInfo({addBtn, actionBtn, title, objectData}) {
     const keyObj = getKeysObject(objectData);
 
     return (
-        <div className={styles.tableContainer}>
+        <div className={`${styles.tableContainer} fadeIn`}>
             {objectData ?
             <table>
                 <thead>

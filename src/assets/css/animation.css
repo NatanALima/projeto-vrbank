@@ -1,14 +1,35 @@
-.fadeUpInBtn {
-    animation: fadeUpInBtnAnim .3s normal ease;
+.fadeIn {
+    animation: fadeIn .3s normal ease;
+    
+}
+
+.fadeOut {
+    animation: fadeOut .3s normal ease;
+}
+
+.fadeLeftInBtn {
+    animation: fadeLeftInBtnAnim .3s normal ease;
 
 }
 
-.fadeDownInBtn {
-    animation: fadeDownInBtnAnim .3s normal ease;
+.fadeRightInBtn {
+    animation: fadeRightInBtnAnim .3s normal ease;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(0, 25%);
 
-@keyframes fadeUpInBtnAnim {
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes fadeLeftInBtnAnim {
     from {
         opacity: 0;
         transform: translate(100%, 0);
@@ -20,7 +41,7 @@
     }
 }
 
-@keyframes fadeDownInBtnAnim {
+@keyframes fadeRightInBtnAnim {
     from {
         opacity: 0;
         transform: translate(-100%, 0);
