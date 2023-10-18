@@ -5,8 +5,9 @@
 }
 
 .infoExtra .infoExtra__content {
+    /* border: 1px solid #f3f3f399 */
     width: 22em;
-    height: 10em;
+    height: auto;
     margin: 0 1em;
     padding: 15px;
     background-color: white;
