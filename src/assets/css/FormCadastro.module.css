@@ -4,7 +4,7 @@ form {
     width: fit-content;
     max-width: /*50em*/ 70em;
     background-color: white;
-    margin: 2em auto;
+    margin: var(--marginContent) auto;
     padding: 10px 15px;
     display: flex;
     flex-direction: column;
@@ -43,9 +43,8 @@ form .inputContainer select {
     background-color: rgb(245, 245, 245);
     padding: 10px 10px;
     margin:15px 0;
-    font-family: var(--fontPrim);
+    font-family: var(--fontForm);
     font-size: 16px;
-    font-weight: 400;
     width: 300px;
     
 }
@@ -86,6 +85,7 @@ form .boxProd__container .boxProd__content {
     padding: 15px 10px;
     box-shadow: var(--shadowBox);
     border-radius: var(--borderRadiusFix);
+    border: var(--borderContrast);
     margin: 10px;
 
 }

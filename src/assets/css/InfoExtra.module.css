@@ -1,14 +1,14 @@
 .infoExtra {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .infoExtra .infoExtra__content {
     /* border: 1px solid #f3f3f399 */
-    width: 22em;
+    width: 100%;
+    max-width: 25em; 
     height: auto;
-    margin: 0 1em;
+    margin: var(--marginContent);
     padding: 15px;
     background-color: white;
     border-radius: var(--borderRadiusFix);
