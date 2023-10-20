@@ -2,10 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
 
 :root {
-  --fontPrim: 'Quicksand', sans-serif;
-  --fontForm: 'DM Sans', sans-serif;
-  --fontSizeContent: 2em;
-  --fontMargin: 1em 0;
+  /* Variáveis gerais */
+  --borderRadiusFix: 8px;
+  --borderContrast: 1px solid #f3f3f399;
   --colorPrim: #f5f5f5;
   --colorSec: #010F6D;
   --colorDeg: #021ABA;
@@ -15,12 +14,16 @@
   --colorSaldoNeg: #d30f31;
   --colorGradient: linear-gradient(0deg, rgba(2, 26, 186, 0.20) 0%, rgba(2, 26, 186, 0.20) 100%), rgb(1, 15, 109);
   --colorIconBack: rgb(58 75 186 / 20%);
-  --borderRadiusFix: 8px;
-  --borderContrast: 1px solid #f3f3f399;
-  --widthNav: 300px;
+  --fontPrim: 'Quicksand', sans-serif;
+  --fontForm: 'DM Sans', sans-serif;
+  --fontSizeContent: 2em;
+  --fontMargin: 1em 0;
+  --marginContent: 0.65em;
+  
+  /* Variáveis para a NavBar*/
   --fontSizeNav: 1.25em;
   --shadowBox: 2px 2px 10px 7px #e5e5e526;
-  --marginContent: 0.65em;
+  --widthNav: 300px;
 
   /* Variáveis para o responsivo */
   --fontSizeContentResp: 1.65em;
