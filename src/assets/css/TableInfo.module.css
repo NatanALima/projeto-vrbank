@@ -24,7 +24,8 @@ table {
 
 table tbody td {
     border: none;
-    
+    table-layout: auto;
+    font-family: var(--fontSec);
 }
 
 table thead tr:not(.tableTitle) {
@@ -60,7 +61,7 @@ table tbody td input {
     border: none;
     outline: none;
     background-color: var(--colorPrim);
-    font-family: var(--fontPrim);
+    font-family: var(--fontSec);
     font-size: 16px;
     
     

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from '../../../assets/css/FormCadastro.module.css';
+import '../../../assets/css/animation.css';
 import SelectSala from './SelectSala';
 import ProductBox from './ProductBox';
 
@@ -58,13 +59,14 @@ export default function FormCadastro() {
     return(
         <form>
             <h3>Informações do Aluno</h3>
-            <div className={styles.inputContainer}>    
-                <input type="text" className="inputNome" required/>
-                <label>Nome do Aluno</label>      
-            </div>
-            
-            <div className={styles.inputContainer}>
-                <SelectSala salas={salas}/>
+            <div className={styles.inputCollection}>
+                <div className={styles.inputContainer}>
+                    <input type="text" className="inputNome" required/>
+                    <label>Nome do Aluno</label>
+                </div>
+                <div className={styles.inputContainer}>
+                    <SelectSala salas={salas}/>
+                </div>
             </div>
 
             <h3 className={styles.titleBoxProd}>Informações do(s) Produto(s)</h3>
@@ -74,9 +76,9 @@ export default function FormCadastro() {
             </div>
             
             <div className={styles.btnContainer}>
-                {numBoxProd.length > 1 && <button type='button' onClick={delBoxList}><AiOutlineMinus/></button>} 
+                {numBoxProd.length > 1 && <button type='button' onClick={delBoxList} className="fadeIn"><AiOutlineMinus/></button>} 
                 <button><BsFillSendCheckFill/></button>
-                {numBoxProd.length < 6 && <button type='button' onClick={addBoxList}><AiOutlinePlus/></button>}
+                {numBoxProd.length < 6 && <button type='button' onClick={addBoxList} className="fadeIn"><AiOutlinePlus/></button>}
                 
             </div>
             

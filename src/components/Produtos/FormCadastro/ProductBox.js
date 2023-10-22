@@ -1,6 +1,8 @@
+import '../../../assets/css/animation.css';
+
 export default function ProductBox({styles}) {
     return(
-        <div className={styles.boxProd__content}>
+        <div className={`${styles.boxProd__content} fadeLeft`}>
             <div className={styles.inputContainer}>
                 <input type="text" className="prodName" required/>
                 <label>Nome do Produto</label>

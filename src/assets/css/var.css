@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* Variáveis gerais */
@@ -15,11 +15,12 @@
   --colorGradient: linear-gradient(0deg, rgba(2, 26, 186, 0.20) 0%, rgba(2, 26, 186, 0.20) 100%), rgb(1, 15, 109);
   --colorIconBack: rgb(58 75 186 / 20%);
   --fontPrim: 'Quicksand', sans-serif;
-  --fontForm: 'DM Sans', sans-serif;
+  --fontSec: 'Heebo', sans-serif;
   --fontSizeContent: 2em;
   --fontSizeTitleContent: 23px;
   --fontMargin: 1em 0;
   --marginContent: 0.65em;
+  --marginTitleContent: 0 0 1em 0;
   
   /* Variáveis para a NavBar*/
   --fontSizeNav: 1.25em;

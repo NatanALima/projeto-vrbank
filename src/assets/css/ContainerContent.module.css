@@ -1,6 +1,5 @@
 .containerContent {
-    width: 100%;
-    max-width: 70em;
+    width: 70%;
     background-color: white;
     margin: var(--marginContent);
     padding: 10px 15px;
@@ -12,12 +11,5 @@
 .containerContent h2 {
     text-align: left;
     font-size: var(--fontSizeTitleContent);
+    margin: var(--marginTitleContent);
 }
-
-/* .containerContent hr {
-    margin: 10px 0;
-    background: linear-gradient(to right, #ffffff, #dbdbdb, #ffffff);
-    border: none;
-    height: 1px;
-    width: 40%;
-} */
