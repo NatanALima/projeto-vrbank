@@ -1,0 +1,23 @@
+.containerContent {
+    width: 100%;
+    max-width: 70em;
+    background-color: white;
+    margin: var(--marginContent);
+    padding: 10px 15px;
+    border-radius: var(--borderRadiusFix);
+    box-shadow: var(--shadowBox);
+
+}
+
+.containerContent h2 {
+    text-align: left;
+    font-size: var(--fontSizeTitleContent);
+}
+
+/* .containerContent hr {
+    margin: 10px 0;
+    background: linear-gradient(to right, #ffffff, #dbdbdb, #ffffff);
+    border: none;
+    height: 1px;
+    width: 40%;
+} */

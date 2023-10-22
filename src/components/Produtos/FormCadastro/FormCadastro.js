@@ -60,14 +60,14 @@ export default function FormCadastro() {
             <h3>Informações do Aluno</h3>
             <div className={styles.inputContainer}>    
                 <input type="text" className="inputNome" required/>
-                <label>Nome</label>      
+                <label>Nome do Aluno</label>      
             </div>
             
             <div className={styles.inputContainer}>
                 <SelectSala salas={salas}/>
             </div>
 
-            <h3>Informações do(s) Produto(s)</h3>
+            <h3 className={styles.titleBoxProd}>Informações do(s) Produto(s)</h3>
             <div className={styles.boxProd__container}>
                 {numBoxProd.map(numBox => <ProductBox key={numBox} styles={styles}/>)}
                 

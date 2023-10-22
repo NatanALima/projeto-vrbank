@@ -1,5 +1,6 @@
 import InfoExtra from "../InfosExtra/InfoExtra";
 import FormCadastro from "./FormCadastro/FormCadastro";
+import ContainerContent from "../layout/ContainerContent";
 
 export default function CadProdutos({styles, infoBoxExtra}) {
 
@@ -7,7 +8,8 @@ export default function CadProdutos({styles, infoBoxExtra}) {
         <>
             <h1>Cadastro de Produtos</h1>
             <InfoExtra infoBoxExtra={infoBoxExtra}/>
-            <FormCadastro/>
+            <ContainerContent title={"Formulário de Cadastro de Produtos"} content={<FormCadastro/>}/>
+            
         </>
 
     )

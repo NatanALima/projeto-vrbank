@@ -1,22 +1,21 @@
 @import url(./var.css);
 
-form {
-    width: fit-content;
-    max-width: /*50em*/ 70em;
-    background-color: white;
-    margin: var(--marginContent) auto;
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: var(--borderRadiusFix);
-    box-shadow: var(--shadowBox);
-    
-
-}
 
 form h3 {
     margin-bottom: 10px;
+    font-family: var(--fontForm);
+    font-weight: 500;
+    color: var(--colorSec);
+}
+
+
+/* 
+Last-child não funciona. O que poderia ser???
+TENTAR ENCONTRAR O MOTIVO 
+*/
+form h3.titleBoxProd {
+    margin: 0;
+    margin-top: 20px;
     text-align: center;
 }
 
@@ -45,11 +44,11 @@ form .inputContainer select {
     margin:15px 0;
     font-family: var(--fontForm);
     font-size: 16px;
-    width: 300px;
+    width: 100%;
+    border-radius: 3px;
     
 }
 
-/* Resolver o problema do select:valid */
 form .inputContainer input:active ~ label,
 form .inputContainer input:focus ~ label,
 form .inputContainer input:valid ~ label,
@@ -86,7 +85,8 @@ form .boxProd__container .boxProd__content {
     box-shadow: var(--shadowBox);
     border-radius: var(--borderRadiusFix);
     border: var(--borderContrast);
-    margin: 10px;
+    margin: var(--marginContent) var(--marginContent) 0 0;
+    width: 15em;
 
 }
 
