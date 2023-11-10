@@ -8,7 +8,12 @@ export default function CadProdutos({styles, infoBoxExtra}) {
         <>
             <h1>Cadastro de Produtos</h1>
             <InfoExtra infoBoxExtra={infoBoxExtra}/>
-            <ContainerContent title={"Formulário de Cadastro de Produtos"} content={<FormCadastro/>}/>
+            <div className={styles.mainContent}>
+                <ContainerContent title={"Formulário de Cadastro de Produtos"} content={<FormCadastro/>} classContainer={styles.formMain}/>
+                <ContainerContent title={"Calendário"} content={<FormCadastro/>} classContainer={styles.calendar}/>
+                <ContainerContent title={"Atalhos Rápidos"} classContainer={styles.quickShortCut}/>
+            </div>
+            
             
         </>
 

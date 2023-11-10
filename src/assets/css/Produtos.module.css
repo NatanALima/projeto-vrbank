@@ -88,6 +88,34 @@ section.produtos h1 {
     font-size: var(--fontSizeContent);
     text-align: center;
     margin: var(--fontMargin);
+
+}
+
+section.produtos .mainContent {
+    display: grid;
+    grid-template: 1fr 1fr/ 50vw 1fr;
+
+}
+
+.mainContent .formMain,
+.mainContent .calendar,
+.mainContent .quickShortCut {
+    height: fit-content;
+}
+
+.mainContent .formMain {
+    grid-row: span 2;
+
+}
+
+.mainContent .calendar {
+    grid-column: 2;
+}
+
+
+.mainContent .quickShortCut {
+    grid-area: 2/2;
+
 }
 
 
@@ -110,5 +138,11 @@ section.produtos h1 {
 
     100% {
         transform: translateX(0);
+    }
+}
+
+@media (min-width: 1800px) {
+    section.produtos .mainContent {
+        grid-template-columns: 55vw 1fr;
     }
 }

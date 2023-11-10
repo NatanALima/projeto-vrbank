@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
   /* Variáveis gerais */
@@ -15,7 +15,7 @@
   --colorGradient: linear-gradient(0deg, rgba(2, 26, 186, 0.20) 0%, rgba(2, 26, 186, 0.20) 100%), rgb(1, 15, 109);
   --colorIconBack: rgb(58 75 186 / 20%);
   --fontPrim: 'Quicksand', sans-serif;
-  --fontSec: 'Heebo', sans-serif;
+  --fontSec: 'Poppins', sans-serif;
   --fontSizeContent: 2em;
   --fontSizeTitleContent: 23px;
   --fontMargin: 1em 0;
