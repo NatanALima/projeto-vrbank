@@ -13,7 +13,7 @@
   --colorSaldoPos: #007c00;
   --colorSaldoNeg: #d30f31;
   --colorGradient: linear-gradient(0deg, rgba(2, 26, 186, 0.20) 0%, rgba(2, 26, 186, 0.20) 100%), rgb(1, 15, 109);
-  --colorIconBack: rgb(58 75 186 / 20%);
+  --colorBright: rgb(58 75 186 / 20%);
   --fontPrim: 'Quicksand', sans-serif;
   --fontSec: 'Poppins', sans-serif;
   --fontSizeContent: 2em;

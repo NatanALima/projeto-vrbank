@@ -109,7 +109,7 @@ table tbody td input {
 
 .tableContent__btns .confirmBtn,
 .tableContent__btns .cancelBtn {
-    background-color: var(--colorIconBack);
+    background-color: var(--colorBright);
     color: var(--colorSec);
 }
 

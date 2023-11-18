@@ -1,6 +1,6 @@
 @import url(./var.css);
 
-header {
+header.navContainer {
     width: var(--widthNav);
     min-height: 100vh;
     border-radius: 0 var(--borderRadiusFix) var(--borderRadiusFix) 0;

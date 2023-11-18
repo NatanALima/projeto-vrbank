@@ -44,7 +44,7 @@ Inicío Título Content
     color: var(--colorSec);
     margin-right: 10px;
     padding: 5px;
-    background-color: var(--colorIconBack);
+    background-color: var(--colorBright);
     border-radius: var(--borderRadiusFix);
 }
 
