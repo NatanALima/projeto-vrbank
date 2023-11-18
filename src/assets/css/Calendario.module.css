@@ -1,0 +1,66 @@
+.calendarContainer {
+    user-select: none;
+    
+}
+
+.calendarContainer header {
+    display: flex ;
+    justify-content: space-between;
+}
+
+header .directionContainer .directionContent {
+    margin: 0 10px;
+    transition: .3s ease;
+    font-size: 17px;
+}
+
+header .directionContainer .directionContent:hover {
+    scale: 1.2;
+    cursor: pointer;
+}
+
+.calendarContainer__content .content__weekInfo,
+.calendarContainer__content .content__daysInfo {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(7, 1fr);
+
+}
+
+.calendarContainer__content .content__weekInfo {
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.calendarContainer__content .content__daysInfo {
+    grid-template-rows: repeat(6, 50px);
+    align-items: center;
+    font-family: var(--fontSec);
+
+}
+
+
+.content__daysInfo li {
+    width: 40px;
+    height: 40px;
+    padding-top: 8px;
+    border-radius: 50%;
+    text-align: center;
+    transition: .3s ease;
+
+
+}
+.content__daysInfo li:not(.anotherDay, .activeDay):hover {
+    background-color: var(--colorPrim);
+    cursor: pointer;
+}
+
+.content__daysInfo .activeDay {
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+}
+
+.content__daysInfo .anotherDay {
+    color: rgb(184 184 184);
+    /*color: #a1a1a1*/;
+}
