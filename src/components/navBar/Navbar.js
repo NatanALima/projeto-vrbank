@@ -20,7 +20,7 @@ export default function Navbar() {
     
     return(
         
-        <header className={styles.openNav}>
+        <header className={styles.navContainer}>
             
             <section className={styles.navContent1}>               
                 <div className={styles.navContent1__logo}>
