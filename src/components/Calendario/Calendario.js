@@ -9,11 +9,13 @@ const reducer = (state, action) => {
         case 'setDays':
             return {
                 currMonth: state.currMonth,
+                yearDate: state.yearDate,
                 listDays: action.listDays
             }
         case 'changeMonth':
             return {
                 currMonth: action.currMonthValue,
+                yearDate: state.yearDate,
                 listDays: action.listDays
             }
         default:
@@ -23,11 +25,11 @@ const reducer = (state, action) => {
 
 export default function Calendario() {
     const date = new Date();
-    const yearDate = date.getFullYear();
     const monthList = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
                        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
     const [state, dispatch] = useReducer(reducer, {
         currMonth: date.getMonth(),
+        yearDate: date.getFullYear(),
         listDays: []
     })
 
@@ -52,60 +54,70 @@ export default function Calendario() {
 
     }
 
-    //Pega a SEMANA do primeiro ou último dia do mês
-    const getWeekOfDay = (month, dayValue) => {
-        //OBS: dayValue se aplica como 1 - primeiro dia e 0 último dia;
-        return new Date(yearDate, month, dayValue).getDay();
+
+    const createPrevListDays = (month, year) => {
+        let listPrevDays = [];
+        //Primeiro dia da semana do Mês atual
+        const firstWeekDayMonth = new Date(year, month, 1).getDay();
+        //Último dia do mês anterior
+        const lastDayPrevMonth = new Date(year, month, 0).getDate();
+
+        
+        for(let days = lastDayPrevMonth; days > lastDayPrevMonth - firstWeekDayMonth; days--) {
+            listPrevDays.push({days: days, classValue: "anotherDay"})
+
+        }
+
+        return listPrevDays.sort((a,b) => a.days - b.days);
+
     }
 
-    //Cria a lista de dias (dias dos meses anterior e posterior)
-    const createAnotherListDays = (optionDays, limitDays, month = null) => {
-        let listAnotherDays = [];
-        
-        switch(optionDays) {
-            case 'prev':
-                const lastDayPrevMonth = new Date(yearDate, month, 0).getDate();
-                for(let days = lastDayPrevMonth; days > lastDayPrevMonth - limitDays; days--) {
-                    listAnotherDays.push({days: days, classValue: "anotherDay"});
-                }
-                return listAnotherDays.sort();
+    const createCurrListDays = (month, year) => {
+        const listCurrDays = [];
+        const lastDayCurrMonth = new Date(year, month + 1, 0).getDate();
 
-            case 'next':
-                for(let days = 1; days <= limitDays; days++) {
-                    listAnotherDays.push({days: days, classValue: "anotherDay"});
+        for(let days = 1; days <= lastDayCurrMonth; days++) {
+            if(days === date.getDate() && state.currMonth === month) {
+                listCurrDays.push({days: days, classValue: "activeDay"})
 
-                }
-                return listAnotherDays;
+            } else {
+                listCurrDays.push({days: days, classValue: ""})
+            }
+            
 
-            default:
-                return 'Opção não encontrada';
         }
+        return listCurrDays;
+
+    }
+
+    const createNextListDays = (limitDays) => {
+        let listNextDays = [];
+
+        for(let days = 1; days <= limitDays; days++ ) {
+            listNextDays.push({days: days, classValue: "anotherDay"});
+
+        }
+
+        return listNextDays;
+
+
     }
 
     
 
-    const createListDays = (month) => {
+    const createListDays = (month, year) => {
+        console.log('ano:',year)
         let listDays = [];
-        //Pego o primeiro dia da semana do mês atual: determina quantos dias do Mês anterior aparecerá;
-        const firstWeekDayMonth = getWeekOfDay(month, 1);
-        //Pego o último dia do Mês atual: determina a quantidade de dias que o mês atual terá;
-        const lastDayMonth = new Date(yearDate, month + 1, 0).getDate();
+        const prevDays = createPrevListDays(month, year)
+        const currDays = createCurrListDays(month, year);
 
-        const listPrevDays = createAnotherListDays('prev', firstWeekDayMonth, month);
-        listDays = listDays.concat(listPrevDays);
+        console.log(`prevDays: ${prevDays}`);
 
-        //Adiciona na lista de dias os Dias do mês atual;
-        for(let i = 1; i <= lastDayMonth; i++) {
-            if(i === date.getDate() && state.currMonth === month) {
-                listDays.push({days: i, classValue: "activeDay"})
-            }
-            listDays.push({days: i, classValue: ""});
+        listDays = listDays.concat(prevDays, currDays);
 
-        }
-        //42 refere-se ao tamanho limite do calendário em grid;
-        const listNextDays = createAnotherListDays('next', 42 - listDays.length);
+        const nextDays = createNextListDays(42 - listDays.length);
         
-        listDays = listDays.concat(listNextDays);
+        listDays = listDays.concat(nextDays);
         return listDays;
 
     }  
@@ -116,13 +128,13 @@ export default function Calendario() {
         let newCurrMonth = monthValidate(state.currMonth, direction);
         dispatch({type: 'changeMonth', 
                   currMonthValue: newCurrMonth,
-                  listDays: createListDays(newCurrMonth)});
+                  listDays: createListDays(newCurrMonth, state.yearDate)});
 
     }
 
     useEffect(() => {
         dispatch({type: 'setDays',
-                  listDays: createListDays(state.currMonth)})
+                  listDays: createListDays(state.currMonth, state.yearDate)})
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
