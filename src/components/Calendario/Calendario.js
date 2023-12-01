@@ -8,14 +8,20 @@ const reducer = (state, action) => {
     switch(action.type) {
         case 'setDays':
             return {
-                currMonth: state.currMonth,
-                yearDate: state.yearDate,
+                ...state,
                 listDays: action.listDays
             }
         case 'changeMonth':
             return {
+                ...state,
                 currMonth: action.currMonthValue,
-                yearDate: state.yearDate,
+                listDays: action.listDays
+            }
+        case 'changeDate':
+            return {
+                date: action.dateValue,
+                yearDate: action.yearDateValue,
+                currMonth: action.currMonthValue,
                 listDays: action.listDays
             }
         default:
@@ -24,35 +30,23 @@ const reducer = (state, action) => {
 }
 
 export default function Calendario() {
-    const date = new Date();
     const monthList = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
                        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
     const [state, dispatch] = useReducer(reducer, {
-        currMonth: date.getMonth(),
-        yearDate: date.getFullYear(),
+        date: new Date(),
+        currMonth: new Date().getMonth(),
+        yearDate: new Date().getFullYear(),
         listDays: []
     })
 
-    //Valida e impede que haja mês 0 ou 13;
-    const monthValidate = (month, direction) => {
-        /* 
-            Explicando os motivos do newMonth receber 0 ao invés de 1 quando for mês + 1 for igual a 12 e 
-                                  do newMonth receber 11 quando Mês + 1 for igual a 1:
-            [0-> JANEIRO, 1 -> FEVEREIRO, ..., 10 -> NOVEMBRO, 11 -> DEZEMBRO];
-            
-            newMonth = 0 equivale ao mês 1 (Janeiro) dentro de um array. O mesmo acontece com newMonth = 11;
-        */
-        let newMonth; 
-        if(direction === 'next') {
-            month + 1 === 12 ? newMonth = 0 : newMonth = month + 1;
+    const dateValidate = (month) => {
+        if(month === 12 || month < 0) {
+            return 0;
 
-        } else {
-            month + 1 === 1 ? newMonth = 11 : newMonth = month - 1;
-
-        }
-        return newMonth;
-
+        } 
+        return 1; 
     }
+
 
 
     const createPrevListDays = (month, year) => {
@@ -63,8 +57,8 @@ export default function Calendario() {
         const lastDayPrevMonth = new Date(year, month, 0).getDate();
 
         
-        for(let days = lastDayPrevMonth; days > lastDayPrevMonth - firstWeekDayMonth; days--) {
-            listPrevDays.push({days: days, classValue: "anotherDay"})
+        for(let days = firstWeekDayMonth; days > 0; days--) {
+            listPrevDays.push({days: lastDayPrevMonth - days + 1, classValue: "anotherDay"})
 
         }
 
@@ -73,11 +67,12 @@ export default function Calendario() {
     }
 
     const createCurrListDays = (month, year) => {
+        const nowDate = new Date();
         const listCurrDays = [];
         const lastDayCurrMonth = new Date(year, month + 1, 0).getDate();
 
         for(let days = 1; days <= lastDayCurrMonth; days++) {
-            if(days === date.getDate() && state.currMonth === month) {
+            if(days === nowDate.getDate() && month === nowDate.getMonth() && year === nowDate.getFullYear()) {
                 listCurrDays.push({days: days, classValue: "activeDay"})
 
             } else {
@@ -111,8 +106,6 @@ export default function Calendario() {
         const prevDays = createPrevListDays(month, year)
         const currDays = createCurrListDays(month, year);
 
-        console.log(`prevDays: ${prevDays}`);
-
         listDays = listDays.concat(prevDays, currDays);
 
         const nextDays = createNextListDays(42 - listDays.length);
@@ -125,10 +118,36 @@ export default function Calendario() {
 
     
     const handleClickChange = (direction) => {
-        let newCurrMonth = monthValidate(state.currMonth, direction);
-        dispatch({type: 'changeMonth', 
-                  currMonthValue: newCurrMonth,
-                  listDays: createListDays(newCurrMonth, state.yearDate)});
+        let newMonth;
+        switch(direction) {
+            case 'prev':
+                newMonth = state.currMonth - 1;
+                break;
+            case 'next':
+                newMonth = state.currMonth + 1;
+                break;
+            default:
+                return 'Erro: Opção Inválida';
+        }
+        
+        if(!dateValidate(newMonth)) {
+            const newDate = new Date(state.yearDate, newMonth, 1);
+            const newYear = Number(newDate.getFullYear()),
+                  newCurrMonth = Number(newDate.getMonth());
+
+            dispatch({type: 'changeDate',
+                      dateValue: newDate,
+                      yearDateValue: newYear,
+                      currMonthValue: newCurrMonth,
+                      listDays: createListDays(newCurrMonth, newYear)
+                    })
+
+        } else {
+            dispatch({type: 'changeMonth',
+                      currMonthValue: newMonth,
+                      listDays: createListDays(newMonth, state.yearDate)
+                     })
+        }
 
     }
 
@@ -138,12 +157,10 @@ export default function Calendario() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
-    
-
     return(
         <section className={styles.calendarContainer}>
             <header>
-                <h3>{monthList[state.currMonth]}</h3>
+                <h3>{monthList[state.currMonth]} {state.yearDate}</h3>
                 <div className={styles.directionContainer}>
                     <FaChevronLeft className={styles.directionContent} onClick={() => handleClickChange('prev')}/>
                     <FaChevronRight className={styles.directionContent} onClick={() => handleClickChange('next')}/>

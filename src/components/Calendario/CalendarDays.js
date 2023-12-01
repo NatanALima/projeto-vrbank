@@ -1,6 +1,5 @@
 export default function CalendarDays({days, styles}) {
     let arr = [];
-    console.log(days);
     for(let i = 1; i<= 42; i++) {
         arr.push(i);
     }
