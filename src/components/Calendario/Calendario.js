@@ -1,7 +1,8 @@
 import CalendarDays from "./CalendarDays"
 import styles from "../../assets/css/Calendario.module.css";
+import '../../assets/css/animation.css';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 
 const reducer = (state, action) => {
@@ -32,6 +33,8 @@ const reducer = (state, action) => {
 export default function Calendario() {
     const monthList = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
                        "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    const [isAnimation, setIsAnimation] = useState(false);
+    const [animation, setAnimation] = useState("");
     const [state, dispatch] = useReducer(reducer, {
         date: new Date(),
         currMonth: new Date().getMonth(),
@@ -101,7 +104,6 @@ export default function Calendario() {
     
 
     const createListDays = (month, year) => {
-        console.log('ano:',year)
         let listDays = [];
         const prevDays = createPrevListDays(month, year)
         const currDays = createCurrListDays(month, year);
@@ -118,13 +120,16 @@ export default function Calendario() {
 
     
     const handleClickChange = (direction) => {
+        setIsAnimation(animation => !animation);
         let newMonth;
         switch(direction) {
             case 'prev':
                 newMonth = state.currMonth - 1;
+                setAnimation("fadeRight");
                 break;
             case 'next':
                 newMonth = state.currMonth + 1;
+                setAnimation("fadeLeft");
                 break;
             default:
                 return 'Erro: Opção Inválida';
@@ -176,7 +181,7 @@ export default function Calendario() {
                     <li>Sex</li>
                     <li>Sab</li>
                 </ul>
-                <ul className={styles.content__daysInfo}>
+                <ul className={`${styles.content__daysInfo} ${isAnimation ? animation : ""}`} onAnimationEnd={() => setIsAnimation(animation => !animation)}>
                     <CalendarDays days={state.listDays} styles={styles}/>
                 </ul>
             </div>
