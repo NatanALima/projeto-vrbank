@@ -9,7 +9,7 @@ nav.navProd {
     border-radius: 8px;
     width: fit-content;
     background-color: white;
-    padding: 10px 5px 20px;
+    padding: 10px 5px;
     box-shadow: var(--shadowBox);
     
 
@@ -22,7 +22,6 @@ nav.navProd ul {
 }
 
 nav.navProd ul li {
-    margin: 0 10px;
     font-weight: 600;
 
 }
@@ -30,6 +29,7 @@ nav.navProd ul li {
 nav.navProd ul li a {
     color: var(--colorSec);
     font-size: 18px;
+    padding: 0 10px;
     position: relative;
     transition: .3s;
 
@@ -42,25 +42,22 @@ nav.navProd ul li a:hover {
 }
 
 nav.navProd ul li a.active {
-    color: var(--colorDeg);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
-nav.navProd ul::before,
 nav.navProd ul li a.active::before {
     content: '';
     position: absolute;
-    transform: scale(1);
     transform-origin: left;
-    height: 5px;
+    height: calc(20px + 10px);
     left: 0; right: 0;
-    bottom: -30%;
+    border-radius: var(--borderRadiusFix);
     transition: .3s ease;
-
-}
-
-nav.navProd ul::before {
-    background-color: #e9e9e9;
-
+    z-index: -1;
 }
 
 nav.navProd ul li a.active::before {
@@ -123,6 +120,7 @@ section.produtos .mainContent {
 
 @keyframes activeLinkAnimRight {
     0% {
+        opacity: 0;
         transform: translateX(100%);
 
     }
@@ -133,6 +131,7 @@ section.produtos .mainContent {
 }
 @keyframes activeLinkAnimLeft {
     0% {
+        opacity: 0;
         transform: translateX(-100%);
 
     }
