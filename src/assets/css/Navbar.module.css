@@ -11,27 +11,6 @@ header.navContainer {
 
 }
 
-/* Não vai ser utilizado... Por enquanto */
-/* .btnResponsive { 
-    display: flex;
-    position: absolute;
-    font-size: 1.4em;
-    padding: 10px;
-    border-radius: 50%;
-    top: 50%;
-    left: 100%;
-    transform: translateX(-50%);
-    z-index: 10;
-    background: linear-gradient(0deg, rgba(2, 26, 186, 0.20) 0%, rgba(2, 26, 186, 0.20) 100%), var(--colorSec);
-    cursor: pointer;
-    transition: .3s;
-
-} */
-
-.btnResponsive:hover {
-    scale: 1.3;
-}
-
 .navContent1__logo {
     display: flex;
     justify-content: center;
