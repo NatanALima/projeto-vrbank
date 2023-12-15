@@ -1,0 +1,69 @@
+.atalhoContainer {
+    display: grid;
+    grid-template: 1fr auto auto / repeat(3, 1fr);
+    
+
+}
+
+.atalhoContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    transition: .3s ease;
+    margin: 10px;
+    color: black;
+}
+
+
+.atalhoContent > * {
+    transition: .3s ease;
+}
+
+.atalhoContent .atalhoIcon {
+    font-size: 2.65em;
+    color: var(--colorSec);
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: var(--colorBright);
+    border-radius: var(--borderRadiusFix);
+
+}
+
+.atalhoContent p {
+    position: relative;
+    font-family: var(--fontSec);
+    max-width: 150px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.atalhoContent:hover .atalhoIcon {
+    transform: translateY(-10%);
+    background-color: var(--colorSec);
+    color: var(--colorPrim);
+
+}
+
+.atalhoContent p::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: var(--colorSec);
+    scale: 0; opacity: 0;
+    transition: .3s ease;
+
+}
+
+.atalhoContent:hover p {
+    color: var(--colorSec);
+
+}
+
+.atalhoContent:hover p::before {
+    scale: 1;
+    opacity: 1;
+}
