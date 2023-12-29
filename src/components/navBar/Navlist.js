@@ -1,7 +1,6 @@
-import {Link, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 export default function Navlist({listContent, styles}) {
 
-    // <Link to="/" path={content.title}>{content.icon}{content.title}</Link>
     return(
         <ul>
             {listContent.map((content, index) => {
