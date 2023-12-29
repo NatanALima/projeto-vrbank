@@ -1,6 +1,7 @@
 import {Link, NavLink} from 'react-router-dom';
 
 export default function NavProd({styles}) {
+    console.log(window.location.pathname);
     return(
         <nav className={styles.navProd}>
             <ul>

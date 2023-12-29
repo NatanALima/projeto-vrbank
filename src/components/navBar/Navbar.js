@@ -27,7 +27,7 @@ export default function Navbar() {
                     <img src={vrLogo} alt="vrLogo" />
                 </div>
                 <div className={styles.navContent1__navList}>
-                    <Navlist listContent={listContent}/>
+                    <Navlist listContent={listContent} styles={styles}/>
                 </div>
             </section>
             <section className={styles.navContent2}><p>Área de Login</p></section>

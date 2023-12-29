@@ -31,32 +31,46 @@ header.navContainer {
 
 }
 
+.navContent1__navList ul {
+    padding-right: 15px;
+
+}
 
 .navContent1__navList ul li{
     position: relative;
     font-size: var(--fontSizeNav);
     padding: 10px 20px;
     margin: 15px 0;
-    transition: .3s;
+    border-radius: 0 var(--borderRadiusFix) var(--borderRadiusFix) 0;
+    transition: .2s ease;
     z-index: 1;
     
 }
+
 
 /* Animação no fundo */
 .navContent1__navList ul li::before {
     content: '';
     display: block;
     position: absolute;
-    transform: scaleX(0);
-    transform-origin: left;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
+    border-radius: 0 var(--borderRadiusFix) var(--borderRadiusFix) 0;
+    background-color: var(--colorNav);
     transition: .2s ease;
     z-index: -1;
-    background-color: var(--colorNav);
+    
 }
+
+.navContent1__navList ul li:has(.active)::before {
+    background-color: white;
+}
+
+.navContent1__navList ul li:not(:has(.active))::before {
+    transform: scaleX(0);
+    transform-origin: left;
+
+}
+
 
 .navContent1__navList ul li:hover::before {
     transform: scaleX(1);
@@ -65,17 +79,25 @@ header.navContainer {
 }
 
 
+
+
 .navContent1__navList ul li a{
     color: white;
     display: flex;
     align-items: center;
     font-weight: 600;
+
+}
+
+.navContent1__navList ul li a.active {
+    color: var(--colorSec);
 }
 
 .navContent1__navList ul li a .iconList {
     margin-right: 20px;
-    font-size: var(--fontSizeNav);
+    font-size: 1.5em;
 }
+
 
 @media only screen and (max-width: 800px) {
     header {
