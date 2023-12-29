@@ -1,4 +1,4 @@
-import {NavLink, redirect} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import { TbClipboardList as IconPrice} from "react-icons/tb";
 import { HiOutlineUserGroup as IconSala} from "react-icons/hi2";
 import { LuClipboardList as IconExtrato } from "react-icons/lu";
