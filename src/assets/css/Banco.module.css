@@ -98,3 +98,66 @@ FIM
     left: 50%;
     
 }
+
+
+/* 
+===========================================================
+Animação de arrows para o componente Saldo
+===========================================================
+*/
+
+.saldoInfo__content .saldoInfo__arrowContainer {
+    opacity: 0;
+}
+
+.saldoInfo__content:hover .saldoInfo__arrowContainer {
+    opacity: 1;
+}
+
+.saldoInfo__arrowContainer {
+    position: relative;
+    transition: opacity .9s;
+}
+
+.saldoInfo__arrowContainer .saldoInfo__arrowUp {
+    color: rgba(184, 253, 127, 0.5);
+    animation-name: arrowUpAnim;
+    animation-iteration-count: infinite;
+}
+
+
+.saldoInfo__arrowContainer .saldoInfo__arrowDown {
+    color: rgb(253, 127, 127, 0.5);
+    rotate: 180deg;
+    animation-name: arrowDownAnim;
+    animation-iteration-count: infinite;
+
+}
+
+
+
+
+@keyframes arrowUpAnim {
+    from {
+        transform: translateY(200%);
+        opacity: 0;
+
+    } to {
+        transform: translateY(-200%);
+        opacity: 1;
+    }
+
+}
+
+@keyframes arrowDownAnim {
+    from {
+        transform: translateY(400%);
+        opacity: 0;
+
+    } to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+
+}
