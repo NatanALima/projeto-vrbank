@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/navBar/Navbar';
 import Produtos from './components/Produtos/Produtos';
-import FundosBanco from './components/FundosBanco/FundosBanco';
+import Banco from './components/Banco/Banco';
 import Salas from './components/Salas/Salas';
 import Extrato from './components/Extrato/Extrato';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -13,8 +13,7 @@ function App() {
         <main>
           <Routes>
             <Route index path='/*' element={<Produtos/>}/>
-            <Route path='fundosbanco' element={<FundosBanco/>}/>  
-            <Route path='extrato' element={<Extrato/>}/>
+            <Route path='banco' element={<Banco/>}/>  
             <Route path='salas' element={<Salas/>}/>
           </Routes>
         </main>
