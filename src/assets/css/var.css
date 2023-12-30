@@ -27,6 +27,9 @@
   --shadowBox: 2px 2px 10px 7px #e5e5e526;
   --widthNav: 280px;
 
+  /* Variáveis para o Banco */
+  --marginSaldo: 3em;
+
   /* Variáveis para o responsivo */
   --fontSizeContentResp: 1.65em;
   --fontSizeNavResp: 18px;

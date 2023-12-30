@@ -1,0 +1,100 @@
+.banco h1 {
+    font-size: var(--fontSizeContent);
+    text-align: center;
+    margin: var(--fontMargin);
+
+}
+
+.saldoInfo__container {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    margin: auto;
+    padding: 10px var(--marginSaldo);
+    background-color: white;
+    text-align: center;
+    border-radius: var(--borderRadiusFix);
+    z-index: 1;
+}
+
+.saldoInfo__container .saldoInfo__content {
+    position: relative;
+    transition: color .9s ease;
+
+}
+
+
+/* 
+===========================================================
+APLICAÇÃO DE PSEUDO-ELEMENTOS PARA HOVER
+===========================================================
+*/
+
+/* Permite que o hover funcione na margin */
+.saldoInfo__container .saldoInfo__content::before,
+.saldoInfo__container .saldoInfo__content::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: var(--marginSaldo);
+
+}
+
+.saldoInfo__container .saldoInfo__content::before {
+    right: 100%;
+}
+.saldoInfo__container .saldoInfo__content::after {
+    left: 100%;
+}
+
+/* 
+===========================================================
+FIM
+===========================================================
+*/
+
+.saldoInfo__container .saldoInfo__content:first-child {
+    margin-right: var(--marginSaldo);
+
+}
+.saldoInfo__container .saldoInfo__content:nth-child(3) {
+    margin-left: var(--marginSaldo);
+}
+
+.saldoInfo__container .saldoInfo__content p {
+    font-size: 2em;
+    margin: 1.65em 0;
+}
+
+.saldoInfo__container hr {
+    border: 1px solid var(--colorSec);
+
+}
+
+.saldoInfo__container .saldoInfo__hoverColor {
+    position: absolute;
+    left: 0; bottom: 0; 
+    width: 50%;
+    height: 5px;
+    background-color: var(--colorSec);
+    transition: height .5s ease, left .7s ease;
+    z-index: -1;
+}
+
+
+.saldoInfo__content:first-child:hover,
+.saldoInfo__content:nth-child(3):hover {
+    color: white;
+}
+
+.saldoInfo__content:first-child:hover ~ .saldoInfo__hoverColor,
+.saldoInfo__content:nth-child(3):hover ~ .saldoInfo__hoverColor {
+    height: 100%;
+    border-radius: var(--borderRadiusFix);
+
+}
+
+.saldoInfo__content:nth-child(3):hover ~ .saldoInfo__hoverColor {
+    left: 50%;
+    
+}
