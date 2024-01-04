@@ -1,9 +1,8 @@
 @import url(./var.css);
 
 .tableContainer {
-    /* Pegando o alinhamento central de outra classe (classe "Pai") */
-    composes: centerAlign from "./var.css";
-    margin-top: 2em;
+    margin: var(--marginContent);
+
 }
 
 table, td {
@@ -13,7 +12,7 @@ table, td {
 }
 
 table {
-    width: calc(100% - 4.8em);
+    width: 100%;
     background-color: white;
     border-radius: var(--borderRadiusFix);
     box-shadow: var(--shadowBox);
@@ -41,7 +40,7 @@ table tbody tr:nth-child(even) {
 
 table thead tr.tableTitle th {
     text-align: left;
-    font-size: 18px;
+    font-size: var(--fontSizeTitleContent);
     padding: 0.5em 15px;
 }
 

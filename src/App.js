@@ -3,7 +3,6 @@ import Navbar from './components/navBar/Navbar';
 import Produtos from './components/Produtos/Produtos';
 import Banco from './components/Banco/Banco';
 import Salas from './components/Salas/Salas';
-import Extrato from './components/Extrato/Extrato';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 function App() {
   return (
