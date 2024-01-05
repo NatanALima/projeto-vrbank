@@ -1,15 +1,9 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../../assets/css/TableInfo.module.css';
 import BtnListEdit from './BtnListEdit';
 import '../../assets/css/animation.css';
 
-export default function TableInfo({addBtn, actionBtn, title, objectData}) {
-    const [isActiveAdd, setIsActiveAdd] = useState(0);
-
-    const activeAdd = () => {
-        setIsActiveAdd(!isActiveAdd);
-    }
+export default function TableInfo({actionBtn, title, objectData, fieldName}) {
 
     const getKeysObject = (objValue) => {
         if(objValue !== null) {
@@ -33,7 +27,7 @@ export default function TableInfo({addBtn, actionBtn, title, objectData}) {
                     <tr className={styles.tableTitle}><th colSpan={keyObj.length + 1}>{title}</th></tr>
                     <tr>
                         
-                        {keyObj.map((value, index) => <th key={index}>{value}</th>)}
+                        {fieldName.map((value, index) => <th key={index}>{value}</th>)}
                         {actionBtn && <th className={styles.tableContent__actionTitle}>Ações</th>}
                     </tr>
                 </thead>
@@ -50,35 +44,25 @@ export default function TableInfo({addBtn, actionBtn, title, objectData}) {
                                     }
                                </tr>
                     })}
-                    {isActiveAdd ? 
-                        (<tr>
-                            {keyObj.map((value, index) => <td key={index}><input type="text" /></td>)}
-                            <td className={styles.tableContent__btns}><button className={styles.confirmBtn}>Adicionar</button></td> 
-                        </tr>) 
-                        : null
-                    }
                 </tbody>            
             </table> : "Os Dados da Tabela não foram Informados!"}
-            {addBtn !== null ? (
-                <button type='button' className={styles.addBtn} onClick={activeAdd}>{isActiveAdd ? "Cancelar" : "Adicionar novo Item à Tabela"}</button>        
-                ) : null
-            }
         </div>
     )
 }
 
 TableInfo.propTypes = {
-    addBtn: PropTypes.bool,
     actionBtn: PropTypes.bool,
     title: PropTypes.string,
     objectData: PropTypes.array,
+    fieldName: PropTypes.array,
 
 
 }
 
 TableInfo.defaultProps = {
-    addBtn: null,
     actionBtn: null,
     title: null,
-    objectData: null
+    objectData: null,
+    fieldName: null,
+
 }

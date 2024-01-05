@@ -2,7 +2,6 @@
 
 .tableContainer {
     margin: var(--marginContent);
-
 }
 
 table, td {
@@ -29,7 +28,6 @@ table tbody td {
 
 table thead tr:not(.tableTitle) {
     color: black;
-    border-radius: 20px;
     text-align: left;
 
 }
@@ -65,7 +63,8 @@ table tbody td input {
     
     
 }
-.tableContainer button {
+
+table tbody button {
     border: none;
     display: flex;
     justify-content: center;
@@ -91,14 +90,8 @@ table tbody td input {
     margin: 0 5px;
 }
 
-.tableContainer button:hover {
+.tableContent__btns button:hover {
     opacity: 0.8;
-}
-
-.tableContainer .addBtn {
-    background-color: #01083B;
-    font-size: 18px;
-    margin-top: 1em;
 }
 
 .tableContent__btns .editBtn {
