@@ -11,9 +11,9 @@ import {LiaFileInvoiceDollarSolid} from 'react-icons/lia';
 import {MdGroups} from 'react-icons/md';
 
 export default function Navbar() {
-    const listContent = [{title: "Produtos", path:"/", icon:<LiaBoxSolid className={styles.iconList}/>},
+    const listContent = [{title: "Produtos", path:"/", subNav:["/", "/editprods"], icon:<LiaBoxSolid className={styles.iconList}/>},
                         {title: "Banco", path:"/banco", icon:<LiaFileInvoiceDollarSolid className={styles.iconList}/>},
-                        {title: "Salas", path:"/salas", icon:<MdGroups className={styles.iconList}/>},];
+                        {title: "Salas", path:"/salas", icon:<MdGroups className={styles.iconList}/>}];
     
     return(
         
