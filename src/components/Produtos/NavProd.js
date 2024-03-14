@@ -8,6 +8,7 @@ export default function NavProd({styles}) {
                 <li><NavLink to="/" className={({isActive}) => isActive ? styles.active : ""} >Cadastrar Produtos</NavLink></li>
                 <li><NavLink to="/editprods" className={({isActive}) => isActive ? styles.active : ""}>Editar Produtos</NavLink></li>
             </ul>
+            <div className={styles.navProd__activeContainer}></div>
         </nav>
     )
 }
