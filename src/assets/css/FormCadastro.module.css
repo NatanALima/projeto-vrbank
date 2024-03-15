@@ -18,22 +18,28 @@ form h3.titleBoxProd {
     margin-top: 20px;
 }
 
-form .inputCollection {
-    display: flex;
-    justify-content: space-between;
-    
-}
-
-form .inputCollection .inputContainer {
-    width: 100%;
+/* Personalização do FieldSet (separa os conteúdos) */
+form fieldset {
+    border: 2px solid var(--colorSec);
+    border-radius: var(--borderRadiusFix);
+    padding: 15px;
 
 }
 
-form .inputCollection .inputContainer:not(:last-of-type) {
-    margin-right: var(--marginContent);
+form fieldset#salaContainer {
+    margin-top: 2em;
+}
+
+form fieldset legend {
+    font-weight: 600;
+    font-size: 18px;
+    background-color: var(--colorSec);
+    color: white;
+    padding: 5px 10px;
 }
 
 form .inputContainer {
+    width: 100%;
     display: flex;
     justify-items: center;
     position: relative;
@@ -63,12 +69,7 @@ form .inputContainer select {
     
 }
 
-form .inputContainer input:active ~ label,
-form .inputContainer input:focus ~ label,
-form .inputContainer input:valid ~ label,
-form .inputContainer select:active ~ label,
-form .inputContainer select:focus ~ label,
-form .inputContainer select:valid ~ label{
+form .inputContainer :is(input, select):is(:active, :focus, :valid) ~ label {
     margin: 0;
     top: -7%;
     color: var(--colorSec);
@@ -87,6 +88,133 @@ input[type=number] {
 
 }
 
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização GERAL das Coleções de Informações 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+form fieldset .optionTitle {
+    font-weight: 700;
+    color: var(--colorSec);
+}
+
+form fieldset .optionCollection { 
+    margin: 10px 0; 
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: var(--fontSec);
+
+}
+
+fieldset .optionCollection .optionContainer input {display: none;}
+
+fieldset#clientContainer .optionContainer label:hover,
+fieldset#salaContainer .optionContainer:hover {
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+
+}
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização da Coleção de Informações do Cliente
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+
+fieldset#clientContainer .optionCollection {
+    background-color: var(--colorPrim);
+    border-radius: var(--borderRadiusFix);
+    height: 40px;
+
+}
+
+fieldset#clientContainer .optionContainer:not(:last-child) {
+    border-right: 1px solid var(--colorBright);
+}
+
+fieldset#clientContainer .optionContainer label {
+    padding: 10px 15px;
+    transition: .2s ease;
+    user-select: none;
+    cursor: pointer;
+
+}
+
+
+
+fieldset#clientContainer .optionContainer input:checked + label {
+    color: white;
+    background-color: var(--colorSec);
+
+}
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização da Coleção de Informações da Sala
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+fieldset#salaContainer .optionContainer {
+    display: flex;
+    align-items: center;
+    background-color: var(--colorPrim);
+    padding: 8px 10px;
+    border-radius: var(--borderRadiusFix);
+    transition: .2s ease;
+    cursor: pointer;
+    
+}
+
+fieldset#salaContainer .optionContainer,
+fieldset#salaContainer .optionContainer label {
+    cursor: pointer;
+}
+
+fieldset#salaContainer .optionContainer:not(:last-child) { margin-right: 15px; }
+
+fieldset#salaContainer .optionContainer .customRadio {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 50px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Criação da "Bolinha" interna do Radio */
+fieldset#salaContainer .optionContainer .customRadio::before {
+    content: '';
+    position: absolute;
+    width: calc(25px - 10px);
+    height: calc(25px - 10px);
+    border-radius: var(--borderRadiusFix);
+    transition: .2s ease;
+}
+
+fieldset#salaContainer .optionContainer input:checked + .customRadio::before {
+    background-color: var(--colorSec);
+
+}
+
+fieldset#salaContainer .optionContainer:has(input:checked) {
+    background-color: var(--colorSec);
+    color: white;
+
+}
+
+/* 
+================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização Destinada ao Container de Produtos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================================
+*/
 form .boxProd__container {
     display: flex;
     justify-content: center;

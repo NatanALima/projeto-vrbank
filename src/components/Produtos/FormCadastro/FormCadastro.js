@@ -58,17 +58,56 @@ export default function FormCadastro() {
     }
     return(
         <form>
-            <h3>Informações do Aluno</h3>
-            <div className={styles.inputCollection}>
+            <fieldset id={styles.clientContainer}>
+                <legend>Informações do Cliente</legend>
                 <div className={styles.inputContainer}>
                     <input type="text" className="inputNome" required/>
                     <label>Nome do Aluno</label>
                 </div>
+                <p className={styles.optionTitle}>Categoria</p>
+                <div className={styles.optionCollection}>
+                    <div className={styles.optionContainer}>
+                        <input type="radio" name="client_categ" id="aluno" value={"aluno"}/>
+                        <label htmlFor="aluno">Aluno(a)</label>
+                    </div>
+                    <div className={styles.optionContainer}>
+                        <input type="radio" name="client_categ" id="professor" value={"professor"}/>
+                        <label htmlFor="professor">Professor(a)</label>
+                    </div>
+                    <div className={styles.optionContainer}>
+                        <input type="radio" name="client_categ" id="funcionario" value={"funcionario"}/>
+                        <label htmlFor="funcionario">Funcionário(a)</label>
+                    </div>
+                    <div className={styles.optionContainer}>
+                        <input type="radio" name="client_categ" id="other" value={"other"}/>
+                        <label htmlFor="other">Outro</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset id={styles.salaContainer}>
+                <legend>Informações da Sala</legend>
+                <p className={styles.optionTitle}>Sala</p>
+                <div className={styles.optionCollection}>
+                    <div className={styles.optionContainer}>
+                        <input type="radio" name="aluno_sala" id="primeiroAno" value={"1-Ano"}/>
+                        <span className={styles.customRadio}></span>
+                        <label htmlFor="primeiroAno">1º Ano</label>
+                    </div>
+                    <div className={styles.optionContainer}>
+                        <input type="radio" name="aluno_sala" id="segundoAno" value={"2-Ano"}/>
+                        <span className={styles.customRadio}></span>
+                        <label htmlFor="segundoAno">2º Ano</label>
+                    </div>
+                    <div className={styles.optionContainer}>
+                        <input type="radio" name="aluno_sala" id="terceiroAno" value={"3-Ano"}/>
+                        <span className={styles.customRadio}></span>
+                        <label htmlFor="terceiroAno">3º Ano</label>
+                    </div>
+                </div>
                 <div className={styles.inputContainer}>
                     <SelectSala salas={salas}/>
                 </div>
-            </div>
-
+            </fieldset>
             <h3 className={styles.titleBoxProd}>Informações do(s) Produto(s)</h3>
             <div className={styles.boxProd__container}>
                 {numBoxProd.map(numBox => <ProductBox key={numBox} styles={styles}/>)}
