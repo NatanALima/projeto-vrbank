@@ -63,49 +63,54 @@ export default function FormCadastro() {
                 <div className={styles.inputContainer}>
                     <input type="text" className="inputNome" required/>
                     <label>Nome do Aluno</label>
-                </div>
-                <p className={styles.optionTitle}>Categoria</p>
-                <div className={styles.optionCollection}>
-                    <div className={styles.optionContainer}>
-                        <input type="radio" name="client_categ" id="aluno" value={"aluno"}/>
-                        <label htmlFor="aluno">Aluno(a)</label>
-                    </div>
-                    <div className={styles.optionContainer}>
-                        <input type="radio" name="client_categ" id="professor" value={"professor"}/>
-                        <label htmlFor="professor">Professor(a)</label>
-                    </div>
-                    <div className={styles.optionContainer}>
-                        <input type="radio" name="client_categ" id="funcionario" value={"funcionario"}/>
-                        <label htmlFor="funcionario">Funcionário(a)</label>
-                    </div>
-                    <div className={styles.optionContainer}>
-                        <input type="radio" name="client_categ" id="other" value={"other"}/>
-                        <label htmlFor="other">Outro</label>
+                </div>            
+                <div className={styles.optionContainer}>
+                    <h4 className={styles.optionTitle}>Categoria</h4>
+                    <div className={styles.optionCollection}>
+                        <div className={styles.optionCollection__content}>
+                            <input type="radio" name="client_categ" id="aluno" value={"aluno"}/>
+                            <label htmlFor="aluno">Aluno(a)</label>
+                        </div>
+                        <div className={styles.optionCollection__content}>
+                            <input type="radio" name="client_categ" id="professor" value={"professor"}/>
+                            <label htmlFor="professor">Professor(a)</label>
+                        </div>
+                        <div className={styles.optionCollection__content}>
+                            <input type="radio" name="client_categ" id="funcionario" value={"funcionario"}/>
+                            <label htmlFor="funcionario">Funcionário(a)</label>
+                        </div>
+                        <div className={styles.optionCollection__content}>
+                            <input type="radio" name="client_categ" id="other" value={"other"}/>
+                            <label htmlFor="other">Outro</label>
+                        </div>
                     </div>
                 </div>
             </fieldset>
             <fieldset id={styles.salaContainer}>
                 <legend>Informações da Sala</legend>
-                <p className={styles.optionTitle}>Sala</p>
-                <div className={styles.optionCollection}>
-                    <div className={styles.optionContainer}>
-                        <input type="radio" name="aluno_sala" id="primeiroAno" value={"1-Ano"}/>
-                        <span className={styles.customRadio}></span>
-                        <label htmlFor="primeiroAno">1º Ano</label>
-                    </div>
-                    <div className={styles.optionContainer}>
-                        <input type="radio" name="aluno_sala" id="segundoAno" value={"2-Ano"}/>
-                        <span className={styles.customRadio}></span>
-                        <label htmlFor="segundoAno">2º Ano</label>
-                    </div>
-                    <div className={styles.optionContainer}>
-                        <input type="radio" name="aluno_sala" id="terceiroAno" value={"3-Ano"}/>
-                        <span className={styles.customRadio}></span>
-                        <label htmlFor="terceiroAno">3º Ano</label>
+                <div className={styles.optionContainer}>
+                    <h4 className={styles.optionTitle}>Ano</h4>
+                    <div className={styles.optionCollection}>
+                        <div className={styles.optionCollection__content}>
+                            <input type="radio" name="aluno_sala" id="primeiroAno" value={"1-Ano"}/>
+                            <span className={styles.customRadio}></span>
+                            <label htmlFor="primeiroAno">1º Ano</label>
+                        </div>
+                        <div className={styles.optionCollection__content}>
+                            <input type="radio" name="aluno_sala" id="segundoAno" value={"2-Ano"}/>
+                            <span className={styles.customRadio}></span>
+                            <label htmlFor="segundoAno">2º Ano</label>
+                        </div>
+                        <div className={styles.optionCollection__content}>
+                            <input type="radio" name="aluno_sala" id="terceiroAno" value={"3-Ano"}/>
+                            <span className={styles.customRadio}></span>
+                            <label htmlFor="terceiroAno">3º Ano</label>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.inputContainer}>
                     <SelectSala salas={salas}/>
+                    <label htmlFor="sala">Sala</label>
                 </div>
             </fieldset>
             <h3 className={styles.titleBoxProd}>Informações do(s) Produto(s)</h3>
