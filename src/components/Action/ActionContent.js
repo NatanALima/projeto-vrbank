@@ -1,4 +1,4 @@
-export default function Action({styles, icon, text, placeholder}) {
+export default function ActionContent({styles, icon, text, placeholder}) {
     return (
         <div className={styles.action__content}>
             <div className={styles.action__cover} data-placeholder={placeholder}>

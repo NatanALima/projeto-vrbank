@@ -1,7 +1,7 @@
 import styles from '../../assets/css/Banco.module.css';
 import '../../assets/css/animation.css';
 import SaldoInfo from './SaldoInfo';
-import Action from './Action';
+import Action from '../Action/Action';
 import { LuWallet as InsIcon } from "react-icons/lu";
 import { GiPayMoney as ViewIcon} from "react-icons/gi";
 import { PiMoneyDuotone as PaperIcon} from "react-icons/pi";
@@ -17,9 +17,7 @@ export default function Banco() {
             <h1>Banco</h1>
             <SaldoInfo styles={styles}/>
             <h2>Ações</h2>
-            <div className={`${styles.action__container} fadeIn`}>
-                {ActionList.map(item => <Action key={item.id} styles={styles} {...item}/>)}
-            </div>
+            <Action ActionList={ActionList}/>
             
         </section>
     )
