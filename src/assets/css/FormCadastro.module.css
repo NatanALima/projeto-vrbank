@@ -46,7 +46,7 @@ form .inputContainer {
 }
 
 form .inputContainer label {
-    color: rgb(196, 196, 196);
+    color: var(--colorInactive);
     position: absolute;
     left: 0;  
     top: 50%;
@@ -80,7 +80,7 @@ form .inputContainer select {
 Estilização de interação do Select
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-form .inputContainer select {color: rgb(196, 196, 196);}
+form .inputContainer select {color: var(--colorInactive);}
 
 form .inputContainer select:focus {color: rgb(245, 245, 245);}
 

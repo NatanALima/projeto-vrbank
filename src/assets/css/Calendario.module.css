@@ -61,6 +61,6 @@ header .directionContainer .directionContent:hover {
 }
 
 .content__daysInfo .anotherDay {
-    color: rgb(184 184 184);
+    color: var(--colorInactive);
     /*color: #a1a1a1*/;
 }

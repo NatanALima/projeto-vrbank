@@ -89,7 +89,7 @@
     bottom: 83%;
     left: 85%;
     background-color: var(--colorPrim);
-    color: rgb(196, 196, 196);
+    color: var(--colorInactive);
     padding: 10px;
     border-radius: 50%;
     transition: .3s ease;
