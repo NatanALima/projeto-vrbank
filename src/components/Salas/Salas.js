@@ -1,5 +1,7 @@
 import styles from '../../assets/css/Salas.module.css';
 import TableInfo from '../TableInfo/TableInfo';
+import Action from '../Action/Action';
+import { CgFolderAdd as AddSala, CgFolderRemove as HideSala} from "react-icons/cg";
 
 export default function Salas() {
 
@@ -35,9 +37,14 @@ export default function Salas() {
                     Ano: 1}
                 ];
 
+    const actionList = [{id: 1, icon: <AddSala/>, text: "Adicionar Sala", placeholder: "ADICIONAR"},
+                        {id: 2, icon: <HideSala/>, text: "Desabilitar Salas", placeholder: "DESABILITAR"}];
+
     return(
         <section className={styles.salas}>
             <h1>Salas</h1>
+            <h2>Ações</h2>
+            <Action ActionList={actionList}/>
             <TableInfo actionBtn={true} title={"Salas"} objectData={salas} fieldName={fieldNameTable}/>
         </section>
     )
