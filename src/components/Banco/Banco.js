@@ -8,9 +8,9 @@ import { PiMoneyDuotone as PaperIcon} from "react-icons/pi";
 
 
 export default function Banco() {
-    const ActionList = [{id: 1, icon: <InsIcon className={styles.iconCover}/>, text: "Adicionar Fundos", placeholder: "FUNDOS"},
-                        {id: 2, icon: <ViewIcon className={styles.iconCover}/>, text: "Consultar Despesas", placeholder: "DESPESAS"},
-                        {id: 3, icon: <PaperIcon className={styles.iconCover}/>, text: "Visualizar Cédulas", placeholder: "CÉDULAS"}];
+    const ActionList = [{id: 1, icon: <InsIcon/>, text: "Adicionar Fundos", placeholder: "FUNDOS"},
+                        {id: 2, icon: <ViewIcon/>, text: "Consultar Despesas", placeholder: "DESPESAS"},
+                        {id: 3, icon: <PaperIcon/>, text: "Visualizar Cédulas", placeholder: "CÉDULAS"}];
 
     return (
         <section className={styles.banco}>
