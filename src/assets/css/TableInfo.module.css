@@ -5,7 +5,6 @@
 }
 
 table, td {
-    border: 1px solid var(--colorSec);
     border-collapse: collapse;
 
 }
@@ -20,16 +19,18 @@ table {
     overflow: hidden;
 }
 
-table tbody td {
-    border: none;
-    table-layout: auto;
-    font-family: var(--fontSec);
-}
-
 table thead tr:not(.tableTitle) {
     color: black;
     text-align: left;
+    background-color: #f9f9f9;
 
+}
+
+table tbody td {
+    border: none;
+    border-bottom: 1px solid #ececec3b;
+    table-layout: auto;
+    font-family: var(--fontSec);
 }
 
 table tbody tr:nth-child(even) {
@@ -60,8 +61,16 @@ table tbody td input {
     background-color: var(--colorPrim);
     font-family: var(--fontSec);
     font-size: 16px;
-    
-    
+    padding: 5px 10px;
+    border-radius: var(--borderRadiusFix);
+    transition: .2s ease;
+}
+
+table tbody td input:read-only {
+    padding: 5px 0;
+    background-color: transparent;
+    user-select: none;
+    cursor: default;
 }
 
 table tbody button {

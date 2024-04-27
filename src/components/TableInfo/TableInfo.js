@@ -1,32 +1,17 @@
 import PropTypes from 'prop-types';
 import styles from '../../assets/css/TableInfo.module.css';
-import BtnListEdit from './BtnListEdit';
+import TableContent from './TableContent';
 import '../../assets/css/animation.css';
 
-export default function TableInfo({actionBtn, title, objectData, fieldName}) {
-
-    const getKeysObject = (objValue) => {
-        if(objValue !== null) {
-            const keyObject = objValue.map(value => Object.keys(value));
-            return keyObject[0];
-        }
-        
-        
-    }
-
-    const keyObj = getKeysObject(objectData);
-
+export default function TableInfo({actionBtn, title, objectData, fieldName, handleOnChange}) {
+    
     return (
         <div className={`${styles.tableContainer} fadeIn`}>
             {objectData ?
             <table>
-                <thead>
-                    {/* Pegar tamanho do array/objetos de conteudo para centralizar */}
-
-                    
-                    <tr className={styles.tableTitle}><th colSpan={keyObj.length + 1}>{title}</th></tr>
+                <thead>                   
+                    <tr className={styles.tableTitle}><th>{title}</th></tr>
                     <tr>
-                        
                         {fieldName.map((value, index) => <th key={index}>{value}</th>)}
                         {actionBtn && <th className={styles.tableContent__actionTitle}>Ações</th>}
                     </tr>
@@ -34,14 +19,12 @@ export default function TableInfo({actionBtn, title, objectData, fieldName}) {
                 <tbody>
                     {objectData !== null &&
                     objectData.map((objVal, index) => {
-                        const getValues = Object.values(objVal);
-                        return <tr key={index}>
-                                    {getValues.map((value, index) => <td key={index}>{value}</td>)}
-                                    {actionBtn &&
-                                    <td className={styles.tableContent__btns}>
-                                        <BtnListEdit styles={styles}/>
-                                    </td>
-                                    }
+                        // Permite que o objeto se torne um array (contém chave e valor)
+                        // Utiliza a Key para o Name dos inputs
+                        
+                        const getValues = Object.entries(objVal);
+                        return <tr key={index} id={index}>
+                                    <TableContent styles={styles} info={getValues} handleOnChange={handleOnChange} hasActionBtn={true}/>
                                </tr>
                     })}
                 </tbody>            
@@ -55,7 +38,7 @@ TableInfo.propTypes = {
     title: PropTypes.string,
     objectData: PropTypes.array,
     fieldName: PropTypes.array,
-
+    handleOnChange: PropTypes.func
 
 }
 
@@ -64,5 +47,6 @@ TableInfo.defaultProps = {
     title: null,
     objectData: null,
     fieldName: null,
+    handleOnChange: null,
 
 }

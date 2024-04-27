@@ -3,11 +3,12 @@ import {FaPencilAlt, FaCheck} from 'react-icons/fa';
 import {FaX} from 'react-icons/fa6';
 import '../../assets/css/animation.css';
 
-export default function BtnListEdit({styles}) {
+export default function BtnListEdit({styles, handleAction}) {
     const [isEdit, setIsEdit] = useState(0);
 
     const handleEdit = () => {
         setIsEdit(!isEdit);
+        handleAction((prevValue) => !prevValue);
         console.log(isEdit);
 
     }
