@@ -1,6 +1,20 @@
 import PropTypes from 'prop-types'
 import BtnListEdit from './BtnListEdit';
 import { useState } from 'react';
+
+
+/**
+ * Parâmetros do Conteúdo da TableInfo
+
+ * @param {Array} styles - [OBRIGATÓRIO] Coleção de estilização da Tabela 
+ * @param {boolean} hasActionBtn - [OPCIONAL] Determinda se haverá Botão(ões) de Ação
+ * @param {Array<string>} info - [OBRIGATÓRIO] Dados do Banco
+ * @param {array} config - [OBRIGATÓRIO] Configuração de dados
+ * @param {func} handleOnChange - [OBRIGATÓRIO] Função utilizada no(s) Botão(ões)
+ * @param {number} parentIndex - [OPCIONAL] Determina qual é o INDEX do conjunto de dados atual
+ 
+*/
+
 export default function TableContent({styles, hasActionBtn, info, config, handleOnChange, parentIndex}) {
     const [isReadOnly, setisReadOnly] = useState(true);
 
