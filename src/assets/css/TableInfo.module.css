@@ -27,6 +27,7 @@ table thead tr:not(.tableTitle) {
 }
 
 table tbody td {
+    min-width: 200px;
     border: none;
     border-bottom: 1px solid #ececec3b;
     table-layout: auto;
@@ -71,7 +72,28 @@ table tbody td input:read-only {
     background-color: transparent;
     user-select: none;
     cursor: default;
+
 }
+
+
+/* 
+===========================================
+Informações de Tabela não editáveis
+===========================================
+*/
+table tbody td p { font-weight: 500; }
+
+table tbody td p:is(.specialActive, .specialNotActive) {
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: var(--borderRadiusFix);
+
+}
+
+table tbody td p.specialActive { background-color: var(--colorBright); }
+table tbody td p.specialNotActive { background-color: rgb(253, 127, 127, 0.5); }
+
+
 
 table tbody button {
     border: none;

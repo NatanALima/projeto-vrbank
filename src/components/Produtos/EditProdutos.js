@@ -11,13 +11,36 @@ export default function EditProdutos({styles, infoBoxExtra}) {
     {id: 2, nomeProd: "Prod2", qtdProd: 4, totValProd: 26, saldoAt: 2500, dataCompra: dataAt}])
 
     
-    const fieldNameTable = ["ID", "Nome do Produto", "Qtd. do(s) produto(s)", "Saldo Atual", "Valor Total do Produto","Data da Compra"]
+    const fieldNameTable = ["ID", "Nome do Produto", "Qtd. do(s) produto(s)", "Saldo Atual", "Valor Total do Produto","Data da Compra"];
+
+
+    /** 
+        * Propriedades da Configuração
+
+        * @typedef {Object} configItem
+
+        * @property {string} type - [OBRIGATÓRIO] define o tipo do Input (só é inserido quando a opção isEdit for TRUE)
+        
+        * @property {boolean} isEdit - [OBRIGATÓRIO] Determina se o dado em questão é editável
+        
+        * @property {boolean} isClassUnique - [OPCIONAL] determina se haverá uma ou mais classes em um dado não editável (só é passado quando o parâmetro isEdit for False)
+
+        * @property {Array<string>} specialClass - [OPCIONAL] determina as N classes que serão passadas (só é utilizado quando isClassUnique for FALSE)
+    */
+
+    /** @type {Array<configItem>} */
+    const config = [{type: "number", isEdit: true},
+                    {type:"text", isEdit: true},
+                    {type:"number", isEdit: true},
+                    {type:"number", isEdit: true},
+                    {type:"number", isEdit: true}, 
+                    {isEdit: false, isClassUnique: true}];
 
     return (
         <>
             <h1>Edição de Produtos</h1>
             <InfoExtra infoBoxExtra={infoBoxExtra}/>
-            <TableInfo title="Produtos" hasActionBtn={true} dataCollection={produtos} fieldName={fieldNameTable} setValueState={setProdutos}/>
+            <TableInfo title="Produtos" hasActionBtn={true} dataCollection={produtos} fieldName={fieldNameTable} config={config} setValueState={setProdutos}/>
             
         </>
     )

@@ -3,7 +3,7 @@ import styles from '../../assets/css/TableInfo.module.css';
 import TableContent from './TableContent';
 import '../../assets/css/animation.css';
 
-export default function TableInfo({title, hasActionBtn, dataCollection, fieldName, setValueState}) {
+export default function TableInfo({title, hasActionBtn, dataCollection, fieldName, config, setValueState}) {
     const handleEditInput = (e) => {
         const infoId = e.target.closest('tr').id;
         const tempDataCollection = [...dataCollection];
@@ -32,7 +32,7 @@ export default function TableInfo({title, hasActionBtn, dataCollection, fieldNam
                         
                         const getValues = Object.entries(objVal);
                         return <tr key={index} id={index}>
-                                    <TableContent styles={styles} info={getValues} handleOnChange={handleEditInput} hasActionBtn={hasActionBtn}/>
+                                    <TableContent styles={styles} hasActionBtn={hasActionBtn} info={getValues} config={config} handleOnChange={handleEditInput} parentIndex={index}/>
                                </tr>
                     })}
                 </tbody>            
@@ -46,6 +46,7 @@ TableInfo.propTypes = {
     title: PropTypes.string.isRequired,
     dataCollection: PropTypes.array.isRequired,
     fieldName: PropTypes.array.isRequired,
+    config: PropTypes.array,
     setValueState: PropTypes.func.isRequired
 }
 
@@ -54,5 +55,6 @@ TableInfo.defaultProps = {
     title: "Título não informado",
     dataCollection: [],
     fieldName: [],
+    config: [],
     setValueState: null
 }
