@@ -7,7 +7,7 @@ import Atalhos from "../Atalhos/Atalhos";
 export default function CadProdutos({styles, infoBoxExtra}) {
 
     return(
-        <>
+        <>  
             <h1>Cadastro de Produtos</h1>
             <InfoExtra infoBoxExtra={infoBoxExtra}/>
             <div className={styles.mainContent}>

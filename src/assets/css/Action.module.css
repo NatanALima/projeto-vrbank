@@ -17,7 +17,7 @@
     height: 150px;
     user-select: none;
     transition: background-color .3s ease;
-    
+    cursor: pointer;    
 
 }
 
@@ -31,7 +31,7 @@
     font-size: 5em;
     color: rgb(209, 209, 209);
     border-radius: var(--borderRadiusFix);
-    transition: all .4s ease;
+    transition: all .3s ease;
 
 }
 

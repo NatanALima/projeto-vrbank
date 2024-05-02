@@ -1,0 +1,49 @@
+div.modalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.308);
+    z-index: 2;
+}
+
+.modalOverlay .modalContainer {
+    width: 500px;
+    height: fit-content;
+    background-color: white;
+    border-radius: var(--borderRadiusFix);
+    padding: 10px 20px;
+
+}
+
+.modalContainer hr {
+    border: 1px solid var(--colorBright);
+    /* Ignora o Padding anulando o tamanho do mesmo */
+    margin: 0 -20px;
+
+}
+
+.modalInfo__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
+.modalInfo__main h1 {
+    font-size: 20px !important;
+    margin: 10px 0 !important;
+    text-align: left !important;
+}
+
+/* .modalInfo__main .closeIcon { 
+    font-size: 2em; 
+    color: white;
+    background-color: var(--colorSec);
+    border-radius: 50px;
+} */
+
+
+

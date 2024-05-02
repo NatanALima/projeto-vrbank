@@ -1,0 +1,90 @@
+.modalBanco__content {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    border-radius: var(--borderRadiusFix);
+    font-family: var(--fontPrim);
+
+}
+
+.modalBanco__content__icon {
+    display: flex;
+    justify-content: center;
+    font-size: 6em;
+    color: var(--colorSec);
+    margin: 20px;
+
+}
+
+.modalBanco__contentInput {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+
+}
+
+.modalBanco__contentInput label {
+    text-align: left;
+    font-size: 1.1em;
+    color: var(--colorSec);
+    font-weight: 700;
+}
+
+.modalBanco__contentInput input {
+    border: none;
+    outline: none;
+    background-color: rgb(245, 245, 245);
+    margin: 5px 0 20px;
+    padding: 10px 10px;
+    font-family: var(--fontSec);
+    font-size: 16px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.modalBanco__contentInfo__desc {
+    font-size: 1.25em;
+}
+
+.modalBanco__content__questionInfo,
+.modalBanco__contentInfo__btnCollection,
+.modalBanco__contentInfo__btnCollection button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalBanco__contentInfo__btnCollection {
+    margin-bottom: 10px;
+}
+
+.modalBanco__contentInfo__btnCollection button {
+    font-family: var(--fontPrim);
+    font-weight: 500;
+    margin: 0 10px;
+    padding: 10px;
+    font-size: 1.15em;
+    border: none;
+    border-radius: var(--borderRadiusFix);
+    cursor: pointer;
+    transition: .3s ease;
+
+}
+
+.modalBanco__contentInfo__btnCollection .btnCollection__addBtn {
+    background-color: var(--colorSec);
+    color: var(--colorPrim);
+}
+
+
+.btnCollection__addBtn:hover {
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+
+}
+.btnCollection__cancelBtn:hover {
+    color: var(--colorInactive);
+}
+

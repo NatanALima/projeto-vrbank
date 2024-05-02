@@ -3,6 +3,8 @@ import '../../assets/css/animation.css';
 import SaldoInfo from './SaldoInfo';
 import Action from '../Action/Action';
 import TableInfo from '../TableInfo/TableInfo';
+import ModalSaldo from "../Modal/ModalSaldo";
+import ContainerModal from "../layout/ContainerModal";
 import { LuWallet as InsIcon } from "react-icons/lu";
 import { GiPayMoney as ViewIcon} from "react-icons/gi";
 import { PiMoneyDuotone as PaperIcon} from "react-icons/pi";
@@ -10,6 +12,7 @@ import { useState } from 'react';
 
 
 export default function Banco() {
+    const [isOpenModal, setIsOpenModal] = useState(false);
     const [extrato, setExtrato] = useState([{tipo: "Adição de Saldo", valor: 250, data: "02/04/2024"},
                                             {tipo: "Recebimento de Produto", valor: 40, data: "05/05/2024"},
                                             {tipo: "Recebimento de Produto", valor: 20, data: "05/05/2024"}])
@@ -34,12 +37,13 @@ export default function Banco() {
                     {type: "number", isEdit: false, isClassUnique: true},
                     {type: "text", isEdit: false, isClassUnique: true}]
 
-    const ActionList = [{id: 1, icon: <InsIcon/>, text: "Adicionar Fundos", placeholder: "FUNDOS"},
-                        {id: 2, icon: <ViewIcon/>, text: "Consultar Despesas", placeholder: "DESPESAS"},
-                        {id: 3, icon: <PaperIcon/>, text: "Visualizar Cédulas", placeholder: "CÉDULAS"}];
+    const ActionList = [{id: 1, icon: <InsIcon/>, text: "Adicionar Fundos", placeholder: "FUNDOS", setOpenModal: setIsOpenModal},
+                        {id: 2, icon: <ViewIcon/>, text: "Consultar Despesas", placeholder: "DESPESAS", setOpenModal: setIsOpenModal},
+                        {id: 3, icon: <PaperIcon/>, text: "Visualizar Cédulas", placeholder: "CÉDULAS", setOpenModal: setIsOpenModal}];
 
     return (
         <section className={styles.banco}>
+            {isOpenModal && <ContainerModal title={"Adicionar Fundos"} content={<ModalSaldo setCancel={setIsOpenModal}/>}/>}
             <h1>Banco</h1>
             <SaldoInfo styles={styles}/>
             <h2>Ações</h2>
