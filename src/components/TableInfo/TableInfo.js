@@ -47,7 +47,7 @@ TableInfo.propTypes = {
     dataCollection: PropTypes.array.isRequired,
     fieldName: PropTypes.array.isRequired,
     config: PropTypes.array,
-    setValueState: PropTypes.func.isRequired
+    setValueState: PropTypes.func
 }
 
 TableInfo.defaultProps = {
