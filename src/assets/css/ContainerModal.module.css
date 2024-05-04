@@ -41,12 +41,20 @@ div.modalOverlay {
     text-align: left !important;
 }
 
-/* .modalInfo__main .closeIcon { 
+.modalInfo__main .closeIcon { 
     font-size: 2em; 
     color: white;
     background-color: var(--colorSec);
     border-radius: 50px;
-} */
+    cursor: pointer;
+    transition: .2s ease;
+
+}
+
+.modalInfo__main .closeIcon:hover {
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+}
 
 
 

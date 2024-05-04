@@ -1,20 +1,32 @@
+import ModalCedulas from '../Modal/ModalCedulas';
+import ModalSaldo from '../Modal/ModalSaldo';
 import styles from '../../assets/css/ContainerModal.module.css'
 import '../../assets/css/animation.css';
-//Não utilizado por enquanto...
-// import { IoClose as IconClose} from "react-icons/io5";
+import { IoClose as IconClose} from "react-icons/io5";
 
 
-export default function ContainerModal({title, content}) {
+export default function ContainerModal({modalRequestName, setCancel}) {
+    const modalCollection = [{modalName: "cedulas", modalTitle: "Cédulas", modalContent: <ModalCedulas/>},
+                             {modalName: "saldo", modalTitle: "Adicionar Fundos", modalContent: <ModalSaldo setCancel={setCancel}/>}]
+                             
+
+    const modalSelected = modalCollection.filter(info => info.modalName === modalRequestName)[0]; 
+
 
     return(
         <div className={styles.modalOverlay}>
             <section className={`${styles.modalContainer} fadeIn`}>
-                <span className={styles.modalInfo__main}>
-                    <h1>{title}</h1>
-                    {/* <IconClose className={styles.closeIcon}/> */}
-                </span>
-                <hr />
-                {content}
+                {modalSelected ? 
+                    <>
+                        <span className={styles.modalInfo__main}>
+                            <h1>{modalSelected.modalTitle}</h1>
+                            <IconClose className={styles.closeIcon} onClick={() => setCancel(false)}/>
+                        </span>
+                        <hr />
+                        {modalSelected.modalContent}
+                    </>
+                : "Modal Não encontrada"}
+                
             </section>
         </div>
     )
