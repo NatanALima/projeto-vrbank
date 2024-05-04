@@ -4,6 +4,7 @@ import SaldoInfo from './SaldoInfo';
 import Action from '../Action/Action';
 import TableInfo from '../TableInfo/TableInfo';
 import ModalSaldo from "../Modal/ModalSaldo";
+import ModalCedulas from '../Modal/ModalCedulas';
 import ContainerModal from "../layout/ContainerModal";
 import { LuWallet as InsIcon } from "react-icons/lu";
 import { GiPayMoney as ViewIcon} from "react-icons/gi";
@@ -37,9 +38,9 @@ export default function Banco() {
                     {type: "number", isEdit: false, isClassUnique: true},
                     {type: "text", isEdit: false, isClassUnique: true}]
 
-    const ActionList = [{id: 1, icon: <InsIcon/>, text: "Adicionar Fundos", placeholder: "FUNDOS", setOpenModal: setIsOpenModal},
-                        {id: 2, icon: <ViewIcon/>, text: "Consultar Despesas", placeholder: "DESPESAS", setOpenModal: setIsOpenModal},
-                        {id: 3, icon: <PaperIcon/>, text: "Visualizar Cédulas", placeholder: "CÉDULAS", setOpenModal: setIsOpenModal}];
+    const ActionList = [{id: 1, icon: <InsIcon/>, text: "Adicionar Fundos", placeholder: "FUNDOS"},
+                        {id: 2, icon: <ViewIcon/>, text: "Consultar Despesas", placeholder: "DESPESAS"},
+                        {id: 3, icon: <PaperIcon/>, text: "Visualizar Cédulas", placeholder: "CÉDULAS"}];
 
     return (
         <section className={styles.banco}>
@@ -47,7 +48,7 @@ export default function Banco() {
             <h1>Banco</h1>
             <SaldoInfo styles={styles}/>
             <h2>Ações</h2>
-            <Action ActionList={ActionList}/>
+            <Action ActionList={ActionList} setOpenModal={setIsOpenModal}/>
             <TableInfo title={"Extrato"} dataCollection={extrato} fieldName={fieldTable} config={config}/>
             
         </section>

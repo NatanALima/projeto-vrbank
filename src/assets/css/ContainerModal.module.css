@@ -10,10 +10,13 @@ div.modalOverlay {
 
 .modalOverlay .modalContainer {
     width: 500px;
+    max-height: 750px;
     height: fit-content;
     background-color: white;
     border-radius: var(--borderRadiusFix);
     padding: 10px 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
 
 }
 
