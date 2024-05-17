@@ -107,7 +107,7 @@ table tbody button {
     font-weight: 500;
     border-radius: 4px;
     box-shadow: var(--shadowBox);
-    transition: .3s ease;
+    transition: .2s ease;
     cursor: pointer;
 }
 
@@ -125,13 +125,11 @@ table tbody button {
     opacity: 0.8;
 }
 
-.tableContent__btns .editBtn {
-    background-color: var(--colorSec);
+.tableContent__btns :is(.acceptBtn, .editBtn) { background-color: var(--colorSec); }
 
-}
+.tableContent__btns .delBtn { background-color: #a40000;}
 
-.tableContent__btns .confirmBtn,
-.tableContent__btns .cancelBtn {
+.tableContent__btns .subBtn {
     background-color: var(--colorBright);
     color: var(--colorSec);
 }

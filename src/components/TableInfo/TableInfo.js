@@ -3,7 +3,8 @@ import styles from '../../assets/css/TableInfo.module.css';
 import TableContent from './TableContent';
 import '../../assets/css/animation.css';
 
-export default function TableInfo({title, hasActionBtn, dataCollection, fieldName, config, setValueState}) {
+export default function TableInfo({title, buttonCollection, dataCollection, fieldName, config, setValueState}) {
+
     const handleEditInput = (e) => {
         const infoId = e.target.closest('tr').id;
         const tempDataCollection = [...dataCollection];
@@ -18,10 +19,10 @@ export default function TableInfo({title, hasActionBtn, dataCollection, fieldNam
             {dataCollection.length > 0 ?
             <table>
                 <thead>                   
-                    <tr className={styles.tableTitle}><th>{title}</th></tr>
+                    {title && <tr className={styles.tableTitle}><th>{title}</th></tr>}
                     <tr>
                         {fieldName.map((value, index) => <th key={index}>{value}</th>)}
-                        {hasActionBtn && <th className={styles.tableContent__actionTitle}>Ações</th>}
+                        {buttonCollection && <th className={styles.tableContent__actionTitle}>Ações</th>}
                     </tr>
                 </thead>
                 <tbody>
@@ -32,7 +33,7 @@ export default function TableInfo({title, hasActionBtn, dataCollection, fieldNam
                         
                         const getValues = Object.entries(objVal);
                         return <tr key={index} id={index}>
-                                    <TableContent styles={styles} hasActionBtn={hasActionBtn} info={getValues} config={config} handleOnChange={handleEditInput} parentIndex={index}/>
+                                    <TableContent styles={styles} buttonCollection={buttonCollection} info={getValues} config={config} handleOnChange={handleEditInput} parentIndex={index}/>
                                </tr>
                     })}
                 </tbody>            
@@ -42,8 +43,8 @@ export default function TableInfo({title, hasActionBtn, dataCollection, fieldNam
 }
 
 TableInfo.propTypes = {
-    hasActionBtn: PropTypes.bool.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    buttonCollection: PropTypes.array,
     dataCollection: PropTypes.array.isRequired,
     fieldName: PropTypes.array.isRequired,
     config: PropTypes.array,
@@ -51,8 +52,8 @@ TableInfo.propTypes = {
 }
 
 TableInfo.defaultProps = {
-    hasActionBtn: false,
-    title: "Título não informado",
+    title: "",
+    buttonCollection: [],
     dataCollection: [],
     fieldName: [],
     config: [],

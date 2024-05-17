@@ -1,11 +1,19 @@
+import { useState } from 'react';
 import styles from '../../assets/css/Salas.module.css';
 import TableInfo from '../TableInfo/TableInfo';
 import Action from '../Action/Action';
-import { CgFolderAdd as AddSala, CgFolderRemove as HideSala} from "react-icons/cg";
-import { useState } from 'react';
+//ícones
+import { CgFolderAdd as AddSala} from "react-icons/cg";
+//ícone de botão
+import {FaTrash as DelIcon} from 'react-icons/fa';
 
 export default function Salas() {
 
+    /* 
+    ====================================
+    Informações da Tabela 
+    ==================================== 
+    */
     // Todos valores passados para a tabela são temporários e foram unicamente utilizados a fim de verificar a estilização, haja vista que esses valores posteriormente serão passados pelo BackEnd
     const [sala, setSala] = useState([{Nome: "CAROLINA DE JESUS",
     Curso: "ADM",
@@ -46,10 +54,16 @@ export default function Salas() {
 ]);
     const fieldNameTable = ["Nome", "Curso", "Ano", "Status"];
 
-    const actionList = [{id: 1, icon: <AddSala/>, text: "Adicionar Sala", placeholder: "ADICIONAR"},
-                        {id: 2, icon: <HideSala/>, text: "Desabilitar Salas", placeholder: "DESABILITAR"}];
+
+    /* 
+    ====================================
+    Informações do card De ação
+    ==================================== 
+    */
+    const actionList = [{id: 1, icon: <AddSala/>, text: "Adicionar Sala", placeholder: "ADICIONAR"}];
 
 
+    //Define uma classe para os status de Ativo e Desabilitado das salas
     const makeSpecialClassCollection = (collection) => {
         let classCollection = []
         collection.map(item => classCollection.push((item.status).toUpperCase() === "ATIVO" ? {classValue: "specialActive", text: item.status} : {classValue: "specialNotActive", text: item.status}))
@@ -57,9 +71,11 @@ export default function Salas() {
     }
 
     const specialClassCollection = makeSpecialClassCollection(sala)
-    console.log(specialClassCollection)
-    console.log(sala);
 
+
+    //Define a coleçao de Botões utilizados na sala;
+    const buttonInfoCollection = [{id: 1, typeButton: "editBtn", handleAction: () => console.log('Adicionando coisas')},
+                                  {id: 2, typeButton: "delBtn", icon: <DelIcon/>, handleAction: () => console.log("Deletando coisas"), classBtn: "delBtn"}];
 
     /** 
         * Propriedades da Configuração
@@ -87,7 +103,7 @@ export default function Salas() {
             <h1>Salas</h1>
             <h2>Ações</h2>
             <Action ActionList={actionList}/>
-            <TableInfo title={"Salas"} hasActionBtn={true} dataCollection={sala} fieldName={fieldNameTable} config={config} setValueState={setSala}/>
+            <TableInfo title={"Salas"} buttonCollection={buttonInfoCollection} dataCollection={sala} fieldName={fieldNameTable} config={config} setValueState={setSala}/>
         </section>
     )
 }

@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types'
-import BtnListEdit from './BtnListEdit';
+import PropTypes from 'prop-types';
+import ButtonTable from '../layout/ButtonTable';
+import ButtonTableEdit from './ButtonTableEdit';
 import { useState } from 'react';
 
 
@@ -15,7 +16,7 @@ import { useState } from 'react';
  
 */
 
-export default function TableContent({styles, hasActionBtn, info, config, handleOnChange, parentIndex}) {
+export default function TableContent({styles, buttonCollection, info, config, handleOnChange, parentIndex}) {
     const [isReadOnly, setisReadOnly] = useState(true);
 
     return(
@@ -32,9 +33,14 @@ export default function TableContent({styles, hasActionBtn, info, config, handle
                     
                 </td>)})}
 
-            {hasActionBtn &&
+            {buttonCollection &&
                 <td className={styles.tableContent__btns}>
-                    <BtnListEdit styles={styles} handleAction={setisReadOnly}/>
+                    {buttonCollection.map(btnInfo => {
+                        if(btnInfo.typeButton === "editBtn") {
+                            return <ButtonTableEdit key={btnInfo.id} handleConfirmEdit={btnInfo.handleAction} setisReadOnly={setisReadOnly}/>
+                        }
+                        return <ButtonTable key={btnInfo.id} icon={btnInfo.icon} handleAction={btnInfo.handleAction} classBtn={btnInfo.classBtn}/>
+                    })}
                 </td>}
         </>
     )
@@ -43,7 +49,7 @@ export default function TableContent({styles, hasActionBtn, info, config, handle
 
 TableContent.propTypes = {
     styles: PropTypes.object,
-    hasActionBtn: PropTypes.bool,
+    buttonCollection: PropTypes.array,
     info: PropTypes.array,
     config: PropTypes.array,
     handleOnChange: PropTypes.func,
@@ -52,7 +58,7 @@ TableContent.propTypes = {
 }
 
 TableContent.defaultProps = {
-    hasActionBtn: false,
+    buttonCollection: [],
     info: [],
     config: [],
     parentIndex: 0
