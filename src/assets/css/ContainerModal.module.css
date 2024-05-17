@@ -9,7 +9,7 @@ div.modalOverlay {
 }
 
 .modalOverlay .modalContainer {
-    width: 500px;
+    min-width: 500px;
     max-height: 750px;
     height: fit-content;
     background-color: white;
