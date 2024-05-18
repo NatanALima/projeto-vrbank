@@ -2,17 +2,19 @@ import PropTypes from 'prop-types';
 import styles from '../../assets/css/TableInfo.module.css';
 import TableContent from './TableContent';
 import '../../assets/css/animation.css';
+import TableUtil from '../../utils/TableUtil';
 
 export default function TableInfo({title, buttonCollection, dataCollection, fieldName, config, setValueState}) {
+    const tableUtil = new TableUtil(dataCollection);
 
-    const handleEditInput = (e) => {
-        const infoId = e.target.closest('tr').id;
-        const tempDataCollection = [...dataCollection];
-        const editDataValue = tempDataCollection[infoId];
-        let newDataValue = {...editDataValue, [e.target.name]: e.target.value};
-        tempDataCollection[infoId] = newDataValue;
-        setValueState(tempDataCollection);
+    const handleEditInput = (inputRef) => {
+        tableUtil.setIdData(inputRef);
+        tableUtil.setInputEdit(inputRef);
+        tableUtil.editValueTable();
+        setValueState(tableUtil.getDataCollection());
+
     }
+
     
     return (
         <div className={`${styles.tableContainer} fadeIn`}>
