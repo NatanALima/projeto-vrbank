@@ -33,7 +33,7 @@ export default function TableContent({styles, buttonCollection, info, config, ha
                     
                 </td>)})}
 
-            {buttonCollection &&
+            {buttonCollection.length > 0 &&
                 <td className={styles.tableContent__btns}>
                     {buttonCollection.map(btnInfo => {
                         if(btnInfo.typeButton === "editBtn") {

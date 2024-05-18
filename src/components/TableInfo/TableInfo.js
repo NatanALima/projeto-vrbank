@@ -24,7 +24,7 @@ export default function TableInfo({title, buttonCollection, dataCollection, fiel
                     {title && <tr className={styles.tableTitle}><th>{title}</th></tr>}
                     <tr>
                         {fieldName.map((value, index) => <th key={index}>{value}</th>)}
-                        {buttonCollection && <th className={styles.tableContent__actionTitle}>Ações</th>}
+                        {buttonCollection.length > 0 && <th className={styles.tableContent__actionTitle}>Ações</th>}
                     </tr>
                 </thead>
                 <tbody>
