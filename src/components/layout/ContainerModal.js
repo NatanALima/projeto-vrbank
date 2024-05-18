@@ -1,3 +1,4 @@
+import ModalAddSala from '../Modal/ModalAddSala';
 import ModalCedulas from '../Modal/ModalCedulas';
 import ModalDespesas from '../Modal/ModalDespesas';
 import ModalSaldo from '../Modal/ModalSaldo';
@@ -10,10 +11,10 @@ export default function ContainerModal({modalRequestName, setCancel}) {
     const modalCollection = [{modalName: "cedulas", modalTitle: "Cédulas", modalContent: <ModalCedulas/>},
                              {modalName: "despesas", modalTitle: "Despesas", modalContent: <ModalDespesas/>},
                              {modalName: "saldo", modalTitle: "Adicionar Fundos", modalContent: <ModalSaldo setCancel={setCancel}/>},
-                             {modalName: "disableSala", modalTitle: "Desabilitar Salas"}]
+                             {modalName: "addSala", modalTitle: "Adicionar Sala", modalContent: <ModalAddSala/>}]
                              
 
-    const modalSelected = modalCollection.filter(info => info.modalName === modalRequestName)[0]; 
+    const modalSelected = modalCollection.filter(info => info.modalName === modalRequestName)[0];
 
 
     return(

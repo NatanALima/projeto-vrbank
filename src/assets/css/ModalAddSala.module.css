@@ -1,0 +1,62 @@
+form.modalAddSala__container {
+    margin: 20px 0;
+}
+
+form.modalAddSala__container .modalAddSala__containerRadio h4 {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--colorSec);
+
+}
+
+form.modalAddSala__container .modalAddSala__radioCollection {
+    margin: 5px 0 0; 
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+form.modalAddSala__container .btnCollection {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btnCollection button {
+    padding: 10px;
+    background-color: var(--colorSec); 
+    font-size: 1.3em;
+    transition: .2s ease;
+}
+
+.btnCollection span { display: flex; align-items: center; }
+
+.btnCollection span#btnCollection__text { margin-right: 5px; }
+.btnCollection span#btnCollection__icon { margin-top: 2px; }
+
+.btnCollection button:hover {
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+}
+
+.btnCollection button:hover span#btnCollection__icon {
+    animation: addAnimate .6s ease forwards;
+
+}
+
+
+@keyframes addAnimate {
+    from {
+        transform: rotate(0deg);
+        color: white;
+    }
+    to {
+        transform: rotate(90deg) scale(1.1);
+        color: var(--colorSec);
+    }
+}

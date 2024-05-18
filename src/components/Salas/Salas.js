@@ -2,12 +2,15 @@ import { useState } from 'react';
 import styles from '../../assets/css/Salas.module.css';
 import TableInfo from '../TableInfo/TableInfo';
 import Action from '../Action/Action';
+import ContainerModal from '../layout/ContainerModal';
 //ícones
 import { CgFolderAdd as AddSala} from "react-icons/cg";
 //ícone de botão
 import {FaTrash as DelIcon} from 'react-icons/fa';
 
 export default function Salas() {
+    const [isOpenModal, setIsOpenModal] = useState(false);
+    const [modalName, setModalName] = useState("");
 
     /* 
     ====================================
@@ -60,7 +63,7 @@ export default function Salas() {
     Informações do card De ação
     ==================================== 
     */
-    const actionList = [{id: 1, icon: <AddSala/>, text: "Adicionar Sala", placeholder: "ADICIONAR"}];
+    const actionList = [{id: 1, icon: <AddSala/>, text: "Adicionar Sala", placeholder: "ADICIONAR", nomeModal: "addSala"}];
 
 
     //Define uma classe para os status de Ativo e Desabilitado das salas
@@ -100,9 +103,10 @@ export default function Salas() {
 
     return(
         <section className={styles.salas}>
+            {isOpenModal && <ContainerModal modalRequestName={modalName} setCancel={setIsOpenModal}/>}
             <h1>Salas</h1>
             <h2>Ações</h2>
-            <Action ActionList={actionList}/>
+            <Action ActionList={actionList} setOpenModal={setIsOpenModal} setModalName={setModalName}/>
             <TableInfo title={"Salas"} buttonCollection={buttonInfoCollection} dataCollection={sala} fieldName={fieldNameTable} config={config} setValueState={setSala}/>
         </section>
     )
