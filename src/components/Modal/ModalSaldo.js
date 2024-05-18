@@ -1,5 +1,5 @@
 import InputModal from "../layout/InputModal";
-import styles from "../../assets/css/modalSaldo.module.css";
+import styles from "../../assets/css/ModalSaldo.module.css";
 import {FaMoneyBills as IconContent} from 'react-icons/fa6';
 
 export default function ModalSaldo({setCancel}) {

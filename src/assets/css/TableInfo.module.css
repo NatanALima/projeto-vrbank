@@ -121,18 +121,6 @@ table tbody button {
     margin: 0 5px;
 }
 
-.tableContent__btns button:hover {
-    opacity: 0.8;
-}
-
-.tableContent__btns :is(.acceptBtn, .editBtn) { background-color: var(--colorSec); }
-
-.tableContent__btns .delBtn { background-color: #a40000;}
-
-.tableContent__btns .subBtn {
-    background-color: var(--colorBright);
-    color: var(--colorSec);
-}
 
 
 

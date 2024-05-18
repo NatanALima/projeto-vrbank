@@ -73,6 +73,10 @@
 
 }
 
+.modalBanco__contentInfo__btnCollection .btnCollection__cancelBtn {
+    color: var(--colorInactive);
+}
+
 .modalBanco__contentInfo__btnCollection .btnCollection__addBtn {
     background-color: var(--colorSec);
     color: var(--colorPrim);
@@ -85,6 +89,6 @@
 
 }
 .btnCollection__cancelBtn:hover {
-    color: var(--colorInactive);
+    color: white;
 }
 
