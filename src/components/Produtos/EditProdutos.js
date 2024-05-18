@@ -36,11 +36,14 @@ export default function EditProdutos({styles, infoBoxExtra}) {
                     {type:"number", isEdit: true}, 
                     {isEdit: false, isClassUnique: true}];
 
+    //Coleção de Botões
+    const btnCollection = [{id: 1, typeButton: "editBtn", handleAction: () => console.log('Atualizando Produtos')}];
+
     return (
         <>
             <h1>Edição de Produtos</h1>
             <InfoExtra infoBoxExtra={infoBoxExtra}/>
-            <TableInfo title="Produtos" hasActionBtn={true} dataCollection={produtos} fieldName={fieldNameTable} config={config} setValueState={setProdutos}/>
+            <TableInfo title="Produtos" buttonCollection={btnCollection} dataCollection={produtos} fieldName={fieldNameTable} config={config} setValueState={setProdutos}/>
             
         </>
     )

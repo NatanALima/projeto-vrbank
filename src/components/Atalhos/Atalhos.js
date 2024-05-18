@@ -7,7 +7,7 @@ import styles from '../../assets/css/Atalhos.module.css';
 export default function Atalhos() {
     const shortCutInfo = [{icon: <IconPrice className={styles.atalhoIcon}/>, redirect: '/editprods', text: "Consultar Tabela de Preços"},
                           {icon: <IconSala className={styles.atalhoIcon}/>, redirect: '/salas', text: "Consultar Salas"},
-                          {icon: <IconExtrato className={styles.atalhoIcon}/>, redirect: '/extrato', text: "Consultar Extrato"}];
+                          {icon: <IconExtrato className={styles.atalhoIcon}/>, redirect: '/banco', text: "Consultar Extrato"}];
 
 
     return (

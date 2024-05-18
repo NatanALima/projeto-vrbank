@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TableInfo from "../TableInfo/TableInfo";
+import { FaCheck as IconAccept } from "react-icons/fa";
 
 export default function ModalDespesas() {
     const [despesas, setDespesas] = useState([{
@@ -17,11 +18,15 @@ export default function ModalDespesas() {
         dataDespesa: "20/04/2024"
     }])
 
+    //Coleção de Botão(ões)
+    const btnCollection = [{id: 1, typeButton: "acceptBtn", icon: <IconAccept/>, handleAction: () => console.log('Pagando as contas'), classBtn: "acceptBtn"}];
+
+
     const fieldTable = ["Descrição", "Credor", "sala", "Valor", "Data"];
     const config = [{isEdit: false, isClassUnique: true}, {isEdit: false, isClassUnique: true}, {isEdit: false, isClassUnique: true},
                     {isEdit: false, isClassUnique: true}, {isEdit: false, isClassUnique: true}];
 
     return(
-        <TableInfo dataCollection={despesas} fieldName={fieldTable} config={config}/>
+        <TableInfo buttonCollection={btnCollection} dataCollection={despesas} fieldName={fieldTable} config={config}/>
     )
 }
