@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from '../../../assets/css/FormCadastro.module.css';
 import '../../../assets/css/animation.css';
+import InputRadio from "../../layout/InputRadio";
 import SelectSala from './SelectSala';
 import ProductBox from './ProductBox';
 
@@ -91,21 +92,9 @@ export default function FormCadastro() {
                 <div className={styles.optionContainer}>
                     <h4 className={styles.optionTitle}>Ano</h4>
                     <div className={styles.optionCollection}>
-                        <div className={styles.optionCollection__content}>
-                            <input type="radio" name="aluno_sala" id="primeiroAno" value={"1-Ano"}/>
-                            <span className={styles.customRadio}></span>
-                            <label htmlFor="primeiroAno">1º Ano</label>
-                        </div>
-                        <div className={styles.optionCollection__content}>
-                            <input type="radio" name="aluno_sala" id="segundoAno" value={"2-Ano"}/>
-                            <span className={styles.customRadio}></span>
-                            <label htmlFor="segundoAno">2º Ano</label>
-                        </div>
-                        <div className={styles.optionCollection__content}>
-                            <input type="radio" name="aluno_sala" id="terceiroAno" value={"3-Ano"}/>
-                            <span className={styles.customRadio}></span>
-                            <label htmlFor="terceiroAno">3º Ano</label>
-                        </div>
+                        <InputRadio name={"aluno_sala"} id={"primeiroAno"} value={"1-Ano"} textView={"1º Ano"}/>
+                        <InputRadio name={"aluno_sala"} id={"segundoAno"} value={"2-Ano"} textView={"2º Ano"}/>
+                        <InputRadio name={"aluno_sala"} id={"terceiroAno"} value={"3-Ano"} textView={"3º Ano"}/>
                     </div>
                 </div>
                 <div className={styles.inputContainer}>

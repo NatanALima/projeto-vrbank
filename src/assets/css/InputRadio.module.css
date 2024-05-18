@@ -1,0 +1,65 @@
+.optionContent {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--colorPrim);
+    padding: 8px 10px;
+    border-radius: var(--borderRadiusFix);
+    transition: .2s ease;
+    cursor: pointer;
+    font-family: var(--fontSec);
+
+}
+
+.optionContent:hover {
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+}
+
+:is(.optionContent, .optionContent label) {cursor: pointer;}
+
+.optionContent input { display: none; }
+
+.optionContent label::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    
+}
+
+
+.optionContent:not(:last-child) { margin-right: 15px; }
+
+.optionContent .customRadio {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 50px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.optionContent .customRadio::before {
+    content: '';
+    position: absolute;
+    width: calc(25px - 10px);
+    height: calc(25px - 10px);
+    border-radius: var(--borderRadiusFix);
+    transition: .2s ease;
+
+}
+
+.optionContent input:checked + .customRadio::before {
+    background-color: var(--colorSec);
+}
+
+.optionContent:has(input:checked) {
+    background-color: var(--colorSec);
+    color: white;
+
+}

@@ -139,8 +139,7 @@ form fieldset .optionCollection {
 
 fieldset .optionCollection .optionCollection__content input {display: none;}
 
-fieldset#clientContainer .optionCollection__content label:hover,
-fieldset#salaContainer .optionCollection__content:hover {
+fieldset#clientContainer .optionCollection__content label:hover {
     background-color: var(--colorBright);
     color: var(--colorSec);
 
@@ -180,80 +179,6 @@ fieldset#clientContainer .optionCollection__content input:checked + label {
 
 }
 
-/* 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Estilização da Coleção de Informações da Sala
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*/
-fieldset#salaContainer .optionCollection__content {
-    display: flex;
-    align-items: center;
-    background-color: var(--colorPrim);
-    padding: 8px 10px;
-    border-radius: var(--borderRadiusFix);
-    transition: .2s ease;
-    cursor: pointer;
-    
-}
-
-fieldset#salaContainer .optionCollection__content,
-fieldset#salaContainer .optionCollection__content label {
-    cursor: pointer;
-
-}
-
-/* 
-    Permite que o Label o clique do LABEL seja válido em qualquer local do .optionCollection__content
-    -> Adiciona uma "camada" invisível sobre todo o conteúdo;
-    -> Confesso... É um espécie de gambiarra XD
-*/
-fieldset#salaContainer .optionCollection__content {
-    position: relative;   
-}
-fieldset#salaContainer .optionCollection__content label::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    
-}
-
-
-
-fieldset#salaContainer .optionCollection__content:not(:last-child) { margin-right: 15px; }
-
-fieldset#salaContainer .optionCollection__content .customRadio {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-    border-radius: 50px;
-    background-color: white;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Criação da "Bolinha" interna do Radio */
-fieldset#salaContainer .optionCollection__content .customRadio::before {
-    content: '';
-    position: absolute;
-    width: calc(25px - 10px);
-    height: calc(25px - 10px);
-    border-radius: var(--borderRadiusFix);
-    transition: .2s ease;
-}
-
-fieldset#salaContainer .optionCollection__content input:checked + .customRadio::before {
-    background-color: var(--colorSec);
-
-}
-
-fieldset#salaContainer .optionCollection__content:has(input:checked) {
-    background-color: var(--colorSec);
-    color: white;
-
-}
 
 /* 
 ================================================================
