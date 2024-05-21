@@ -1,6 +1,5 @@
-.backgContent {
+.contentContainer {
     display: flex;
-    background-color: var(--colorPrim);
 }
 
 

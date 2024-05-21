@@ -1,0 +1,282 @@
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Centralização de Formulário
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.contentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Container de Formulário Azul (base para o conteúdo)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+section.formContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: var(--widthFixFormContainer);
+    height: 350px;
+    background-color: var(--colorSec);
+    border-radius: var(--borderRadiusFix);
+    color: white;
+    transition: .3s ease;
+
+}
+
+/* 
+~~~~~~~~~~~~~~~~~~~~
+Configurações gerais
+~~~~~~~~~~~~~~~~~~~~
+*/
+
+section.formContainer button {
+    font-size: 1.3em;
+    min-width: 120px;
+    min-height: 50px;
+}
+
+section.formContainer :is(.formContent__formInfo, .formContent__otherInfo) {
+    width: var(--widthFixFormContent);
+    transition: .8s ease;
+
+}
+
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização Destinada ao Formulário de preenchimento (parte BRANCA)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
+
+section.formContainer .formContent__formInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+    padding: 15px 30px;
+    background-color: white;
+    color: black;
+    box-shadow: 6px 9px 14px 8px #3131310a;
+    border-radius: var(--borderRadiusFix);
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.formContent__formInfo form h1 {
+    text-align: center;
+    font-size: 2em;
+    color: var(--colorSec);
+}
+
+.formContent__formInfo .formInfo__specialInput {
+    position: relative;
+    
+}
+
+
+.formInfo__specialInput .specialInput__msg {
+    position: absolute;
+    bottom: -25%;
+    font-size: 12px;
+    color: var(--colorSec);
+    opacity: 0;
+    transition: .1s ease;
+    user-select: none;
+
+}
+
+.formInfo__specialInput:has(input:is(:active, :valid, :focus)) .specialInput__msg {
+    opacity: 1;
+}
+
+
+.formContent__formInfo form button {
+    margin: 2.5em auto;
+    background-color: var(--colorSec);
+
+}
+
+.formContent__formInfo form button:hover {
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+}
+
+/* 
+================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização Destinada ao conteúdo da parte AZUL que contém:
+-> Icone;
+-> Button para alteração do tipo de formulário + texto 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================================
+*/
+
+
+.formContent__otherInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.formContent__otherInfo img.otherInfo__logo {
+    width: 150px;
+}
+
+.formContent__otherInfo p.otherInfo__text {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.formContent__otherInfo button.otherInfo__btnFormChange {
+    margin-top: 1em;
+    background-color: white;
+    color: var(--colorSec);
+    font-size: 1.2em;
+    font-weight: 600;
+    box-shadow: none;
+
+}
+
+button.otherInfo__btnFormChange:hover {
+    outline: 1px solid white;
+    background-color: var(--colorSec);
+    color: white;
+    opacity: 1;
+
+}
+
+
+/* 
+================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização destinada à mudança de formulário
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================================
+*/
+
+.formContent__formInfo__register {
+    transform: translateX(100%);
+}
+
+.formContent__otherInfo__register {
+    transform: translateX(-100%);
+
+}
+
+
+.fadeChangeLeft {
+    animation: fadeChangeLeft .7s ease normal;
+}
+
+.fadeChangeRight {
+    animation: fadeChangeRight .7s ease normal;
+}
+
+
+/* 
+================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                          Animações
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================================
+*/
+
+@keyframes fadeChangeLeft {
+    from {
+        opacity: 0;
+        transform: translate(50%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes fadeChangeRight {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+
+/* 
+================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        Responsividade
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+================================================================
+*/
+
+@media only screen and (max-width: 800px) {
+
+    section.formContainer {
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        
+    }
+
+
+    section.formContainer .formContent__formInfo {
+        width: 100%;
+        height: 500px;
+    }
+
+    .formContent__formInfo form button {
+        margin: 1em auto;
+    }
+
+    section.formContainer .formContent__otherInfo {
+        margin: 15px 0;
+        display: grid;
+        justify-items: center;
+        grid-template: 1fr 1fr / 1fr 1fr;
+
+    }
+
+    section.formContainer .formContent__otherInfo img.otherInfo__logo {
+        width: 100px;
+        grid-row: span 2;
+        grid-column: 1;
+    }
+
+    .formContent__otherInfo p.otherInfo__text {
+        font-size: 1.2em;
+        grid-column: 2;
+        grid-row: 1;
+        margin: 0 20px;
+
+    }
+
+    .formContent__otherInfo button.otherInfo__btnFormChange {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 1em;
+    }
+
+    .formContent__formInfo__register {
+        transform: translateX(0);
+    }
+
+    .formContent__otherInfo__register {
+        transform: translatex(0);
+    }
+}

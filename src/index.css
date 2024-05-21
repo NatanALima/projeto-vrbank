@@ -9,7 +9,7 @@
 
 body {
     font-family: var(--fontPrim);
-
+    background-color: var(--colorPrim);
 }
 
 a {

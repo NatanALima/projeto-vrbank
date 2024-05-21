@@ -31,6 +31,10 @@
   /* Variáveis para o Banco */
   --marginSaldo: 3em;
 
+  /* Variáveis para o Form de Login e Cadastro */
+  --widthFixFormContainer: 800px;
+  --widthFixFormContent: calc(var(--widthFixFormContainer)/2);
+
   /* Variáveis para o responsivo */
   --fontSizeContentResp: 1.65em;
   --fontSizeNavResp: 18px;

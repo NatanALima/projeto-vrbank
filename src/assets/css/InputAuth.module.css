@@ -1,0 +1,25 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 2em 0;
+}
+
+.inputContainer label {
+    color: var(--colorSec);
+    font-weight: bold;
+}
+
+.inputContainer input {
+    font-family: var(--fontSec);
+    font-size: 16px;
+    padding: 10px;
+    outline: none;
+    border: 2px solid var(--colorBright);
+    border-radius: var(--borderRadiusFix);
+    transition: .2s ease;
+}
+
+.inputContainer input:is(:active, :focus, :valid) {
+    border: 2px solid var(--colorSec);
+}
