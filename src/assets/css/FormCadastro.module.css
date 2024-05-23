@@ -235,3 +235,40 @@ form .btnContainer button:hover {
     color: var(--colorSec);
     transform: translateY(-5%);
 }
+
+@media only screen and (max-width: 575px) {
+
+    fieldset#clientContainer .optionCollection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+
+    fieldset#clientContainer .optionCollection__content {
+        font-size: 15px;
+        margin: 20px 10px;
+        text-align: center;
+
+    }
+
+    fieldset#clientContainer .optionCollection__content:not(:last-child) {
+        border: none;
+    }
+
+    fieldset#clientContainer .optionCollection__content label {
+        border-radius: var(--borderRadiusFix);
+    }
+
+    fieldset#salaContainer .optionCollection {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    fieldset#salaContainer .optionCollection > div {
+        margin: 15px 0;
+        width: 100%;
+    }
+
+}

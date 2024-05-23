@@ -38,7 +38,8 @@
   /* Variáveis para o responsivo */
   --fontSizeContentResp: 1.65em;
   --fontSizeNavResp: 18px;
-  --widthNavResp: 250px;
+  --widthNavResp: 240px;
+  --marginSaldoResp: 0.5em;
 
 
 }

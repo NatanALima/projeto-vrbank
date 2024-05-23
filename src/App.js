@@ -7,7 +7,7 @@ import Salas from './components/Salas/Salas';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { useState } from 'react';
 function App() {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
   
   return (
     <>

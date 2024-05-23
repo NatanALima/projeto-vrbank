@@ -122,6 +122,14 @@ table tbody button {
 }
 
 
+@media only screen and (max-width: 1399px) {
+    .tableContainer {
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+}
+
+
 
 
 

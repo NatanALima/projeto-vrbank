@@ -11,12 +11,12 @@ header.navContainer {
 
 }
 
-.navContent1__logo {
+.navContent__logo {
     display: flex;
     justify-content: center;
 }
 
-.navContent1__logo img{
+.navContent__logo img{
     margin: 2em 0;
     width: 200px;
     height: 200px;
@@ -25,18 +25,18 @@ header.navContainer {
 
 }
 
-.navContent1__logo img:hover {
+.navContent__logo img:hover {
     filter: drop-shadow(5px 2px 2px #000a4eb2);
     transform: translateY(-5px);
 
 }
 
-.navContent1__navList ul {
+.navContent__info ul {
     padding-right: 15px;
 
 }
 
-.navContent1__navList ul li{
+.navContent__info ul li{
     position: relative;
     font-size: var(--fontSizeNav);
     padding: 10px 20px;
@@ -49,7 +49,7 @@ header.navContainer {
 
 
 /* Animação no fundo */
-.navContent1__navList ul li::before {
+.navContent__info ul li::before {
     content: '';
     display: block;
     position: absolute;
@@ -61,18 +61,18 @@ header.navContainer {
     
 }
 
-.navContent1__navList ul li:has(.active)::before {
+.navContent__info ul li:has(.active)::before {
     background-color: white;
 }
 
-.navContent1__navList ul li:not(:has(.active))::before {
+.navContent__info ul li:not(:has(.active))::before {
     transform: scaleX(0);
     transform-origin: left;
 
 }
 
 
-.navContent1__navList ul li:hover::before {
+.navContent__info ul li:hover::before {
     transform: scaleX(1);
     transform-origin: left;
 
@@ -81,7 +81,7 @@ header.navContainer {
 
 
 
-.navContent1__navList ul li a{
+.navContent__info ul li a{
     color: white;
     display: flex;
     align-items: center;
@@ -89,28 +89,200 @@ header.navContainer {
 
 }
 
-.navContent1__navList ul li a.active {
+.navContent__info ul li a.active {
     color: var(--colorSec);
 }
 
-.navContent1__navList ul li a .iconList {
+.navContent__info ul li a .iconList {
     margin-right: 20px;
     font-size: 1.5em;
 }
 
 
-@media only screen and (max-width: 800px) {
-    header {
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização da área de Informações de Login
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
+.navContent__info .navContent__info__login {
+    text-align: center;
+    background-color: white;
+    color: black;
+    margin-top: 5em;
+    padding: 10px 20px;
+
+}
+
+.navContent__info__login p.info__login__user {
+    margin: 5px 0;
+    font-weight: bold;
+
+}
+
+p.info__login__user span {
+    font-family: var(--fontSec);
+    font-weight: 400;
+
+}
+
+.navContent__info__login button.info__login__btn {
+    margin: auto;
+    background-color: var(--colorSec);
+    padding: 5px 25px;
+}
+
+
+.navContent__menuBtn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    font-size: 2.5em;
+    padding: 0;
+    border-radius: 50px;
+    box-shadow: none;
+    transition: .15s ease;
+    cursor: pointer;
+    
+}
+
+.menuBtn__icon {
+    margin: 10px;
+}
+
+.navContent__menuBtn:hover {
+    background-color: white;
+    color: var(--colorSec);
+    opacity: 1;
+}
+
+
+
+@media only screen and (max-width: 1399px) {
+    header.navContainer {
         width: var(--widthNavResp);
     }
 
-    .navContent1__logo img {
+    .navContent__logo img {
         width: 150px;
         height: 150px;
     }
-    .navContent1__navList ul li {
+    .navContent__info ul li {
         font-size: var(--fontSizeNavResp);
 
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    header.navContainer {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 10px 20px;
+        border-radius: 0 0 var(--borderRadiusFix) var(--borderRadiusFix);
+    }
+
+    .navContent__logo {
+        align-items: center;
+    }
+    
+    .navContent__logo img{
+        width: 120px;
+        height: 120px;
+        margin: 0;
+        
+    }
+
+    .navContent__info {
+        display: flex;
+        align-items: center;
+    }
+
+    .navContent__info ul {
+        display: flex;
+        padding: 0;
+
+    }
+
+    .navContent__info ul li {
+        padding: 10px;
+        margin: 15px 10px;
+        font-size: 16px;
+    }
+
+    .navContent__info ul li::before {
+        border-radius: var(--borderRadiusFix);
+    }
+
+    .navContent__info ul li:not(:has(.active))::before {
+        transform: scaleX(0);
+        transform-origin: top;
+    
+    }
+
+    .navContent__info ul li:hover::before {
+        transform: scaleX(1);
+        transform-origin: top;
+    
+    }
+
+    .navContent__info .navContent__info__login {
+        margin: 0;
+        padding: 10px;
+        border-radius: var(--borderRadiusFix);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    header.navContainer {
+        position: relative;
+    }
+
+    .navContent__info {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        top: 130px;
+        background: var(--colorGradient);
+        height: calc(100vh - 130px);
+        transform: translateX(-100%);
+        transition: .3s ease;
+        z-index: 3;
+
+    }
+
+    .navContent__info__active {
+        transform: translateX(0);
+    }
+
+    .navContent__info ul {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .navContent__info ul li {
+        margin: 1em 0;
+        font-size: 2em;
+    }
+
+    .navContent__menuBtn {
+        display: flex;
+    }
+
+}
+
+@media only screen and (max-width: 575px) {
+    .navContent__info ul li {
+        margin: 1em 0;
+        font-size: 1.5em;
     }
 }
 

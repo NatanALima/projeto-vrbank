@@ -118,3 +118,83 @@ section.produtos .mainContent {
         grid-template-columns: 55vw 1fr;
     }
 }
+
+@media only screen and (max-width: 1199px) {
+    section.produtos .mainContent {
+        /* Linha / Coluna */
+        grid-template: auto 1fr/ 1fr 1fr;
+    }
+
+    .mainContent .formMain {
+        grid-row: 1;
+        grid-column: span 2;
+    }
+
+    .mainContent .calendar {
+        grid-area: 2 / 1;
+
+    }
+
+    .mainContent .quickShortCut {
+        grid-area: 2 / 2;
+    }
+    
+}
+
+@media only screen and (max-width: 991px) {
+    nav.navProd {
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    section.produtos .mainContent {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+
+    nav.navProd {
+        height: fit-content;
+        align-items: start;
+    }
+
+    nav.navProd ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav.navProd ul li {
+        width: 200px;
+        height: 30px;
+        align-items: center;
+    }
+
+    nav.navProd ul li:last-child {
+        margin-top: 3px;
+    }
+
+    nav.navProd ul li a {
+        font-size: 18px;
+    }
+
+    nav.navProd .navProd__activeContainer {
+        width: 200px;
+        height: 32px;
+        margin: 0;
+
+    }
+
+    nav.navProd ul:has(li:first-child a.active) ~ .navProd__activeContainer {
+        transform: translateY(0);
+    
+    }
+
+    nav.navProd ul:has(li:last-child a.active) ~ .navProd__activeContainer {
+        transform: translateY(100%);
+    
+    }
+
+}

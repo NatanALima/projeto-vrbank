@@ -173,3 +173,35 @@ Animação de arrows para o componente Saldo
 
 
 }
+
+@media only screen and (max-width: 575px) {
+    section.banco h2 {
+        text-align: center;
+    }
+
+    .saldoInfo__container {
+        padding: 10px var(--marginSaldoResp);
+
+    }
+
+    .saldoInfo__container .saldoInfo__content::before,
+    .saldoInfo__container .saldoInfo__content::after {
+        width: var(--marginSaldoResp);
+    }
+
+    .saldoInfo__container .saldoInfo__content:first-child {
+        margin-right: var(--marginSaldoResp);
+    
+    }
+    .saldoInfo__container .saldoInfo__content:nth-child(3) {
+        margin-left: var(--marginSaldoResp);
+    }
+
+    .saldoInfo__container .saldoInfo__content h3 {
+        font-size: 15px;
+    }
+
+    .saldoInfo__container .saldoInfo__content p {
+        font-size: 20px;
+    }
+}

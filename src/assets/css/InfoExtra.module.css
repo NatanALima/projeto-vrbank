@@ -101,9 +101,39 @@ Fim Título Content
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1199px) {
+    .infoExtra {
+        display: grid;
+        padding: var(--marginContent);
+        justify-items: center;
+        grid-template: 1fr 1fr / 1fr 1fr;
+        gap: calc(var(--marginContent) * 2);
+
+    }
+
     .infoExtra .infoExtra__content {
-        margin: 1em;
+        margin: 0;
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .infoExtra {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        
+    }
+
+    .infoExtra .infoExtra__content {
+        margin: var(--marginContent);
         width: 100%;
+        text-align: center;
+    }
+
+    .infoExtra .infoExtra__content .content__title {
+        display: block;
     }
 }
