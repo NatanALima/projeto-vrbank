@@ -1,6 +1,11 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const ExtratoSchema = new mongoose.Schema({
+const ExtratoSchema = new Schema({
+    user_id: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    },
     tipo: {
         type: String,
         required: true,
@@ -15,5 +20,5 @@ const ExtratoSchema = new mongoose.Schema({
     }
 })
 
-const Extrato = mongoose.model("Extrato", ExtratoSchema);
-module.exports = Extrato;
+const Extrato = model("Extrato", ExtratoSchema);
+export default Extrato;

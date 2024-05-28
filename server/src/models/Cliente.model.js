@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const ClienteSchema = new mongoose.Schema({
+const ClienteSchema = new Schema({
     nome: {
         type: String,
         required: true
@@ -10,7 +10,7 @@ const ClienteSchema = new mongoose.Schema({
         required: true
     },
     sala: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "Sala",
         required: false
     },
@@ -20,5 +20,5 @@ const ClienteSchema = new mongoose.Schema({
     }
 })
 
-const Cliente = mongoose.model("Cliente", ClienteSchema);
-module.exports = Cliente;
+const Cliente = model("Cliente", ClienteSchema);
+export default Cliente;

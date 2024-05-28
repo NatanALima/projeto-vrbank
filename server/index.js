@@ -1,11 +1,11 @@
-const express = require("express");
+import express, { json } from "express";
 
-const conn = require('./src/database/connect')
+import conn from './src/database/connect';
 const app = express();
 const port = 8080;
 
 
 conn();
 
-app.use(express.json());
+app.use(json());
 app.listen(port, () => console.log("rodando"));

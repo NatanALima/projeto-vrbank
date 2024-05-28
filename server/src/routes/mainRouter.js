@@ -1,7 +1,7 @@
-const express = require('express');
-const userRouter = require('./userRouter');
+import { Router } from 'express';
+import userRouter from './userRouter';
 
-const router = express.Router();
+const router = Router();
 
 router.use("/user", userRouter);
 router.use("/cliente");
