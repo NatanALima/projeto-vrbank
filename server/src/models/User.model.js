@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose';
 import { hash } from 'bcrypt';
-import dateNowTz from '../utils/dateUtil.js';
 
 const UserSchema = new Schema({
     userName: {
@@ -14,7 +13,7 @@ const UserSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: dateNowTz
+        default: Date.now()
     }
 
 })

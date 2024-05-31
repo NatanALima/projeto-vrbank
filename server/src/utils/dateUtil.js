@@ -1,5 +1,8 @@
 import moment from 'moment-timezone';
 
-const currDate = moment.tz("America/Sao_Paulo");
+const currDate = (date) => {
+    const tzDate = moment.tz(date, "America/Sao_Paulo").format();
+    return tzDate
+}
 
-export default currDate.format();
+export default currDate;
