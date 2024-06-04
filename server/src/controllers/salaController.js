@@ -26,8 +26,10 @@ async function createSala(req, res) {
 
 async function updateByIdSala(req, res) {
     try {
-        const updatedSala = await salaService.updateByIdSalaService(req.query);
-        res.status(201).json(updatedSala);
+        const idSala = req.query.idSala;
+
+        const updatedSala = await salaService.updateByIdSalaService(idSala, req.body);
+        res.status(200).json(updatedSala);
 
     } catch(err) {
         res.status(500).send(err.message);
@@ -37,9 +39,9 @@ async function updateByIdSala(req, res) {
 async function updateActiveStatusSala(req, res) {
     try {
         const idSala = req.query.id;
-        const activeStatus = req.query.is_active;
-        const updatedSala = await salaService.updateActiveStatusSalaService(idSala, activeStatus);
-        res.status(201).json(updatedSala);
+        const activeStatus = req.body.is_active;
+        const updatedSala = await salaService.updateByIdSalaService(idSala, {is_active: activeStatus});
+        res.status(200).json(updatedSala);
         
     } catch(err) {
         res.status(500).send(err.message);

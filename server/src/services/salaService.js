@@ -12,17 +12,12 @@ async function createSalaService(salaInfo) {
 
 }
 
-async function updateByIdSalaService(salaInfo) {
+async function updateByIdSalaService(idSala, salaInfo) {
     salaInfo.modifiedAt = Date.now();
-    const idSala = salaInfo.id;
     const res = await Sala.findByIdAndUpdate(idSala, salaInfo, {new: true});
     return res;
 
 }
 
-async function updateActiveStatusSalaService(idSala, activeStatus) {
-    const res = await Sala.findByIdAndUpdate(idSala, activeStatus, {new: true});
-    return res;
-}
 
-export default {getAllSalasService, createSalaService, updateByIdSalaService, updateActiveStatusSalaService};
+export default {getAllSalasService, createSalaService, updateByIdSalaService};
