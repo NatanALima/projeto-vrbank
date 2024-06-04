@@ -13,7 +13,7 @@ const ProdutosInfoSchema = new Schema({
         type: Number,
         required: true
     },
-    total: {
+    subtotal: {
         type: Number,
         required: true,
     }
@@ -22,19 +22,38 @@ const ProdutosInfoSchema = new Schema({
 
 
 const ProdutosSchema = new Schema({
-    user_id: {
+    registered_by: {
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true
     }, 
-    nome_cliente: {
-        type: Schema.Types.ObjectId,
-        required: true
+    cliente: {
+        nome: {
+            type: String,
+            required: true
+        },
+        categoria: {
+            type: String,
+            required: true
+        },
+        sala: {
+            type: Schema.Types.ObjectId,
+            ref: "Sala",
+            required: false
+        }
     },
     produtos: [ProdutosInfoSchema],
+    total: {
+        type: Number,
+        required: true
+    },
     data_aquisicao: {
         type: Date,
         default: Date.now()
+    },
+    data_edicao: {
+        type: Date,
+        required: false
     }
 })
 
