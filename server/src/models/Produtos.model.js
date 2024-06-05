@@ -47,6 +47,10 @@ const ProdutosSchema = new Schema({
         type: Number,
         required: true
     },
+    status_pagamento: {
+        type: String,
+        required: true
+    },
     data_aquisicao: {
         type: Date,
         default: Date.now()

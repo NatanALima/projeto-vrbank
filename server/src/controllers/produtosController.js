@@ -1,5 +1,4 @@
 import produtosService from '../services/produtosService.js';
-import bancoService from '../services/bancoService.js';
 import {calculateAndSetValues, isNewValueDifferent} from '../utils/prodUtil.js';
 
 async function getAllProds(req, res) {
@@ -44,6 +43,19 @@ async function updateProd(req, res) {
     }
 }
 
+async function updatePaymentStatus(req, res) {
+    try {
+        const idProd = req.query.idProd;
+        const newStatus = {status_pagamento: "Pago"}
+
+        const updatedProd = await produtosService.updateByIdProdService(idProd, newStatus);
+        res.status(200).json(updatedProd);
+        
+    } catch(err) {
+        res.status(500).send(err.message);
+    }
+}
+
  
-export default {getAllProds, createProds, updateProd}
+export default {getAllProds, createProds, updateProd, updatePaymentStatus}
 

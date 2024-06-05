@@ -15,4 +15,8 @@ router
     .route("/update")
     .patch(produtosController.updateProd)
 
+router
+    .route("/updatePay")
+    .patch(produtosController.updatePaymentStatus)
+
 export default router;
