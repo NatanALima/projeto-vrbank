@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 const ExtratoSchema = new Schema({
-    user_id: {
+    user_ref: {
         type: Schema.Types.ObjectId,
         ref: "User",
         required: true
