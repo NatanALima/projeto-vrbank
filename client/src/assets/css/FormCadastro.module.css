@@ -22,11 +22,11 @@ form fieldset {
 }
 
 /* Altera a cor da borda do FIELDSET quando houver qualquer interação com os inputs internos */
-form fieldset:has(.inputContainer :is(input, select):is(:active, :focus, :valid), .optionCollection__content input:checked) {
+form fieldset:has(.inputContainer :is(input, select):is(:active, :focus, :valid), .optionCollection input:checked) {
     border-color: var(--colorSec);
 }
 
-form fieldset#salaContainer {
+form fieldset:not(:first-child) {
     margin: 3em 0;
 }
 

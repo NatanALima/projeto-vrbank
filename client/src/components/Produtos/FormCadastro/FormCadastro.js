@@ -87,6 +87,16 @@ export default function FormCadastro() {
                     </div>
                 </div>
             </fieldset>
+            <fieldset>
+                <legend>Forma de Pagamento</legend>
+                <div className={styles.optionContainer}>
+                    <div className={styles.optionCollection}>
+                        <InputRadio name={"tipo_pagamento"} id={"payNow"} value={"payNow"} textView={"Pagar agora"}/>
+                        <InputRadio name={"tipo_pagamento"} id={"payLater"} value={"payLater"} textView={"Pagar Depois"}/>
+                    </div>
+                </div>
+                
+            </fieldset>
             <fieldset id={styles.salaContainer}>
                 <legend>Informações da Sala</legend>
                 <div className={styles.optionContainer}>
