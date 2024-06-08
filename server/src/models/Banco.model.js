@@ -1,5 +1,4 @@
 import { Schema, model } from 'mongoose';
-import dateNowTz from '../utils/dateUtil.js';
 const BancoSchema = new Schema({
     user_ref: {
         type: Schema.Types.ObjectId,
@@ -16,7 +15,7 @@ const BancoSchema = new Schema({
     },
     modifiedAt: {
         type: Date,
-        default: dateNowTz
+        default: Date.now()
     }
 
 })
