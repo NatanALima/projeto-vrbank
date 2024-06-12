@@ -1,7 +1,32 @@
 @import url(./var.css);
 
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        Container da Tabela
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
+
 .tableContainer {
     margin: var(--marginContent);
+}
+
+.tableContainer:not(:last-child) {
+    margin-bottom: 3em;
+}
+
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                          Estilização geral
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
+
+.tableContainer :is(.generalInfo__container, .splitContainer, .generalInfo__content) {
+    display: flex;
+    align-items: center;
 }
 
 table, td {
@@ -19,24 +44,106 @@ table {
     overflow: hidden;
 }
 
-table thead tr:not(.tableTitle) {
+table thead tr:not(.tableHeader, .tableTitle) {
     color: black;
     text-align: left;
     background-color: #f9f9f9;
 
 }
 
-table tbody td {
-    min-width: 200px;
-    border: none;
-    border-bottom: 1px solid #ececec3b;
-    table-layout: auto;
-    font-family: var(--fontSec);
+
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização do Header (contém informações de cliente, pagamento...)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
+
+.tableHeader {
+    background-color: var(--colorSec);
+    font-size: 17px;
 }
 
-table tbody tr:nth-child(even) {
-    background-color: #fdfdfd;
+.generalInfo__container { justify-content: space-between; }
+
+:is(.generalInfo__container, .splitContainer) { gap: 2em; }
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização de Content (texto, subtítulos...)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.generalInfo__content {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
 }
+
+.generalInfo__content span{
+    font-family: var(--fontPrim);
+    font-weight: 600;
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+.generalInfo__content p {
+    font-family: var(--fontSec);
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+}
+
+.infoProd__status p{
+    padding: 5px 15px;
+    font-weight: 500;
+    color: white;
+    background-color: var(--colorSaldoPos);
+    border-radius: var(--borderRadiusFix);
+}
+
+.generalInfo__container .payBtn {
+    padding: 15px 25px;
+    background-color: var(--colorSec);
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+.generalInfo__container .payBtn:hover {
+    outline: 1px solid var(--colorSec);
+    background-color: white;
+    color: var(--colorSec);
+    opacity: 1;
+}
+
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização de situação de Pagamento "Não Pago"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+.notPaid { background-color: var(--colorBright); }
+
+.notPaid .generalInfo__content span {
+    font-weight: 700;
+    color: var(--colorSec);
+    border-bottom: 2px solid var(--colorSec);
+}
+
+.notPaid .generalInfo__content p { color: black; }
+
+.notPaid .infoProd__status p { background-color: var(--colorSaldoNeg); color: white;}
+
+
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Estilização dos campos das informações
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
 
 table thead tr.tableTitle th {
     text-align: left;
@@ -53,6 +160,26 @@ table thead tr th.tableContent__actionTitle {
 table th, table td {
     padding: 10px 15px;
 
+}
+
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    Estilização de Registros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
+
+table tbody td {
+    min-width: 200px;
+    border: none;
+    border-bottom: 1px solid #ececec3b;
+    table-layout: auto;
+    font-family: var(--fontSec);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #fdfdfd;
 }
 
 table tbody td input {
@@ -77,21 +204,21 @@ table tbody td input:read-only {
 
 
 /* 
-===========================================
-Informações de Tabela não editáveis
-===========================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Informações de Tabela não editáveis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 table tbody td p { font-weight: 500; }
 
-table tbody td p:is(.specialActive, .specialNotActive) {
+table td p:is(.specialActive, .specialNotActive) {
     width: fit-content;
     padding: 5px 10px;
     border-radius: var(--borderRadiusFix);
 
 }
 
-table tbody td p.specialActive { background-color: var(--colorBright); }
-table tbody td p.specialNotActive { background-color: rgb(253, 127, 127, 0.5); }
+table td p.specialActive { background-color: var(--colorBright); }
+table td p.specialNotActive { background-color: rgb(253, 127, 127, 0.5); }
 
 
 
