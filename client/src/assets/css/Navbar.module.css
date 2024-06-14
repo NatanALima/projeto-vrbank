@@ -107,30 +107,65 @@ Estilização da área de Informações de Login
 ===================================================================
 */
 .navContent__info .navContent__info__login {
-    text-align: center;
-    background-color: white;
-    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     margin-top: 5em;
     padding: 10px 20px;
+    text-align: center;
+    color: white;
 
 }
 
-.navContent__info__login p.info__login__user {
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     Informações de Login (ícone e UserName)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.info__login__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info__login__user .login__user__icon {
+    color: var(--colorSec);
+    font-size: 2.5em;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50px;
+
+}
+
+.info__login__user p.login__user__name {
     margin: 5px 0;
-    font-weight: bold;
-
-}
-
-p.info__login__user span {
+    font-weight: 500;
     font-family: var(--fontSec);
-    font-weight: 400;
-
 }
+
+/* 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                Botão de Logout
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
 
 .navContent__info__login button.info__login__btn {
     margin: auto;
-    background-color: var(--colorSec);
-    padding: 5px 25px;
+    padding: 8px 25px;
+    background-color: white;
+    color: var(--colorSec);
+    font-weight: bold;
+    box-shadow: none;
+    gap: 5px;
+}
+
+.navContent__info__login button.info__login__btn 
+.login__btn__icon {
+    font-size: 20px;
 }
 
 
@@ -200,6 +235,7 @@ p.info__login__user span {
     .navContent__info {
         display: flex;
         align-items: center;
+        gap: 25px;
     }
 
     .navContent__info ul {
@@ -231,10 +267,16 @@ p.info__login__user span {
     }
 
     .navContent__info .navContent__info__login {
+        display: block;
         margin: 0;
         padding: 10px;
         border-radius: var(--borderRadiusFix);
     }
+
+    .info__login__user { display: block; }
+
+    .info__login__user p.login__user__name { margin-bottom: 10px; }
+    
 }
 
 @media only screen and (max-width: 767px) {
@@ -271,6 +313,31 @@ p.info__login__user span {
     .navContent__info ul li {
         margin: 1em 0;
         font-size: 2em;
+    }
+
+    .navContent__info .navContent__info__login {
+        background-color: white;
+        color: var(--colorSec);
+        padding: 10px 20px;
+        font-size: 1.3em;
+    }
+
+    .info__login__user .login__user__icon {
+        background-color: var(--colorSec);
+        color: white;
+    }
+
+    .info__login__user p.login__user__name { color: black; }
+
+    .navContent__info__login button.info__login__btn {
+        padding: 15px 30px;
+        background-color: var(--colorSec);
+        color: white;
+    }
+
+    .navContent__info__login button.info__login__btn 
+    .login__btn__icon {
+        font-size: 25px;
     }
 
     .navContent__menuBtn {

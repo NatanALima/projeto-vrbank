@@ -12,6 +12,10 @@ import {MdGroups} from 'react-icons/md';
 //navBarMenu Responsive 
 import { HiMenu as IconMenu} from "react-icons/hi";
 import { useState } from "react";
+//Ícone de Usuário
+import { FaUser as IconUser} from "react-icons/fa";
+//Ícone de Logout
+import { TbLogout as IconLogout} from "react-icons/tb";
 
 
 
@@ -31,8 +35,14 @@ export default function Navbar() {
             <section className={`${styles.navContent__info} ${isActiveMenu ? styles.navContent__info__active : ""}`}>
                 <Navlist listContent={listContent} styles={styles}/>
                 <div className={styles.navContent__info__login}>
-                    <p className={styles.info__login__user}>Usuário: <span>user@VR2022</span></p>
-                    <button className={styles.info__login__btn}>Sair</button>
+                    <div className={styles.info__login__user}>
+                        <IconUser className={styles.login__user__icon}/>
+                        <p className={styles.login__user__name}>user@VR2022</p>
+                    </div>
+                    <button className={styles.info__login__btn}>
+                        <IconLogout className={styles.login__btn__icon}/>
+                        Sair
+                    </button>
                 </div>
             </section>
             <button className={styles.navContent__menuBtn} onClick={() => setIsActiveMenu(prevValue => !prevValue)}>

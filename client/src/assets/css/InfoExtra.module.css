@@ -79,25 +79,26 @@ Fim Título Content
 }
 
 .infoExtra__content .content__infoDinamic {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 500px;
     align-items: normal;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 600;
+    animation: autoScrollText 10s alternate linear infinite;
 }
 
-.infoExtra__content .content__infoDinamic p {
-    white-space: nowrap;
-    animation: autoScrollText 13s alternate linear infinite;
-
-}
+.infoExtra__content .content__infoDinamic p { white-space: nowrap; }
 
 @keyframes autoScrollText {
     from {
-        transform: translateX(-100%);
+        transform: translateX(-115%);
 
     }
 
     to {
-        transform: translateX(100%);
+        transform: translateX(85%);
     }
 }
 
