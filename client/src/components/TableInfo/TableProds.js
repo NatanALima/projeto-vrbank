@@ -57,6 +57,13 @@ export default function TableProds({fieldName, dataInfo}) {
                         )
                     })}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>
+                            <p>Total: <span className={styles.moneyText}>ETC$</span>{dataInfo.total}</p>
+                        </th>
+                    </tr>
+                </tfoot>
             </table>
         </div>
     )

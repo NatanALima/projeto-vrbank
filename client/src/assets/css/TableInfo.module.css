@@ -208,10 +208,10 @@ table tbody td input:read-only {
         Informações de Tabela não editáveis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
-table tbody td p { font-weight: 500; }
 
 table td p:is(.specialActive, .specialNotActive) {
     width: fit-content;
+    font-weight: 500;
     padding: 5px 10px;
     border-radius: var(--borderRadiusFix);
 
@@ -247,6 +247,29 @@ table tbody button {
     padding: 10px;
     margin: 0 5px;
 }
+
+
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Estilização do Tfooter (localização do Valor TOTAL)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
+table tfoot th {
+    text-align: left;
+    font-size: 1.3em;
+}
+
+table tfoot th p {
+    width: fit-content;
+    padding: 5px;
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+    border-radius: var(--borderRadiusFix);
+}
+
+table tfoot th p span.moneyText { font-size: 18px; }
 
 
 @media only screen and (max-width: 1399px) {
