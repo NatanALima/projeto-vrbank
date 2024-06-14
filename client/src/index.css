@@ -12,11 +12,9 @@ body {
     background-color: var(--colorPrim);
 }
 
-a {
-    text-decoration: none;
-}
+body:has(.activeModal) { overflow-y: hidden; }
 
-ul li {
-    list-style: none;
-}
+a { text-decoration: none; }
+
+ul li { list-style: none; }
 

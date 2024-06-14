@@ -19,7 +19,7 @@ export default function ContainerModal({modalRequestName, setCancel}) {
 
     return(
         <div className={styles.modalOverlay}>
-            <section className={`${styles.modalContainer} fadeIn`}>
+            <section className={`${styles.modalContainer} fadeIn ${modalSelected && "activeModal"}`}>
                 {modalSelected ? 
                     <>
                         <span className={styles.modalInfo__main}>

@@ -13,3 +13,11 @@
     transform: translateY(-5%);
     box-shadow: 0px 6px 8px 5px var(--shadowColor);
 }
+
+@media only screen and (max-width: 575px) {
+    .modalCedulas__content {margin: 5px 15px;}
+
+    .modalCedulas__content img {
+        width: 200px;
+    }
+}

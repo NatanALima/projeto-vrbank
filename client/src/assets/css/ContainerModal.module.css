@@ -57,4 +57,13 @@ div.modalOverlay {
 }
 
 
+@media only screen and (max-width: 575px) {
+    .modalOverlay .modalContainer {
+        min-width: auto;
+        min-height: auto;
+        margin: 10px;
+    }
+}
+
+
 
