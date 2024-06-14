@@ -4,16 +4,12 @@ export default function Navlist({listContent, styles}) {
 
     //Validação que permite que tanto o link de navegação "FILHO" quanto o Link de navegação "PAI" permaneçam ativos
     const styleValidation = (isActive, linkContent) => {
-        let isValidActive; 
         const subNav = linkContent.subNav;
         if((subNav && subNav.includes(location.pathname)) || isActive) {      
-            isValidActive = true;
+            return true
         
-        } else {
-            isValidActive = false;
-
-        }
-        return isValidActive;
+        } 
+        return false;
     }
 
     return(

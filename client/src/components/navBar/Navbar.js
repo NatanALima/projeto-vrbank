@@ -9,8 +9,6 @@ import {LiaBoxSolid} from 'react-icons/lia';
 import {LiaFileInvoiceDollarSolid} from 'react-icons/lia';
 //Salas
 import {MdGroups} from 'react-icons/md';
-// Exit Button
-import { IoExitOutline as IconExit} from "react-icons/io5";
 //navBarMenu Responsive 
 import { HiMenu as IconMenu} from "react-icons/hi";
 import { useState } from "react";
