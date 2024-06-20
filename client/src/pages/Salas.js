@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styles from '../../assets/css/Salas.module.css';
-import TableInfo from '../TableInfo/TableInfo';
-import Action from '../Action/Action';
-import ContainerModal from '../layout/ContainerModal';
+import styles from '../assets/css/Salas.module.css';
+import TableInfo from '../components/TableInfo/TableInfo';
+import Action from '../components/Action/Action';
+import ContainerModal from '../components/layout/ContainerModal';
 //ícones
 import { CgFolderAdd as AddSala} from "react-icons/cg";
 //ícone de botão

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styles from '../../assets/css/Autenticacao.module.css';
-import logoBank from "../../assets/media/logoVRBankFigma.svg";
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
+import styles from '../assets/css/Autenticacao.module.css';
+import logoBank from "../assets/media/logoVRBankFigma.svg";
+import LoginForm from '../components/Autenticacao/LoginForm';
+import RegisterForm from '../components/Autenticacao/RegisterForm';
 
 export default function Autenticacao() {
     const [isRegister, setIsRegister] = useState(false);

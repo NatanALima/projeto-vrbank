@@ -1,9 +1,9 @@
-import styles from '../../assets/css/Banco.module.css';
-import '../../assets/css/animation.css';
-import SaldoInfo from './SaldoInfo';
-import Action from '../Action/Action';
-import TableInfo from '../TableInfo/TableInfo';
-import ContainerModal from "../layout/ContainerModal";
+import styles from '../assets/css/Banco.module.css';
+import '../assets/css/animation.css';
+import SaldoInfo from '../components/Banco/SaldoInfo';
+import Action from '../components/Action/Action';
+import TableInfo from '../components/TableInfo/TableInfo';
+import ContainerModal from "../components/layout/ContainerModal";
 import { LuWallet as InsIcon } from "react-icons/lu";
 import { GiPayMoney as ViewIcon} from "react-icons/gi";
 import { PiMoneyDuotone as PaperIcon} from "react-icons/pi";
