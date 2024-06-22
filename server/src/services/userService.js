@@ -1,7 +1,13 @@
 import User from '../models/User.model.js';
 
-async function getAllUsersServiece() {
+async function getAllUsersService() {
     const res = await User.find({});
+    return res;
+
+}
+
+async function getOneUserServiceByName(userNameInfo) {
+    const res = await User.findOne({userName: userNameInfo})
     return res;
 }
 
@@ -10,4 +16,4 @@ async function createUserService(userInfo) {
     return res;
 }
 
-export default {getAllUsersServiece, createUserService};
+export default {getAllUsersService, getOneUserServiceByName, createUserService};
