@@ -1,8 +1,10 @@
 import { useState } from "react";
 import InfoExtra from "../InfosExtra/InfoExtra";
 import TableProds from "../TableInfo/TableProds";
+import { useOutletContext } from "react-router-dom";
 
-export default function EditProdutos({styles, infoBoxExtra}) {
+export default function EditProdutos() {
+    const {styles, infoBoxExtra} = useOutletContext();
 
     const [produtos, setProdutos] = useState([{
         "cliente": {

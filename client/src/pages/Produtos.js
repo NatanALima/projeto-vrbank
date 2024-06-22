@@ -1,8 +1,6 @@
-import { Routes, Route} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import styles from '../assets/css/Produtos.module.css';
 import NavProd from '../components/Produtos/NavProd';
-import CadProdutos from '../components/Produtos/CadProdutos';
-import EditProdutos from '../components/Produtos/EditProdutos';
 
 //Importação dos icones
 //Icones do infoExtra;
@@ -19,11 +17,7 @@ export default function Produtos() {
         <>
             <NavProd styles={styles}/>
             <section className={styles.produtos}>
-                <Routes>
-                    <Route index element={<CadProdutos styles={styles} infoBoxExtra={infoBoxExtra}/>}/>
-                    <Route path='editprods' element={<EditProdutos styles={styles} infoBoxExtra={infoBoxExtra}/>}/>
-                </Routes>
-            
+                <Outlet context={{styles, infoBoxExtra}}/>
             </section>
         </>
     )

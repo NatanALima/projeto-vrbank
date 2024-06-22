@@ -3,8 +3,10 @@ import FormCadastro from "./FormCadastro/FormCadastro";
 import ContainerContent from "../layout/ContainerContent";
 import Calendario from "../Calendario/Calendario";
 import Atalhos from "../Atalhos/Atalhos";
+import { useOutletContext } from "react-router-dom";
 
-export default function CadProdutos({styles, infoBoxExtra}) {
+export default function CadProdutos() {
+    const {styles, infoBoxExtra} = useOutletContext();
 
     return(
         <>  
