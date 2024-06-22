@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 const AuthContext = createContext();
 
 export default function AuthProvider({children}) {
-    const [user, setUser] = useState(Cookies.get('userInfo'));
+    const [user, setUser] = useState(Cookies.get('userInfo') && JSON.parse(Cookies.get('userInfo')));
 
     const authValueMemo = useMemo(() => ({user, setUser}), [user]);
 

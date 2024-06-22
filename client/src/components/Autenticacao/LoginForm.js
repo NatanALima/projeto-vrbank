@@ -16,15 +16,16 @@ export default function LoginForm({styles}) {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault();
-            const res = await loginService({userName: userName, password: userPass});
+            const userUpper = userName.toUpperCase();
+            const res = await loginService({userName: userUpper, password: userPass});
 
             showSweetSuccessModal("Tudo certo!", "Usuário Logado!");
             //Se uma tentativa de login anterior tiver falhado, ocultará este erro;
             invalidInfo && setInvalidInfo(undefined);
-            
+
             const info = JSON.stringify(res.data);
             Cookies.set("userInfo", info, {expires: 1});
-            setUser(info);
+            setUser(res.data);
 
             navigate("/");
 
