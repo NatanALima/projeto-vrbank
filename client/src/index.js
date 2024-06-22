@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import AuthProvider from './Context/AuthContext';
+// Páginas
 import Produtos from './pages/Produtos';
 import CadProdutos from './components/Produtos/CadProdutos';
 import EditProdutos from './components/Produtos/EditProdutos';
@@ -49,7 +51,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <AuthProvider>
+      <RouterProvider router={router}/>
+    </AuthProvider>
   </React.StrictMode>
 );
 
