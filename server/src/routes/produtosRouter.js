@@ -8,6 +8,10 @@ router
     .get(produtosController.getAllProds)
 
 router
+    .route("/find")
+    .get(produtosController.getProdByUser)
+
+router
     .route("/create")
     .post(produtosController.createProds)
 

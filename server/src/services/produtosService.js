@@ -7,6 +7,11 @@ async function getAllProdsService() {
     return res;
 }
 
+async function getProdByUserService(userId) {
+    const res = await Produtos.find({registered_by: userId});
+    return res;
+}
+
 async function getProdById(idProd) {
     const res = await Produtos.findById(idProd)
                               .populate("registered_by")
@@ -27,4 +32,4 @@ async function updateByIdProdService(idProd, prodInfo) {
 
 }
 
-export default {getAllProdsService, getProdById, createProdService, updateByIdProdService};
+export default {getAllProdsService, getProdByUserService, getProdById, createProdService, updateByIdProdService};

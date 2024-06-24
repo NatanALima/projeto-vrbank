@@ -13,6 +13,18 @@ async function getAllProds(req, res) {
 
 }
 
+async function getProdByUser(req, res) {
+    try {
+        const idUser = req.query.idUser;
+        const prodByUser = await produtosService.getProdByUserService(idUser);
+
+        prodByUser.length > 0 ? res.status(200).json(prodByUser) : res.status(200).json({});
+        
+    } catch(err) {
+        res.status(500).send(err.message);
+    }
+}
+
 async function createProds(req, res) {
     try {
         req.body.registered_by = req.query.idUser;
@@ -57,5 +69,5 @@ async function updatePaymentStatus(req, res) {
 }
 
  
-export default {getAllProds, createProds, updateProd, updatePaymentStatus}
+export default {getAllProds, getProdByUser, createProds, updateProd, updatePaymentStatus}
 
