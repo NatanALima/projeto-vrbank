@@ -43,7 +43,11 @@ const ProdutosSchema = new Schema({
         }
     },
     produtos: [ProdutosInfoSchema],
-    total: {
+    total_qtdProdutos: {
+        type: Number,
+        required: true
+    },
+    total_valor: {
         type: Number,
         required: true
     },
