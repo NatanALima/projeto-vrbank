@@ -16,15 +16,27 @@ import { useState } from "react";
 import { FaUser as IconUser} from "react-icons/fa";
 //Ícone de Logout
 import { TbLogout as IconLogout} from "react-icons/tb";
+import { useAuth } from "../../Context/AuthContext";
+import Cookies from 'js-cookie';
+import { logoutService } from "../../services/user.service";
 
 
 
 export default function Navbar() {
+    const {user, setUser} = useAuth();
+
+    const {userName} = user;
+
     const listContent = [{title: "Produtos", path:"/", subNav:["/", "/editprods"], icon:<LiaBoxSolid className={styles.iconList}/>},
                         {title: "Banco", path:"/banco", icon:<LiaFileInvoiceDollarSolid className={styles.iconList}/>},
                         {title: "Salas", path:"/salas", icon:<MdGroups className={styles.iconList}/>}];
 
     const [isActiveMenu, setIsActiveMenu] = useState(false);
+
+    const handleClickLogout = () => {
+        logoutService();
+        setUser(null);
+    }
     
     return(
         
@@ -37,9 +49,9 @@ export default function Navbar() {
                 <div className={styles.navContent__info__login}>
                     <div className={styles.info__login__user}>
                         <IconUser className={styles.login__user__icon}/>
-                        <p className={styles.login__user__name}>user@VR2022</p>
+                        <p className={styles.login__user__name}>{userName}</p>
                     </div>
-                    <button className={styles.info__login__btn}>
+                    <button className={styles.info__login__btn} onClick={handleClickLogout}>
                         <IconLogout className={styles.login__btn__icon}/>
                         Sair
                     </button>
