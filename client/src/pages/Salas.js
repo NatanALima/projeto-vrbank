@@ -103,7 +103,7 @@ export default function Salas() {
 
     return(
         <section className={styles.salas}>
-            {isOpenModal && <ContainerModal modalRequestName={modalName} setCancel={setIsOpenModal}/>}
+            {isOpenModal && <ContainerModal modalRequestName={modalName} setIsOpen={setIsOpenModal}/>}
             <h1>Salas</h1>
             <h2>Ações</h2>
             <Action ActionList={actionList} setOpenModal={setIsOpenModal} setModalName={setModalName}/>

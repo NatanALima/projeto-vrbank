@@ -7,10 +7,10 @@ import '../../assets/css/animation.css';
 import { IoClose as IconClose} from "react-icons/io5";
 
 
-export default function ContainerModal({modalRequestName, setCancel}) {
+export default function ContainerModal({modalRequestName, setIsOpen, setValue}) {
     const modalCollection = [{modalName: "cedulas", modalTitle: "Cédulas", modalContent: <ModalCedulas/>},
                              {modalName: "despesas", modalTitle: "Despesas", modalContent: <ModalDespesas/>},
-                             {modalName: "saldo", modalTitle: "Adicionar Fundos", modalContent: <ModalSaldo setCancel={setCancel}/>},
+                             {modalName: "saldo", modalTitle: "Adicionar Fundos", modalContent: <ModalSaldo setIsOpen={setIsOpen} setValue={setValue}/>},
                              {modalName: "addSala", modalTitle: "Adicionar Sala", modalContent: <ModalAddSala/>}]
                              
 
@@ -24,7 +24,7 @@ export default function ContainerModal({modalRequestName, setCancel}) {
                     <>
                         <span className={styles.modalInfo__main}>
                             <h1>{modalSelected.modalTitle}</h1>
-                            <IconClose className={styles.closeIcon} onClick={() => setCancel(false)}/>
+                            <IconClose className={styles.closeIcon} onClick={() => setIsOpen(false)}/>
                         </span>
                         <hr />
                         {modalSelected.modalContent}
