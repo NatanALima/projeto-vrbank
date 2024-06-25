@@ -7,11 +7,34 @@ import NavProd from '../components/Produtos/NavProd';
 import {TbPigMoney} from 'react-icons/tb';
 import {PiHandCoinsDuotone} from 'react-icons/pi';
 import {BsHandbag, BsBoxSeam} from 'react-icons/bs'
+import { useEffect, useState } from 'react';
+import { getBancoInfoService } from '../services/banco.service';
+import { showSweetErrorModal } from '../models/SweetModal';
 
 export default function Produtos() {
-    const infoBoxExtra = [{id: 1, IconBox: TbPigMoney, infoBox: "2500", titleBox: "Saldo Disponível", classInfo: "content__infoStatic", isMoney: true, moneyStatus: "positive"},
+    const [saldoBanco, setSaldoBanco] = useState();
+    const [dividaBanco, setDividaBanco] = useState();
+
+    
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const res = await getBancoInfoService();
+                const {saldo_atual, divida_atual} = res.data;
+                setSaldoBanco(saldo_atual);
+                setDividaBanco(divida_atual);
+            } catch (err) {
+                console.log(err.message);
+            }
+    
+        })()
+
+    }, [])
+
+    const infoBoxExtra = [{id: 1, IconBox: TbPigMoney, infoBox: saldoBanco, titleBox: "Saldo Disponível", classInfo: "content__infoStatic", isMoney: true, moneyStatus: "positive"},
                           {id: 2, IconBox: BsHandbag, infoBox: "Maçã", titleBox: "Últimos Produtos adquiridos", classInfo: "content__infoDinamic", isMoney: false},
-                          {id: 3, IconBox: PiHandCoinsDuotone, infoBox: "1500", titleBox: "Valor de Despesa", classInfo: "content__infoStatic", isMoney: true, moneyStatus: "negative"},
+                          {id: 3, IconBox: PiHandCoinsDuotone, infoBox: dividaBanco, titleBox: "Valor de Despesa", classInfo: "content__infoStatic", isMoney: true, moneyStatus: "negative"},
                           {id: 4, IconBox: BsBoxSeam, infoBox: "40", titleBox: "Total de Produtos Recebidos", classInfo: "content__infoStatic", isMoney: false}];
     return(
         <>

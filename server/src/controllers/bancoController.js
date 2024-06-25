@@ -1,4 +1,5 @@
 import bancoService from "../services/bancoService.js";
+import errorMessage from "../helper/errorMessageHelper.js";
 
 async function getAllInfo(req, res) {
     try {
@@ -31,16 +32,17 @@ async function getInfoByUser(req, res) {
 
 async function addSaldo(req, res) {
     try {
+        
         const idUser = req.query.idUser;
         const bancoInfo = await bancoService.getInfoByUserService(idUser);
         const saldoAtual = Number(bancoInfo.saldo_atual);
-        const newSaldo = Number(saldoAtual + req.body.valor);
+        const newSaldo = saldoAtual + Number(req.body.valor);
 
         const addedSaldo = await bancoService.updateBancoService(idUser, {saldo_atual: newSaldo});
         res.status(200).json(addedSaldo);
     
     } catch(err) {
-        res.status(500).send(err.message);
+        res.status(500).json(errorMessage(err.message));
         
     }
 }
@@ -62,7 +64,7 @@ async function removeSaldo(req, res) {
         res.status(200).json(removedSaldo);
         
     } catch(err) {
-        res.status(500).send(err.message);
+        res.status(500).json(errorMessage(err.message));
 
     }
 
