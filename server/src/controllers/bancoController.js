@@ -50,10 +50,10 @@ async function addSaldo(req, res) {
 async function removeSaldo(req, res) {
     try {
         const idUser = req.query.idUser;
-        const valorRemove = req.body.valor;
+        const valorRemove = Number(req.body.valor);
         const bancoInfo = await bancoService.getInfoByUserService(idUser);
         const saldoAtual = Number(bancoInfo.saldo_atual);
-        const newSaldo = Number(saldoAtual - valorRemove);
+        const newSaldo = saldoAtual - valorRemove;
 
         if(newSaldo < 0)
             throw new Error("Saldo insuficiente");
@@ -84,13 +84,13 @@ async function addDivida(req, res) {
         const idUser = req.query.idUser;
         const bancoInfo = await bancoService.getInfoByUserService(idUser);
         const dividaAtual = Number(bancoInfo.divida_atual);
-        const newDivida = Number(dividaAtual + req.body.valor);
+        const newDivida = dividaAtual + Number(req.body.valor);
 
         const addedDivida = await bancoService.updateBancoService(idUser, {divida_atual: newDivida});
         res.status(200).json(addedDivida);
 
     } catch(err) {
-        res.status(500).send(err.message);
+        res.status(500).send(errorMessage(err.message));
 
     }
 }
