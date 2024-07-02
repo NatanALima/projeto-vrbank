@@ -57,6 +57,15 @@ form .inputContainer label {
 
 }
 
+form .inputContainer__fixed label {
+    margin: 0 !important;
+    top: -2px !important;
+    transform: translateY(0) !important;
+    color: var(--colorSec) !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
+}
+
 form .inputContainer select+label {
     opacity: 0;
 }
@@ -85,6 +94,8 @@ form .inputContainer select {color: var(--colorInactive);}
 form .inputContainer select:focus {color: rgb(245, 245, 245);}
 
 form .inputContainer select option:not(:first-child) {color: black; }
+
+form .inputContainer select:valid {color: black;}
 
 /* Ativa label de Inputs ao interagir com o mesmo */
 form .inputContainer :is(input, select):is(:active, :focus, :valid) ~ label {

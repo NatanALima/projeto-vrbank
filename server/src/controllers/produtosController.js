@@ -28,8 +28,7 @@ async function getProdByUser(req, res) {
 async function createProds(req, res) {
     try {
         req.body.registered_by = req.query.idUser;
-        const newProdCollection = calculateAndSetValues(req.body);
-        const createdProd = await produtosService.createProdService(newProdCollection);
+        const createdProd = await produtosService.createProdService(req.body);
         res.status(201).json(createdProd);
 
 

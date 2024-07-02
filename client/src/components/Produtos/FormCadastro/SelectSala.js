@@ -1,14 +1,11 @@
-export default function SelectSala({salas}) {
+export default function SelectSala({salas, setInfo}) {
     return(
-        <select name="opsala" defaultValue="" required>
+        <select name="opsala" defaultValue="" required onChange={e => setInfo(e.target.value, "sala")}>
             <option value="" disabled>Selecione a Sala</option>
-            {salas.map((sala, index) => {
-                //Removendo acentos
-                let NormaValueSala = sala.nome.normalize("NFD");
-                //Adicionando underline
-                let valueSala = NormaValueSala.replace(/ /g, "_");
+            {salas.length > 0 && salas.map((sala) => {
+
                 return(
-                    <option value={valueSala} key={index}>{sala.nome} - {sala.ano}º{sala.curso}</option>
+                    <option value={sala._id} key={sala._id}>{sala.ano_sala}º {sala.curso_sigla} - {sala.nome} </option>
                 )
             })}
         </select>   
