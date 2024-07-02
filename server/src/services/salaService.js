@@ -1,9 +1,14 @@
 import Sala from '../models/Sala.model.js';
 
 async function getAllSalasService() {
-    const res = await Sala.find({});
+    const res = await Sala.find({}).sort({ano_sala: 1, curso_sigla: 1});
     return res;
 
+}
+
+async function getSalasByAnoService(anoInfo) {
+    const res = await Sala.find({ano_sala: anoInfo}).sort({curso_sigla: 1});
+    return res;
 }
 
 async function createSalaService(salaInfo) {
@@ -20,4 +25,4 @@ async function updateByIdSalaService(idSala, salaInfo) {
 }
 
 
-export default {getAllSalasService, createSalaService, updateByIdSalaService};
+export default {getAllSalasService, getSalasByAnoService, createSalaService, updateByIdSalaService};

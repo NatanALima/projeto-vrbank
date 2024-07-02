@@ -13,6 +13,18 @@ async function getAllSalas(req, res) {
 
 }
 
+async function getSalasByAno(req, res) {
+    try {
+        const {anoSala} = req.query; 
+        const filteredSalas = await salaService.getSalasByAnoService(Number(anoSala));
+
+        filteredSalas.length > 0 ? res.status(200).json(filteredSalas) : res.status(200).json([]);
+
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+}
+
 async function createSala(req, res) {
     try {
         const createdSala = await salaService.createSalaService(req.body);
@@ -48,4 +60,4 @@ async function updateActiveStatusSala(req, res) {
     }
 }
 
-export default {getAllSalas, createSala, updateByIdSala, updateActiveStatusSala};
+export default {getAllSalas, getSalasByAno, createSala, updateByIdSala, updateActiveStatusSala};

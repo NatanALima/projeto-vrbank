@@ -9,6 +9,10 @@ router
     .patch(salaController.updateByIdSala);
 
 router
+    .route("/filter")
+    .get(salaController.getSalasByAno)
+
+router
     .route("/create")
     .post(salaController.createSala)
 

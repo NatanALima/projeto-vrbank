@@ -9,6 +9,10 @@ const SalaSchema = new Schema({
         type: String,
         required: true
     },
+    ano_sala: {
+        type: Number,
+        required: true
+    },
     ano_inicio: {
         type: Number,
         required: true
