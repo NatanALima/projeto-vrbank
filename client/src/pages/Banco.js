@@ -7,14 +7,13 @@ import ContainerModal from "../components/layout/ContainerModal";
 import { LuWallet as InsIcon } from "react-icons/lu";
 import { GiPayMoney as ViewIcon} from "react-icons/gi";
 import { PiMoneyDuotone as PaperIcon} from "react-icons/pi";
-import { useEffect, useState } from 'react';
-import { getBancoInfoService } from '../services/banco.service';
+import { useState } from 'react';
+import { useBanco } from '../Context/BancoContext';
 
 
 export default function Banco() {
     //Informações de Banco
-    const [saldoBanco, setSaldoBanco] = useState();
-    const [dividaBanco, setDividaBanco] = useState();
+    const { saldo, divida, setSaldo } = useBanco();
 
     const [isOpenModal, setIsOpenModal] = useState(false);
     const [modalName, setModalName] = useState("");
@@ -46,27 +45,13 @@ export default function Banco() {
                         {id: 2, icon: <ViewIcon/>, text: "Consultar Despesas", placeholder: "DESPESAS", nomeModal: "despesas"},
                         {id: 3, icon: <PaperIcon/>, text: "Visualizar Cédulas", placeholder: "CÉDULAS", nomeModal: "cedulas"}];
 
-    
-    useEffect(() => {
-        (async () => {
-            try {
-                const res = await getBancoInfoService();
-                const {saldo_atual, divida_atual} = res.data;
-                setSaldoBanco(saldo_atual);
-                setDividaBanco(divida_atual);
-
-            } catch(err) { 
-                console.log(err.message);
-            }
-        })()
-    }, [])
 
 
     return (
         <section className={styles.banco}>
-            {isOpenModal && <ContainerModal modalRequestName={modalName} setIsOpen={setIsOpenModal} setValue={setSaldoBanco}/>}
+            {isOpenModal && <ContainerModal modalRequestName={modalName} setIsOpen={setIsOpenModal} setValue={setSaldo}/>}
             <h1>Banco</h1>
-            <SaldoInfo styles={styles} saldoAtual={saldoBanco} dividaAtual={dividaBanco}/>
+            <SaldoInfo styles={styles} saldoAtual={saldo} dividaAtual={divida}/>
             <h2>Ações</h2>
             <Action ActionList={ActionList} setOpenModal={setIsOpenModal} setModalName={setModalName}/>
             <TableInfo title={"Extrato"} dataCollection={extrato} fieldName={fieldTable} config={config}/>

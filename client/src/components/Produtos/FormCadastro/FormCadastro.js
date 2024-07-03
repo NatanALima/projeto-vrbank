@@ -20,10 +20,13 @@ import { getAllSalasService, getSalasByAnoService } from "../../../services/sala
 
 //Util
 import { calculateTotalProds, calculateTotalValue } from "../../../utils/ProdUtil";
+import { useBanco } from "../../../Context/BancoContext";
 
 
 
 export default function FormCadastro() {
+    //Funções que alteram o estado do saldo e das dividas
+    const {setSaldo, setDivida} = useBanco();
 
     //Variáveis utilizadas para cadastro
     const [client, setClient] = useState({});
@@ -105,12 +108,16 @@ export default function FormCadastro() {
 
             //Verifica a opção de pagamento escolhida
             if(pagamento === "payNow") {
-                await removeSaldoBancoService({valor: totalValue});
+                const resBanco = await removeSaldoBancoService({valor: totalValue});
+                const newSaldo = resBanco.data.saldo_atual;
+                setSaldo(newSaldo);
                 statusPagamento = "PAGO";
                 msgStatus = `O Valor Total dos produtos é de ETC$${totalValue}`;
             
             } else {
-                await addDespesaBancoService({valor: totalValue});
+                const resBanco = await addDespesaBancoService({valor: totalValue});
+                const newDespesa = resBanco.data.divida_atual;
+                setDivida(newDespesa);
                 statusPagamento = "NÃO PAGO";
                 msgStatus = `O Valor Total da Divida é de ETC$${totalValue} (Essa dívida pode ser paga mais tarde)`; 
             }
