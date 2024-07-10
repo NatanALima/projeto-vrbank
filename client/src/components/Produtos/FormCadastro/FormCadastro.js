@@ -19,14 +19,19 @@ import { showSweetErrorModal, showSweetSuccessModal } from "../../../models/Swee
 import { getAllSalasService, getSalasByAnoService } from "../../../services/sala.service";
 
 //Util
-import { calculateTotalProds, calculateTotalValue } from "../../../utils/ProdUtil";
+import { calculateTotalProds, calculateTotalValue, findLastProds } from "../../../utils/ProdUtil";
 import { useBanco } from "../../../Context/BancoContext";
+import { useProd } from "../../../Context/ProdContext";
+import setLocalDate from "../../../utils/DateUtil";
 
 
 
 export default function FormCadastro() {
     //Funções que alteram o estado do saldo e das dividas
     const {setSaldo, setDivida} = useBanco();
+
+    //Context de Produtos
+    const {produtosInfo, setProdutosInfo, setTotalProds, setLastProds} = useProd();
 
     //Variáveis utilizadas para cadastro
     const [client, setClient] = useState({});
@@ -64,7 +69,17 @@ export default function FormCadastro() {
     } 
 
 
-    
+    const insertInfoProds = async (infoProd) => {
+        const resProd = await addProdutosService(infoProd);
+        const totalQtdProdutos = Number(resProd.data.total_qtdProdutos);
+        resProd.data.data_aquisicao = setLocalDate(resProd.data.data_aquisicao);
+
+        setProdutosInfo(prevProdutos => [resProd.data, ...prevProdutos]);
+        setTotalProds(prevTotalQtd => prevTotalQtd + totalQtdProdutos);
+        setLastProds(findLastProds([resProd.data, ...produtosInfo]));
+
+    }
+
 
 
     /*
@@ -114,7 +129,7 @@ export default function FormCadastro() {
                 statusPagamento = "PAGO";
                 msgStatus = `O Valor Total dos produtos é de ETC$${totalValue}`;
             
-            } else {
+            } else if(pagamento === "payLater"){
                 const resBanco = await addDespesaBancoService({valor: totalValue});
                 const newDespesa = resBanco.data.divida_atual;
                 setDivida(newDespesa);
@@ -123,13 +138,21 @@ export default function FormCadastro() {
             }
 
 
-            const resProd = await addProdutosService({cliente: client, produtos: produtos, total_qtdProdutos: totalProds, total_valor: totalValue, status_pagamento: statusPagamento});
+            const prodInfo = {cliente: client, 
+                              produtos: produtos, 
+                              total_qtdProdutos: totalProds, 
+                              total_valor: totalValue, 
+                              status_pagamento: statusPagamento};
+
+            await insertInfoProds(prodInfo);
             
             showSweetSuccessModal("Produto Cadastrado com sucesso!", msgStatus);
             
             
         } catch (err) {
-            const errInfo = err.response.data;
+            console.log(err);
+            let errInfo;
+            !err.response ? errInfo = undefined : errInfo = err.response.data;
         
             if(errInfo?.isError) {
                 showSweetErrorModal("Erro ao Cadastrar os Produtos!", errInfo.errorMsg);

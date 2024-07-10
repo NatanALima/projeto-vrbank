@@ -8,14 +8,17 @@ import {TbPigMoney} from 'react-icons/tb';
 import {PiHandCoinsDuotone} from 'react-icons/pi';
 import {BsHandbag, BsBoxSeam} from 'react-icons/bs'
 import { useBanco } from '../Context/BancoContext';
+import { useProd } from '../Context/ProdContext';
 
 export default function Produtos() {
-    const {saldo, divida} = useBanco();
+    const { saldo, divida } = useBanco();
+    const { totalProds, lastProds } = useProd();
+
 
     const infoBoxExtra = [{id: 1, IconBox: TbPigMoney, infoBox: saldo, titleBox: "Saldo Disponível", classInfo: "content__infoStatic", isMoney: true, moneyStatus: "positive"},
-                          {id: 2, IconBox: BsHandbag, infoBox: "Maçã", titleBox: "Últimos Produtos adquiridos", classInfo: "content__infoDinamic", isMoney: false},
+                          {id: 2, IconBox: BsHandbag, infoBox: lastProds, titleBox: "Últimos Produtos adquiridos", classInfo: "content__infoDinamic", isMoney: false},
                           {id: 3, IconBox: PiHandCoinsDuotone, infoBox: divida, titleBox: "Valor de Despesa", classInfo: "content__infoStatic", isMoney: true, moneyStatus: "negative"},
-                          {id: 4, IconBox: BsBoxSeam, infoBox: "40", titleBox: "Total de Produtos Recebidos", classInfo: "content__infoStatic", isMoney: false}];
+                          {id: 4, IconBox: BsBoxSeam, infoBox: totalProds, titleBox: "Total de Produtos Recebidos", classInfo: "content__infoStatic", isMoney: false}];
     return(
         <>
             <NavProd styles={styles}/>
