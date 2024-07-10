@@ -71,11 +71,11 @@ Fim Título Content
 }
 
 .infoExtra__content .content__saldoPos p::before {
-    content: "+VR$";
+    content: "+ETC$";
 }
 
 .infoExtra__content .content__saldoNeg p::before {
-    content: "-VR$";
+    content: "-ETC$";
 }
 
 .infoExtra__content .content__infoDinamic {

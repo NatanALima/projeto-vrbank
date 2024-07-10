@@ -5,7 +5,6 @@ export default function TableProds({fieldName, dataInfo}) {
     const maxColumnValue = fieldName.length;
     const clientInfo = dataInfo.cliente;
     const dataProds = dataInfo.produtos;
-    console.log(dataInfo);
 
     return(
         <div className={`${styles.tableContainer} fadeIn`}>
@@ -22,7 +21,7 @@ export default function TableProds({fieldName, dataInfo}) {
                                     {clientInfo.sala &&
                                         <div className={`${styles.generalInfo__content}`}>
                                             <span>Sala:</span>
-                                            <p>{clientInfo.sala}</p>
+                                            <p>{clientInfo.sala.nome}</p>
                                         </div>
                                     }
                                     <div className={`${styles.generalInfo__content}`}>
@@ -60,7 +59,7 @@ export default function TableProds({fieldName, dataInfo}) {
                 <tfoot>
                     <tr>
                         <th>
-                            <p>Total: <span className={styles.moneyText}>ETC$</span>{dataInfo.total}</p>
+                            <p>Total: <span className={styles.moneyText}>ETC$</span>{dataInfo.total_valor}</p>
                         </th>
                     </tr>
                 </tfoot>
