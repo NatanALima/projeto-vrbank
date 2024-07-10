@@ -23,4 +23,8 @@ router
     .route("/updatePay")
     .patch(produtosController.updatePaymentStatus)
 
+router
+    .route("/delete")
+    .delete(produtosController.deleteProdByUser)
+
 export default router;

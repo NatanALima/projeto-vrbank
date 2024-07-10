@@ -8,7 +8,9 @@ async function getAllProdsService() {
 }
 
 async function getProdByUserService(userId) {
-    const res = await Produtos.find({registered_by: userId});
+    const res = await Produtos.find({registered_by: userId})
+                              .populate("cliente.sala")
+                              .sort({_id: -1});
     return res;
 }
 
@@ -32,4 +34,9 @@ async function updateByIdProdService(idProd, prodInfo) {
 
 }
 
-export default {getAllProdsService, getProdByUserService, getProdById, createProdService, updateByIdProdService};
+async function deleteProdByUserService(userId) {
+    const res = await Produtos.deleteMany({registered_by: userId});
+    return res;
+}
+
+export default {getAllProdsService, getProdByUserService, getProdById, createProdService, updateByIdProdService, deleteProdByUserService};

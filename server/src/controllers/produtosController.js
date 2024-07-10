@@ -18,7 +18,7 @@ async function getProdByUser(req, res) {
         const idUser = req.query.idUser;
         const prodByUser = await produtosService.getProdByUserService(idUser);
 
-        prodByUser.length > 0 ? res.status(200).json(prodByUser) : res.status(200).json({});
+        prodByUser.length > 0 ? res.status(200).json(prodByUser) : res.status(200).json([]);
         
     } catch(err) {
         res.status(500).send(err.message);
@@ -28,6 +28,7 @@ async function getProdByUser(req, res) {
 async function createProds(req, res) {
     try {
         req.body.registered_by = req.query.idUser;
+        req.body.data_aquisicao = Date.now();
         const createdProd = await produtosService.createProdService(req.body);
         res.status(201).json(createdProd);
 
@@ -67,6 +68,17 @@ async function updatePaymentStatus(req, res) {
     }
 }
 
+async function deleteProdByUser(req, res) {
+    try {
+        const idUser = req.query.idUser;
+        const deletedProd = await produtosService.deleteProdByUserService(idUser);
+        res.status(200).json(deletedProd); 
+
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+}
+
  
-export default {getAllProds, getProdByUser, createProds, updateProd, updatePaymentStatus}
+export default {getAllProds, getProdByUser, createProds, updateProd, updatePaymentStatus, deleteProdByUser}
 
