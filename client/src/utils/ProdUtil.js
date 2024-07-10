@@ -1,9 +1,12 @@
+import setLocalDate from "./DateUtil";
+
+
 /*
-=============================================================
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Funções Referentes ao calculo de quantidade total de Produtos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-=============================================================
+=====================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         Calcula a quantidade total de produtos por cadastro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================================================================
 */
 
 /*
@@ -40,11 +43,11 @@ function calculateTotalProds(prodCollection) {
 
 
 /*
-=============================================================
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  Funções referentes ao calculo de Valor Total
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-=============================================================
+=====================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                 Calcula o Subtotal do recebimento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================================================================
 */
 
 
@@ -82,4 +85,60 @@ function calculateTotalValue(prodCollection) {
 }
 
 
-export {calculateTotalProds, calculateTotalValue}
+/*
+=====================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                    Converte e Formata data(s)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================================================================
+*/
+
+/**
+ * Converte e formata as datas de todos os produtos cadastrados por usuário
+ * @param  {Array} prodInfo Coleção de produtos 
+ * @return {Array} retorna a Coleção de produtos com as datas convertidas e formatadas;
+*/
+function changeDate(prodInfo) {
+    const newProdInfo = [...prodInfo];
+    
+    for(let info of prodInfo) {
+        if(info.hasOwnProperty("data_aquisicao")) {
+            info.data_aquisicao = setLocalDate(info.data_aquisicao);
+
+        } else if(info.hasOwnProperty("data_edicao")) {
+            info.data_edicao = setLocalDate(info.data_edicao);
+        }
+    }
+
+    return newProdInfo;
+}
+
+
+
+/*
+=====================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            Busca pelos últimos três produtos recebidos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================================================================
+*/
+
+/**
+ * Busca pelos últimos três produtos recebidos
+ * @param  {Array} prodInfo Coleção de produtos 
+ * @return {String} retorna uma string com os três últimos produtos recebidos;
+*/
+function findLastProds(prodInfo) {
+    console.log(prodInfo);
+    const arrProds = [];
+
+    for(let info of prodInfo) {
+        console.log(info);
+        const produtos = info.produtos;
+        produtos.map(produto => arrProds.length < 3 && arrProds.push(produto.nome));
+    }
+    return arrProds.join(", ");
+}
+
+
+export {calculateTotalProds, calculateTotalValue, changeDate, findLastProds}
