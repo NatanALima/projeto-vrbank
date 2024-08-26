@@ -1,0 +1,71 @@
+/* 
+===================================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       Estilização do Input Radio Padrão (Valores separados) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+===================================================================
+*/
+.optionCollectionMerged {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 40px;
+    margin: 5px 0;
+    font-family: var(--fontSec);
+    background-color: var(--colorPrim);
+    border-radius: var(--borderRadiusFix);
+    overflow: hidden;
+
+}
+
+.optionCollectionMerged input {display: none;}
+
+.optionCollectionMerged__content:not(:last-child) {
+    border-right: 1px solid var(--colorBright);
+}
+
+.optionCollectionMerged__content label {
+    padding: 10px 15px;
+    transition: .2s ease;
+    user-select: none;
+    cursor: pointer;
+
+}
+
+.optionCollectionMerged__content label:hover {
+    background-color: var(--colorBright);
+    color: var(--colorSec);
+
+}
+
+.optionCollectionMerged__content input:checked + label {
+    color: white;
+    background-color: var(--colorSec);
+
+}
+
+@media only screen and (max-width: 575px) {
+    .optionCollectionMerged {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+
+    .optionCollectionMerged__content {
+        font-size: 15px;
+        margin: 20px 10px;
+        text-align: center;
+
+    }
+
+    .optionCollectionMerged__content:not(:last-child) {
+        border: none;
+    }
+
+    .optionCollectionMerged__content label {
+        border-radius: var(--borderRadiusFix);
+    }
+
+}

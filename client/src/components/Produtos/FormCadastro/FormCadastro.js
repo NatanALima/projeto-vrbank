@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from '../../../assets/css/FormCadastro.module.css';
 import '../../../assets/css/animation.css';
+import '../../../assets/css/InputRadioMerged.css';
+
+//Componentes
 import InputRadio from "../../layout/InputRadio";
+import InputRadioMerged from "../../layout/InputRadioMerged";
 import SelectSala from './SelectSala';
 import ProductBox from './ProductBox';
 
@@ -51,6 +55,12 @@ export default function FormCadastro() {
 
     }
 
+
+    const handleOnCateg = (value) => {
+        handleOnChangeClient(value, "categoria");
+    }
+    
+
     const getSalasInfo = async (filter) => {
         try {
             let res;
@@ -68,6 +78,14 @@ export default function FormCadastro() {
         }
     } 
 
+
+    /*
+    =========================================================================
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+             Inserção de informações de produtos e cliente ao banco
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    =========================================================================
+    */
 
     const insertInfoProds = async (infoProd) => {
         const resProd = await addProdutosService(infoProd);
@@ -199,23 +217,11 @@ export default function FormCadastro() {
                 </div>            
                 <div className={styles.optionContainer}>
                     <h4 className={styles.optionTitle}>Categoria</h4>
-                    <div className={styles.optionCollection}>
-                        <div className={styles.optionCollection__content}>
-                            <input type="radio" name="client_categ" id="aluno" value={"aluno"} onChange={e => handleOnChangeClient(e.target.value, "categoria")}/>
-                            <label htmlFor="aluno">Aluno(a)</label>
-                        </div>
-                        <div className={styles.optionCollection__content}>
-                            <input type="radio" name="client_categ" id="professor" value={"professor"} onChange={(e) => handleOnChangeClient(e.target.value, "categoria")}/>
-                            <label htmlFor="professor">Professor(a)</label>
-                        </div>
-                        <div className={styles.optionCollection__content}>
-                            <input type="radio" name="client_categ" id="funcionario" value={"funcionario"} onChange={(e) => handleOnChangeClient(e.target.value, "categoria")}/>
-                            <label htmlFor="funcionario">Funcionário(a)</label>
-                        </div>
-                        <div className={styles.optionCollection__content}>
-                            <input type="radio" name="client_categ" id="other" value={"other"} onChange={(e) => handleOnChangeClient(e.target.value, "categoria")}/>
-                            <label htmlFor="other">Outro</label>
-                        </div>
+                    <div className={`${styles.optionCollection} optionCollectionMerged`}>
+                        <InputRadioMerged name={"client_categ"} id={"aluno"} value={"aluno"} textView={"Aluno(a)"} setValue={handleOnCateg}/>
+                        <InputRadioMerged name={"client_categ"} id={"professor"} value={"professor"} textView={"Professor(a)"} setValue={handleOnCateg}/>
+                        <InputRadioMerged name={"client_categ"} id={"funcionario"} value={"funcionario"} textView={"Funcionário(a)"} setValue={handleOnCateg}/>
+                        <InputRadioMerged name={"client_categ"} id={"other"} value={"other"} textView={"Outro"} setValue={handleOnCateg}/>
                     </div>
                 </div>
             </fieldset>
@@ -236,9 +242,9 @@ export default function FormCadastro() {
                     <h4 className={styles.optionTitle}>Filtragem por Ano</h4>
                     <div className={styles.optionCollection}>
                         <InputRadio name={"aluno_sala"} id={"todosAno"} value={"all"} textView={"Todos"} checked={anoSala === "all"} setValue={setAnoSala}/>
-                        <InputRadio name={"aluno_sala"} id={"primeiroAno"} value={1} textView={"1º Ano"} setValue={setAnoSala}/>
-                        <InputRadio name={"aluno_sala"} id={"segundoAno"} value={2} textView={"2º Ano"} setValue={setAnoSala}/>
-                        <InputRadio name={"aluno_sala"} id={"terceiroAno"} value={3} textView={"3º Ano"} setValue={setAnoSala}/>
+                        <InputRadio name={"aluno_sala"} id={"primeiroAno"} value={"1"} textView={"1º Ano"} setValue={setAnoSala}/>
+                        <InputRadio name={"aluno_sala"} id={"segundoAno"} value={"2"} textView={"2º Ano"} setValue={setAnoSala}/>
+                        <InputRadio name={"aluno_sala"} id={"terceiroAno"} value={"3"} textView={"3º Ano"} setValue={setAnoSala}/>
                     </div>
                 </div>
                 <div className={styles.inputContainer}>

@@ -150,46 +150,6 @@ form fieldset .optionCollection {
 
 fieldset .optionCollection .optionCollection__content input {display: none;}
 
-fieldset#clientContainer .optionCollection__content label:hover {
-    background-color: var(--colorBright);
-    color: var(--colorSec);
-
-}
-
-/* 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Estilização da Coleção de Informações do Cliente
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-*/
-
-
-fieldset#clientContainer .optionCollection {
-    background-color: var(--colorPrim);
-    border-radius: var(--borderRadiusFix);
-    height: 40px;
-
-}
-
-fieldset#clientContainer .optionCollection__content:not(:last-child) {
-    border-right: 1px solid var(--colorBright);
-}
-
-fieldset#clientContainer .optionCollection__content label {
-    padding: 10px 15px;
-    transition: .2s ease;
-    user-select: none;
-    cursor: pointer;
-
-}
-
-
-
-fieldset#clientContainer .optionCollection__content input:checked + label {
-    color: white;
-    background-color: var(--colorSec);
-
-}
-
 
 /* 
 ================================================================
@@ -255,21 +215,6 @@ form .btnContainer button:hover {
         align-items: center;
         width: 100%;
         height: auto;
-    }
-
-    fieldset#clientContainer .optionCollection__content {
-        font-size: 15px;
-        margin: 20px 10px;
-        text-align: center;
-
-    }
-
-    fieldset#clientContainer .optionCollection__content:not(:last-child) {
-        border: none;
-    }
-
-    fieldset#clientContainer .optionCollection__content label {
-        border-radius: var(--borderRadiusFix);
     }
 
     fieldset#salaContainer .optionCollection {
