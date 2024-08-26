@@ -1,25 +1,29 @@
 import InputRadio from '../layout/InputRadio';
 import InputModal from '../layout/InputModal';
-import styles from '../../assets/css/ModalAddSala.module.css';
+import '../../assets/css/ModalForm.css';
 import { FaPlus as IconAdd} from 'react-icons/fa6';
+import { useState } from 'react';
 
 export default function ModalAddSala() {
+    const [newAnoSala, setNewAnoSala] = useState();
+
     return(
-        <form action="" className={styles.modalAddSala__container}>
-            <InputModal type={"text"} name={"nomeSala"} id={"nomeSala"} placeholder={"Ex: Maria Valéria Rezende"} textView={"Nome da Sala"}/>
-            <InputModal type={"text"} name={"cursoSala"} id={"cursoSala"} placeholder={"ADM ou DS (apenas siglas)"} textView={"Curso da Sala"}/>
-            <div className={styles.modalAddSala__containerRadio}>
-                <h4>Ano</h4>
-                <div className={styles.modalAddSala__radioCollection}>
-                    <InputRadio name={"add_sala"} id={"primeiroAno"} value={"1-Ano"} textView={"1º Ano"}/>
-                    <InputRadio name={"add_sala"} id={"segundoAno"} value={"2-Ano"} textView={"2º Ano"}/>
-                    <InputRadio name={"add_sala"} id={"terceiroAno"} value={"3-Ano"} textView={"3º Ano"}/>
+        <form action="" className={"modalForm__container"}>
+            <InputModal type={"text"} name={"nomeSala"} id={"nomeSala"} placeholder={"Ex: Maria Valéria Rezende"} textView={"Nome*"}/>
+            <InputModal type={"text"} name={"cursoSala"} id={"cursoSala"} placeholder={"ADM, DS (apenas siglas)"} textView={"Curso (apenas siglas)*"}/>
+            <div className={"modalForm__containerRadio"}>
+                <h4>Ano*</h4>
+                <div className={"modalForm__radioCollection"}>
+                    <InputRadio name={"add_sala"} id={"primeiroAno"} value={1} textView={"1º Ano"} setValue={setNewAnoSala}/>
+                    <InputRadio name={"add_sala"} id={"segundoAno"} value={2} textView={"2º Ano"} setValue={setNewAnoSala}/>
+                    <InputRadio name={"add_sala"} id={"terceiroAno"} value={3} textView={"3º Ano"} setValue={setNewAnoSala}/>
                 </div>
             </div>
-            <div className={styles.btnCollection}>
+            <InputModal type={"number"} name={"anoIngresso"} id={"anoIngresso"} placeholder={"2020, 2021..."} textView={"Ano de Ingresso*"}/>
+            <div className={"btnCollection"}>
                 <button type="button">
-                    <span id={styles.btnCollection__text}>Adicionar Sala</span> 
-                    <span id={styles.btnCollection__icon}><IconAdd/></span>
+                    <span className={"btnCollection__text"}>Adicionar Sala</span> 
+                    <span className={"btnCollection__icon"}><IconAdd/></span>
                 </button>
             </div>
         </form>
