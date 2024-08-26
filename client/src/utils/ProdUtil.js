@@ -107,6 +107,13 @@ function changeDate(prodInfo) {
 
         } else if(info.hasOwnProperty("data_edicao")) {
             info.data_edicao = setLocalDate(info.data_edicao);
+
+        } else if(info.hasOwnProperty("createdAt")) {
+            info.createdAt = setLocalDate(info.createdAt);
+
+        } else if(info.hasOwnProperty("modifiedAt")) {
+            info.modifiedAt = setLocalDate(info.modifiedAt);
+            
         }
     }
 
@@ -129,11 +136,9 @@ function changeDate(prodInfo) {
  * @return {String} retorna uma string com os três últimos produtos recebidos;
 */
 function findLastProds(prodInfo) {
-    console.log(prodInfo);
     const arrProds = [];
 
     for(let info of prodInfo) {
-        console.log(info);
         const produtos = info.produtos;
         produtos.map(produto => arrProds.length < 3 && arrProds.push(produto.nome));
     }
