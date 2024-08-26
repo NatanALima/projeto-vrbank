@@ -1,5 +1,5 @@
 import InfoExtra from "../InfosExtra/InfoExtra";
-import TableProds from "../TableInfo/TableProds";
+import TableProds from "../Table/TableProdutos/TableProds";
 import { useOutletContext } from "react-router-dom";
 import { useProd } from "../../Context/ProdContext";
 

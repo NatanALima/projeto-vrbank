@@ -10,6 +10,7 @@
 
 .tableContainer {
     margin: var(--marginContent);
+    overflow: auto;
 }
 
 .tableContainer:not(:last-child) {
@@ -56,6 +57,7 @@ table thead tr:not(.tableHeader, .tableTitle) {
 ===================================================================
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Estilização do Header (contém informações de cliente, pagamento...)
+                         == TableProds ==
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ===================================================================
 */
@@ -72,6 +74,7 @@ Estilização do Header (contém informações de cliente, pagamento...)
 /* 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Estilização de Content (texto, subtítulos...)
+                         == TableProds ==
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
@@ -122,6 +125,7 @@ Estilização de Content (texto, subtítulos...)
 /* 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Estilização de situação de Pagamento "Não Pago"
+                         == TableProds ==
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 .notPaid { background-color: var(--colorBright); }
@@ -253,6 +257,7 @@ table tbody button {
 ===================================================================
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Estilização do Tfooter (localização do Valor TOTAL)
+                         == TableProds ==
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ===================================================================
 */
@@ -270,14 +275,6 @@ table tfoot th p {
 }
 
 table tfoot th p span.moneyText { font-size: 18px; }
-
-
-@media only screen and (max-width: 1399px) {
-    .tableContainer {
-        overflow: hidden;
-        overflow-x: scroll;
-    }
-}
 
 
 

@@ -1,4 +1,4 @@
-import styles from '../../assets/css/TableInfo.module.css';
+import styles from '../../../assets/css/Table.module.css';
 import TableProdsContent from './TableProdsContent';
 
 export default function TableProds({fieldName, dataInfo}) {
